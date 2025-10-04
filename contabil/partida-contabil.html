@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partidas</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para Integração Webservice de Dados Contábeis (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados de Partidas do Lançamento Contábil
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">&nbsp;</td>
+                    <td class="compliance-col">B01</td>
+                    <td class="compliance-col"><span class="campo-destaque">partidaLcto</span></td>
+                    <td class="compliance-col">Grupo de Partidas do Lançamento<br>Contábil</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B02</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">CPF/CNPJ do Emitente</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B02a</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B02b</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col">CPNJ da Empresa</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B03</td>
+                    <td class="compliance-col"><span class="campo-destaque">codCta</span></td>
+                    <td class="compliance-col">Código da conta analítica debitada/creditada</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">leac</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">30</td>
+                    <td class="infor-col">btfit070.leac</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B04</td>
+                    <td class="compliance-col"><span class="campo-destaque">codCCus</span></td>
+                    <td class="compliance-col">Código do centro de custo</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">dim1</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">50</td>
+                    <td class="infor-col">btfit075.dim1</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B05</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlDc</span></td>
+                    <td class="compliance-col">Valor da partida</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">amnt</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B06</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndDc</span></td>
+                    <td class="compliance-col">Indicador da natureza da partida</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">dbcr</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col">btfit871.dbcr</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B07</td>
+                    <td class="compliance-col"><span class="campo-destaque">numArq</span></td>
+                    <td class="compliance-col">Número, Código ou caminho de localização dos documentos arquivados</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">arqu</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">40</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B08</td>
+                    <td class="compliance-col"><span class="campo-destaque">codHistPad</span></td>
+                    <td class="compliance-col">Código do histórico padrão utilizado na<br>empresa</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">hcod</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">200</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B09</td>
+                    <td class="compliance-col"><span class="campo-destaque">complHist</span></td>
+                    <td class="compliance-col">Histórico completo da partida ou histórico complementar</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">comp</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">320</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B10</td>
+                    <td class="compliance-col"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col">Código de identificação do participante no ERP</td>
+                    <td class="infor-col">btfit873</td>
+                    <td class="infor-col">bpid</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">25</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Partidas</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - Dados Contábeis.xlsx</b>
+        </small>
+    </p>
+    
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+    </div>
+</body>
+</html>

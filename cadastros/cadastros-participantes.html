@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Participantes</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para Integração Webservice de Cadastros Gerais (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados do participante
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">&nbsp;</td>
+                    <td class="compliance-col">A01</td>
+                    <td class="compliance-col"><span class="campo-destaque">participantes</span></td>
+                    <td class="compliance-col">Grupo de participante</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A02</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Código do Participante</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit808</td>
+                    <td class="infor-col">bpid</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">trim(upper(isnull(p.bpid, fovn)))<br><br>Aqui, caso não haja informação do Business Partner (bpid), será utilizado o que houver no campo CPF/CNPJ (fovn). Também serão removidos os espaçamentos do início e do fim, além de tranformar o conteúdo em caracteres maiúsculos.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">fovn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">19</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A03</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">dmTipoPessoa</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Tipo de Participante</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit808</td>
+                    <td class="infor-col">bpor</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">WHEN p.bpor = 'E' THEN '2'<br>WHEN p.bpty= 'F' THEN '0'<br>ELSE '1'<br><br>Caso o campo Nacional/Estrangeiro (bpor) seja "E", será gravado "2"<br>OU<br>Caso o campo Pessoa/Empresa (bpty) seja "F", será gravado "0"<br>OU<br>Se nenhum destes casos, será gravado então "1".<br><br>Obs CSF:<br>0 - Física;<br>1 - Jurídica;<br>2 - Estrangeira;</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">bpty</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A04</td>
+                    <td class="compliance-col"><span class="campo-destaque">Nome</span></td>
+                    <td class="compliance-col">Nome do Participante</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">desa</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">280</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(p.desa),1,60)<br><br>Aqui, serão utilizados os 60 caracteres iniciais do Nome da contabilidade (desa) desconsiderando espçamentos iniciais e/ou finais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A04</td>
+                    <td class="compliance-col"><span class="campo-destaque">Fantasia</span></td>
+                    <td class="compliance-col">Nome fantasia</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">nama</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">240</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(p.nama),1,60)<br><br>Aqui, serão utilizados os 60 caracteres iniciais do Nome do DBA (nama) desconsiderando espçamentos iniciais e/ou finais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A05</td>
+                    <td class="compliance-col"><span class="campo-destaque">codNif</span></td>
+                    <td class="compliance-col">Número de Identificação Fiscal das pessoas físicas ou jurídicas em seus respectivos países</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">nifc</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">30</td>
+                    <td class="infor-col">btftb002.nifc</td>
+                    <td class="obs-col">substring(trim(p.nifc),1,30)<br><br>Aqui, serão utilizados os 30 caracteres iniciais do Código NIF (nifc) desconsiderando espçamentos iniciais e/ou finais.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-header">
+            Dados de Informações do Endereço
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">&nbsp;</td>
+                    <td class="compliance-col">B01</td>
+                    <td class="compliance-col"><span class="campo-destaque">endereco</span></td>
+                    <td class="compliance-col">Grupo de endereço</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B02</td>
+                    <td class="compliance-col"><span class="campo-destaque">logradouro</span></td>
+                    <td class="compliance-col">Logradouro/endereço</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">logr</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">240</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(e.logr),1,60)<br><br>Aqui, serão utilizados os 60 caracteres iniciais do Endereço (logr) desconsiderando espaçamentos iniciais e/ou finais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B03</td>
+                    <td class="compliance-col"><span class="campo-destaque">numero</span></td>
+                    <td class="compliance-col">Número do endereço</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">hono</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">10</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(e.hono),1,10)<br><br>Aqui, serão utilizados os 10 caracteres iniciais do Número (hono), desconsiderando espaçamentos iniciais e/ou finais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B04</td>
+                    <td class="compliance-col"><span class="campo-destaque">cxPostal</span></td>
+                    <td class="compliance-col">Caixa postal</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">pobn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">10</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(e.pobn),1,10)<br><br>Aqui, serão utilizados os 10 caracteres iniciais da Caixa Postal (pobn), desconsiderando espaçamentos iniciais e/ou finais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B05</td>
+                    <td class="compliance-col"><span class="campo-destaque">complemento</span></td>
+                    <td class="compliance-col">Complemento do endereço</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">cplm</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">40</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(e.cplm),1,60)<br><br>Aqui, serão utilizados os 60 caracteres iniciais do campo "Additional" (cplm), desconsiderando espaçamentos iniciais e/ou finais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B06</td>
+                    <td class="compliance-col"><span class="campo-destaque">bairro</span></td>
+                    <td class="compliance-col">Bairro</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">dist</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">120</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(e.dist),1,60)<br><br>Aqui, serão utilizados os 60 caracteres iniciais do Bairro (dist), desconsiderando espaçamentos iniciais e/ou finais.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">B07</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">ibgeCidade</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Código IBGE da Cidade</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">ctyc</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">15</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">WHEN e.cste = 'EX' then '9999999'<br>WHEN e.cste != 'EX' and length(c.ibge) = 0 THEN substring(trim(e.ctyc),8,7)<br>ELSE c.ibge<br><br>Caso o Estado para dedução municipal (cste) seja "EX", será gravado "9999999"; Caso seja diferente de "EX" e o campo "ibge" esteja vazio, serão gravados 7 caracteres da cidade (ctyc), a partir da oitava posição.<br>Se nenhum destes casos, então prevalece o campo IBGE.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">btfit812</td>
+                    <td class="infor-col">ibge</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">12</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B08</td>
+                    <td class="compliance-col"><span class="campo-destaque">cep</span></td>
+                    <td class="compliance-col">CEP do endereço</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">pstc</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">10</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">isnull(substring(replace(replace(e.pstc, '-', ''), '.', ''),1,8), '00000000')<br><br>Aqui, o campo é tratado para retirada dos pontos e traços, restrição à 8 caracteres, além de condição para que seja gravado "00000000" caso o campo de origem esteja nulo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B09</td>
+                    <td class="compliance-col"><span class="campo-destaque">codSiscomexPais</span></td>
+                    <td class="compliance-col">Código Sicomex do País</td>
+                    <td class="infor-col">btfit810</td>
+                    <td class="infor-col">bace</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-header">
+            Dados de Informações de Contato
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">&nbsp;</td>
+                    <td class="compliance-col">C01</td>
+                    <td class="compliance-col"><span class="campo-destaque">contato</span></td>
+                    <td class="compliance-col">Grupo de contato</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">C02</td>
+                    <td class="compliance-col"><span class="campo-destaque">telefone</span></td>
+                    <td class="compliance-col">Telefone</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">pho1</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">15</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(replace(replace(replace(replace(e.pho1,'-', ''), '(', ''), ')', ''), ' ', ''),1,14)<br><br>Aqui, foram adicionados tratamentos para remoção dos parênteses, traços e espaçamentos, para assim, capturar os 14 caracteres iniciais do campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">C03</td>
+                    <td class="compliance-col"><span class="campo-destaque">fax</span></td>
+                    <td class="compliance-col">Fax</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">tefx</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">30</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(replace(replace(replace(replace(e.tefx,'-', ''), '(', ''), ')', ''), ' ', ''),1,14)<br><br>Aqui, foram adicionados tratamentos para remoção dos parênteses, traços e espaçamentos, para assim, capturar os 14 caracteres iniciais do campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">C04</td>
+                    <td class="compliance-col"><span class="campo-destaque">email</span></td>
+                    <td class="compliance-col">E-mail</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">mail</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">50</td>
+                    <td class="infor-col">btfit808.mail</td>
+                    <td class="obs-col">lower(substring(trim(e.mail),1,60))<br><br>Como tratamento, serão utilizados os 60 caracteres iniciais do campo, removendo espaçamentos iniciais e finais, além de converter os caracteres para minúsculo na gravação.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-header">
+            Dados de Informações de Documentos
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">&nbsp;</td>
+                    <td class="compliance-col">D01</td>
+                    <td class="compliance-col"><span class="campo-destaque">documentos</span></td>
+                    <td class="compliance-col">Grupo de documentos</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">D02</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">CPF/CNPJ</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">D02a</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpf</span></td>
+                    <td class="compliance-col">CPF</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">fovn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">19</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">CASE p.bpty when 'F' THEN substring(trim(replace(replace(fovn, '/', ''), '-', '')),1,11)<br>ELSE ''<br><br>Aqui, valida se a Pessoa/Empresa (bpty) é igual a "F" para utilizar os 11 primeiros caracteres do campo CPF/CNPJ (fovn), removendo os símbolos e espaçamentos. Caso contrário, será gravado uma string vazia.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">D02b</td>
+                    <td class="compliance-col"><span class="campo-destaque">cnpj</span></td>
+                    <td class="compliance-col">CPNJ</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">fovn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">19</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">CASE p.bpty when 'J' THEN substring(trim(replace(replace(fovn, '/', ''), '-', '')),1,14)<br>ELSE ''<br><br>Aqui, valida se a Pessoa/Empresa (bpty) é igual a "J" para utilizar os 14 primeiros caracteres do campo CPF/CNPJ (fovn), removendo os símbolos e espaçamentos. Caso contrário, será gravado uma string vazia.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D03</td>
+                    <td class="compliance-col"><span class="campo-destaque">rgIE</span></td>
+                    <td class="compliance-col">RG/Inscrição Estadual</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D03a</td>
+                    <td class="compliance-col"><span class="campo-destaque">rg</span></td>
+                    <td class="compliance-col">RG</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D03</td>
+                    <td class="compliance-col"><span class="campo-destaque">ie</span></td>
+                    <td class="compliance-col">Inscrição Estadual</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">stin</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">20</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(replace(replace(e.stin, '-', ''), '.', '')),1,14)<br><br>Aqui serão utilizados os 14 primeiros caracteres do campo Inscrição Estadual (stin), removendo os símbolos e espaçamentos.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D04</td>
+                    <td class="compliance-col"><span class="campo-destaque">ieSt</span></td>
+                    <td class="compliance-col">Inscrição Estadual Substituto Tributário</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D05</td>
+                    <td class="compliance-col"><span class="campo-destaque">inscricaoMunicipal</span></td>
+                    <td class="compliance-col">Inscrição Municipal</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">ctin</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">15</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(replace(replace(e.ctin, '-', ''), '.', '')),1,15)<br><br>Serão utilizados os 15 primeiros caracteres do campo, retirando símbolos e espaçamentos.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D06</td>
+                    <td class="compliance-col"><span class="campo-destaque">suframa</span></td>
+                    <td class="compliance-col">Suframa</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">insu</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">15</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">WHEN length(trim(replace(replace(e.insu, '-', ''), '.', ''))) &gt; 9 then 'BigLength'<br>ELSE trim(replace(replace(e.insu, '-', ''), '.', ''))<br><br>Aqui, foi adicionado um tratamento para que, caso o tamanho do campo seja maior que 9 caracteres (desconsiderando símbolos e espaçamentos), seja gravada a informação "BigLength". Caso contrário, será gravada a informação tratada do campo "insu".</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D07</td>
+                    <td class="compliance-col"><span class="campo-destaque">inscricaoProdutor</span></td>
+                    <td class="compliance-col">Inscrição de Produtor</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">ctin</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">15</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">CASE p.rura WHEN '1' THEN substring(trim(replace(e.ctin, '-', '')),1,14)<br>ELSE ''<br><br>Caso o campo Produtor Rural (rura) estiver como "1", será então gravada a Inscrição Municipal (ctin), sem o traço e/ou espaçamentos. Caso contrário será gravada uma string vazia.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">D08</td>
+                    <td class="compliance-col"><span class="campo-destaque">idEstrangeiro</span></td>
+                    <td class="compliance-col">Id do Estrangeiro</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">bpid</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">CASE p.bpor WHEN 'F' THEN substring(trim(upper(p.bpid)),1,20)<br>ELSE ''<br><br>Caso o campo Nacional/Estrangeiro (bpor) esteja como "F", serão gravados os 20 primeiros caracteres do Business Partner (bpid). Caso contrário, será gravada uma string vazia.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-header">
+            Dados de Informações de Tipos de Parâmetros
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">E12</td>
+                    <td class="compliance-col"><span class="campo-destaque">cprb</span></td>
+                    <td class="compliance-col">Número de Identificação Fiscal</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">rapi</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col">btftb002.rapi</td>
+                    <td class="obs-col">WHEN upper(isnull(substring(p.rapi,1,1), 'N')) in ('C', 'S') then '1'<br>ELSE null<br><br>Quando o campo Contribuidor CPRB (rapi) for "C" ou "S", será gravado "1". Caso contrário, NULL.<br><br>Obs CSF:<br>0 – Não é Contribuinte (CPRB) – Retenção 11%<br>1 – Contribuinte (CPRB) – Retenção 3,5%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Participantes</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - Cadastros Gerais.xlsx</b>
+        </small>
+    </p>
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+    </div>
+</body>
+</html>
