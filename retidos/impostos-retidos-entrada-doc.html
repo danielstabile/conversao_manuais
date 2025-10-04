@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impostos Retidos - Entrada Doc.</title>
+<style>
+body {
+  font-family: "Aptos Narrow", sans-serif;
+  margin: 0;
+  padding: 10px;
+  background: #f5f5f5;
+  overflow-x: auto;
+}
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 auto;
+  max-width: 100%;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 1234pt;
+  min-width: 800px;
+  background: white;
+}
+@media (max-width: 1300px) {
+  body { padding: 5px; }
+  .table-container { border-radius: 4px; }
+}
+@media (max-width: 768px) {
+  table { min-width: 600px; }
+  td { font-size: 10pt; }
+  .xl65, .xl66, .xl67, .xl68, .xl69, .xl70, .xl71, .xl72 { font-size: 12pt; }
+  .xl138 { font-size: 14pt; }
+  .xl139, .xl140, .xl141, .xl142, .xl135 { font-size: 12pt; }
+}
+@media (max-width: 480px) {
+  body { padding: 2px; }
+  table { min-width: 500px; }
+  td { font-size: 9pt; padding: 1px 2px; }
+  .xl65, .xl66, .xl67, .xl68, .xl69, .xl70, .xl71, .xl72 { font-size: 11pt; }
+  .xl138 { font-size: 12pt; }
+  .xl139, .xl140, .xl141, .xl142, .xl135 { font-size: 11pt; }
+}
+td {
+  padding: 2px 4px;
+  font-size: 11pt;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+.xl65 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; padding-left: 9px; }
+.xl66 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; }
+.xl67 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; }
+.xl68 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; white-space: normal; }
+.xl69 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
+.xl70 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
+.xl71 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; }
+.xl72 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; }
+.xl73 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
+.xl74 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
+.xl75 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl76 { font-size: 12pt; text-align: center; vertical-align: middle; border-right: 0.5pt solid black; border-bottom: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl77 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl78 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl81 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
+.xl82 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
+.xl83 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
+.xl84 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl85 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl86 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl87 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl88 { color: black; font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl89 { font-size: 12pt; text-align: left; vertical-align: middle; background: #DAF2D0; white-space: normal; padding-left: 9px; }
+.xl90 { font-size: 12pt; vertical-align: middle; background: #DAF2D0; white-space: normal; }
+.xl91 { font-size: 12pt; text-align: left; vertical-align: middle; background: #DAF2D0; white-space: normal; }
+.xl92 { font-size: 12pt; text-align: center; vertical-align: middle; background: #B5E6A2; white-space: normal; }
+.xl93 { font-size: 12pt; vertical-align: middle; background: #B5E6A2; white-space: normal; }
+.xl94 { font-size: 12pt; font-weight: 700; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
+.xl95 { font-size: 12pt; font-weight: 700; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
+.xl96 { font-size: 12pt; font-weight: 700; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl97 { font-size: 12pt; font-weight: 700; text-align: center; vertical-align: middle; border-right: 0.5pt solid black; border-bottom: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl98 { font-size: 12pt; font-weight: 700; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl99 { font-size: 12pt; font-weight: 700; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl101 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
+.xl102 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
+.xl103 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl104 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
+.xl105 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
+.xl106 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #DAF2D0; white-space: normal; }
+.xl107 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
+.xl108 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
+.xl113 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl114 { font-size: 12pt; text-align: center; vertical-align: middle; border-right: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
+.xl115 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
+.xl116 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
+.xl119 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #B5E6A2; white-space: normal; }
+.xl121 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
+.xl123 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #DAF2D0; white-space: normal; }
+.xl125 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #B5E6A2; white-space: normal; }
+.xl129 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl134 { font-size: 12pt; text-align: center; vertical-align: middle; border-left: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
+.xl135 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 1pt solid black; background: #F5C6AB; white-space: normal; }
+.xl138 { color: black; font-size: 16pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; border: 0.5pt solid black; background: #4A86E8; }
+.xl139 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; border: 0.5pt solid black; background: #C9DAF8; }
+.xl140 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; }
+.xl141 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; }
+.xl142 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 1pt solid black; background: #F5C6AB; white-space: normal; }
+.xl145 { color: black; font-size: 14pt; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 1pt solid black; background: #C9DAF8; white-space: normal; }
+</style>
+</head>
+<body>
+
+<h1 style="text-align: center; color: #4A86E8; margin: 10px 0 20px 0; font-size: clamp(16px, 4vw, 24px);">Impostos Retidos - Entrada Doc.</h1>
+
+<div class="table-container">
+<table border=0 cellpadding=0 cellspacing=0>
+ <col width=71 style='width:53pt'>
+ <col width=46 style='width:34pt'>
+ <col width=192 style='width:144pt'>
+ <col width=307 style='width:230pt'>
+ <col width=110 style='width:83pt'>
+ <col width=114 style='width:86pt'>
+ <col width=77 style='width:58pt'>
+ <col width=80 style='width:60pt'>
+ <col width=115 style='width:86pt'>
+ <col width=533 style='width:400pt'>
+ <tr height=28>
+  <td colspan=10 height=28 class=xl138>Mapeamento para Integração de Impostos Retidos - Padrão DCTF (INFOR X CSF)</td>
+ </tr>
+ <tr height=24>
+  <td colspan=10 height=24 class=xl139>Dados de Pagamento impostos retidos</td>
+ </tr>
+ <tr height=24>
+  <td colspan=4 height=24 class=xl140>COMPLIANCE</td>
+  <td colspan=6 class=xl141>INFOR</td>
+ </tr>
+ <tr height=48>
+  <td height=48 class=xl65>Obrig.</td>
+  <td class=xl66>ID</td>
+  <td class=xl67>Campo CSF</td>
+  <td class=xl68 width=307>Descrição</td>
+  <td class=xl69 width=110>Tabela <br>INFOR</td>
+  <td class=xl70 width=114>Campo <br>INFOR</td>
+  <td class=xl71>Datatype</td>
+  <td class=xl70 width=80>Tamanho</td>
+  <td class=xl70 width=115>Tabela<br>Referência</td>
+  <td class=xl72>Observações/Regras</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl101 width=71>&nbsp;</td>
+  <td class=xl102 width=46>A01</td>
+  <td class=xl102 width=192>pgtos</td>
+  <td class=xl102 width=307>Grupo de Pagamento de Impostos Retidos</td>
+  <td class=xl84 width=110>Inicio de XML</td>
+  <td class=xl84 width=114>Inicio de XML</td>
+  <td class=xl84 width=77>X</td>
+  <td class=xl84 width=80>X</td>
+  <td class=xl84 width=115>X</td>
+  <td class=xl103 width=533>Sem observações</td>
+ </tr>
+ <tr height=78>
+  <td colspan=10 height=78 class=xl145 width=1645>*Este objeto utiliza 2 querys muito semelhantes, especificadas nas abas deste arquivo.<br><br>Esta aba utiliza como base o arquivo Pgto Imp Ret PCC DT_Ent, que possui como principal diferença o uso de Distinct nos subselects, bem como o filtro pelo campo "date" da btfit820 (Data de Entrada)</td>
+ </tr>
+ <tr height=58>
+  <td colspan=10 height=58 class=xl142 width=1645>PIS</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>SIM</td>
+  <td class=xl83 width=46>A02</td>
+  <td class=xl83 width=192>cpfCnpj</td>
+  <td class=xl83 width=307>CPF/CNPJ do Emitente</td>
+  <td class=xl84 width=110>Início de Grupo</td>
+  <td class=xl84 width=114>Início de Grupo</td>
+  <td class=xl84 width=77>X</td>
+  <td class=xl84 width=80>X</td>
+  <td class=xl84 width=115>X</td>
+  <td class=xl85 width=533>Tag Pai</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A02a</td>
+  <td class=xl106 width=192>Cpf</td>
+  <td class=xl106 width=307>CPF da Empresa</td>
+  <td class=xl107 width=110>X</td>
+  <td class=xl107 width=114>X</td>
+  <td class=xl107 width=77>X</td>
+  <td class=xl107 width=80>X</td>
+  <td class=xl107 width=115>X</td>
+  <td class=xl108 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=82>
+  <td rowspan=2 height=167 class=xl101 width=71>SIM</td>
+  <td rowspan=2 class=xl102 width=46>A02b</td>
+  <td rowspan=2 class=xl102 width=192>Cnpj</td>
+  <td rowspan=2 class=xl102 width=307>CPNJ da Empresa</td>
+  <td rowspan=2 class=xl84 width=110>btfit822</td>
+  <td class=xl77 width=114>compnr</td>
+  <td class=xl77 width=77>X</td>
+  <td class=xl77 width=80>X</td>
+  <td class=xl77 width=115>X</td>
+  <td rowspan=2 class=xl103 width=533>*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento<br><br>concat(i.compnr, i.cpcd)<br><br>Aqui, serão concatenados os valores entre "compnr" e "cpcd".</td>
+ </tr>
+ <tr height=85>
+  <td height=85 class=xl104 width=114>cpcd</td>
+  <td class=xl81 width=77>C</td>
+  <td class=xl81 width=80>18</td>
+  <td class=xl81 width=115>btfit805.cpcd</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>SIM</td>
+  <td class=xl83 width=46>A03</td>
+  <td class=xl83 width=192>codPart</td>
+  <td class=xl83 width=307>Código do participante no ERP</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>lobp</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>18</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A04</td>
+  <td class=xl74 width=192>nroDoc</td>
+  <td class=xl74 width=307>Número do documento</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>docn</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>12</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=132>
+  <td height=132 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A05</td>
+  <td class=xl74 width=192>dtVcto</td>
+  <td class=xl74 width=307>Data do vencimento</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>iutd</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=134>
+  <td height=134 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A06</td>
+  <td class=xl74 width=192>dtPgto</td>
+  <td class=xl74 width=307>Data de Pagamento do imposto Retido</td>
+  <td class=xl75 width=110>btfit823</td>
+  <td class=xl76 width=114>iutd</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A07</td>
+  <td class=xl74 width=192>codImposto</td>
+  <td class=xl74 width=307>Código do Imposto Retido</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor '4' é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=166>
+  <td height=166 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A08</td>
+  <td class=xl74 width=192>cdTipoRetImp</td>
+  <td class=xl74 width=307>Código da retenção ou código da DARF relacionada do imposto retido</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>rcpi</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>6</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(it.codret) &gt;= 4 then substring(it.codret, 1, 4) else '5952'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "5952".<br><br>*rcpi será chamado "Codret" no subselect usado na query<br>(select refi, max(rcpi) codret from ln_btfit821 group by refi) it</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A09</td>
+  <td class=xl74 width=192>vlBaseCalc</td>
+  <td class=xl74 width=307>Valor da base de cálculo</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>bpir</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A10</td>
+  <td class=xl74 width=192>vlPrincipal</td>
+  <td class=xl74 width=307>Valor principal do imposto retido a ser pago</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>vpir</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A11</td>
+  <td class=xl74 width=192>vlMulta</td>
+  <td class=xl74 width=307>Valor da multa paga</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A12</td>
+  <td class=xl74 width=192>vlJuros</td>
+  <td class=xl74 width=307>Valor dos juros pagos</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A13</td>
+  <td class=xl106 width=192>vlPgto</td>
+  <td class=xl106 width=307>Valor do pagamento realizado</td>
+  <td class=xl107 width=110>btfit822</td>
+  <td class=xl114 width=114>vpir</td>
+  <td class=xl115 width=77>Double</td>
+  <td class=xl115 width=80>8</td>
+  <td class=xl115 width=115>X</td>
+  <td class=xl116 width=533>Sem observações</td>
+ </tr>
+ <tr height=62>
+  <td rowspan=2 height=124 class=xl121 width=71>SIM</td>
+  <td rowspan=2 class=xl123 width=46>A14</td>
+  <td rowspan=2 class=xl123 width=192>aliq</td>
+  <td rowspan=2 class=xl123 width=307>Alíquota aplicada ao imposto</td>
+  <td rowspan=2 class=xl125 width=110>btfit822</td>
+  <td class=xl76 width=114>vpir</td>
+  <td rowspan=2 class=xl125 width=77>Double</td>
+  <td rowspan=2 class=xl125 width=80>8</td>
+  <td rowspan=2 class=xl125 width=115>X</td>
+  <td rowspan=2 class=xl119 width=533>round(i.vpir / i.bpir * 100, 2)<br><br>Aqui será calculado o percentual entre o valor do PIS pelo valor Base e arredondado em 2 casas decimais.</td>
+ </tr>
+ <tr height=62>
+  <td height=62 class=xl114 width=114>bpir</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>NÃO</td>
+  <td class=xl83 width=46>A15</td>
+  <td class=xl83 width=192>perdComp</td>
+  <td class=xl83 width=307>Número do PERDCOMP</td>
+  <td class=xl77 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl113 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A16</td>
+  <td class=xl74 width=192>vlDeducao</td>
+  <td class=xl74 width=307>Valor da Dedução do Imposto</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>fdva</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl94 width=71>SIM</td>
+  <td class=xl95 width=46>A17</td>
+  <td class=xl95 width=192>dtDocto</td>
+  <td class=xl95 width=307>Data do documento, seja nota fiscal ou outro tipo</td>
+  <td class=xl96 width=110>btfit820</td>
+  <td class=xl97 width=114>date</td>
+  <td class=xl98 width=77>Date</td>
+  <td class=xl98 width=80>4</td>
+  <td class=xl98 width=115>X</td>
+  <td class=xl99 width=533>*A outra query utiliza o campo "iutd"</td>
+ </tr>
+ <tr height=173>
+  <td height=173 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A18</td>
+  <td class=xl74 width=192>codReceita</td>
+  <td class=xl74 width=307>Código da receita referente ao "código de retenção de imposto"</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>rcpi</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>6</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(it.codret) = 6 then substring(it.codret, 5, 2) else '07'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "07".<br><br>*rcpi será chamado "Codret" no subselect usado na query<br>(select refi, max(rcpi) codret from ln_btfit821 group by refi) it</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A19</td>
+  <td class=xl74 width=192>dmIndSuspExig</td>
+  <td class=xl74 width=307>Indicativo de Exigibilidade Suspensa: <br>S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A20</td>
+  <td class=xl74 width=192>dmIndDecTerceiro</td>
+  <td class=xl74 width=307>Indicativo de décimo terceiro salário: <br>S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A21</td>
+  <td class=xl74 width=192>codUnidOrg</td>
+  <td class=xl74 width=307>Codigo da Unidade Organizacional</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A22</td>
+  <td class=xl74 width=192>codNatRend</td>
+  <td class=xl74 width=307>Codigo da Natureza do Rendimento</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>rnrc</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento, apenas é possível confirmar sua utilização pela query em si.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A23</td>
+  <td class=xl74 width=192>obs</td>
+  <td class=xl74 width=307>Observações sobre identificação do rendimento</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A24</td>
+  <td class=xl74 width=192>vlServ</td>
+  <td class=xl74 width=307>Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A25</td>
+  <td class=xl74 width=192>dmBenefNIdent</td>
+  <td class=xl74 width=307>Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A26</td>
+  <td class=xl74 width=192>idDocErp</td>
+  <td class=xl74 width=307>ID do documento existente no ERP</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=24>
+  <td height=24 class=xl89 width=71>&nbsp;</td>
+  <td class=xl90 width=46>&nbsp;</td>
+  <td class=xl91 width=192>&nbsp;</td>
+  <td class=xl91 width=307>&nbsp;</td>
+  <td class=xl92 width=110>&nbsp;</td>
+  <td class=xl92 width=114>&nbsp;</td>
+  <td class=xl92 width=77>&nbsp;</td>
+  <td class=xl92 width=80>&nbsp;</td>
+  <td class=xl92 width=115>&nbsp;</td>
+  <td class=xl93 width=533>&nbsp;</td>
+ </tr>
+ <tr height=58>
+  <td colspan=10 height=58 class=xl135 width=1645>COFINS</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>SIM</td>
+  <td class=xl83 width=46>A02</td>
+  <td class=xl83 width=192>cpfCnpj</td>
+  <td class=xl83 width=307>CPF/CNPJ do Emitente</td>
+  <td class=xl84 width=110>Início de Grupo</td>
+  <td class=xl84 width=114>Início de Grupo</td>
+  <td class=xl84 width=77>X</td>
+  <td class=xl84 width=80>X</td>
+  <td class=xl84 width=115>X</td>
+  <td class=xl85 width=533>Tag Pai</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A02a</td>
+  <td class=xl106 width=192>Cpf</td>
+  <td class=xl106 width=307>CPF da Empresa</td>
+  <td class=xl107 width=110>X</td>
+  <td class=xl107 width=114>X</td>
+  <td class=xl107 width=77>X</td>
+  <td class=xl107 width=80>X</td>
+  <td class=xl107 width=115>X</td>
+  <td class=xl108 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=92>
+  <td rowspan=2 height=184 class=xl101 width=71>SIM</td>
+  <td rowspan=2 class=xl102 width=46>A02b</td>
+  <td rowspan=2 class=xl102 width=192>Cnpj</td>
+  <td rowspan=2 class=xl102 width=307>CPNJ da Empresa</td>
+  <td rowspan=2 class=xl134 width=110>btfit822</td>
+  <td class=xl77 width=114>compnr</td>
+  <td class=xl77 width=77>X</td>
+  <td class=xl77 width=80>X</td>
+  <td class=xl77 width=115>X</td>
+  <td rowspan=2 class=xl129 width=533>*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento<br><br>concat(i.compnr, i.cpcd)<br><br>Aqui, serão concatenados os valores entre "compnr" e "cpcd".</td>
+ </tr>
+ <tr height=92>
+  <td height=92 class=xl81 width=114>cpcd</td>
+  <td class=xl81 width=77>C</td>
+  <td class=xl81 width=80>18</td>
+  <td class=xl81 width=115>btfit805.cpcd</td>
+ </tr>
+
+ <tr height=58>
+  <td height=58 class=xl82 width=71>SIM</td>
+  <td class=xl83 width=46>A03</td>
+  <td class=xl83 width=192>codPart</td>
+  <td class=xl83 width=307>Código do participante no ERP</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>lobp</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>18</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A04</td>
+  <td class=xl74 width=192>nroDoc</td>
+  <td class=xl74 width=307>Número do documento</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>docn</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>12</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=124>
+  <td height=124 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A05</td>
+  <td class=xl74 width=192>dtVcto</td>
+  <td class=xl74 width=307>Data do vencimento</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>iutd</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=124>
+  <td height=124 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A06</td>
+  <td class=xl74 width=192>dtPgto</td>
+  <td class=xl74 width=307>Data de Pagamento do imposto Retido</td>
+  <td class=xl75 width=110>btfit823</td>
+  <td class=xl76 width=114>iutd</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A07</td>
+  <td class=xl74 width=192>codImposto</td>
+  <td class=xl74 width=307>Código do Imposto Retido</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor '5' é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=186>
+  <td height=186 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A08</td>
+  <td class=xl74 width=192>cdTipoRetImp</td>
+  <td class=xl74 width=307>Código da retenção ou código da DARF relacionada do imposto retido</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>rcco</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>6</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(it.codret) &gt;= 4 then substring(it.codret, 1, 4) else '5952'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "5952".<br><br>*rcco será chamado "Codret" no subselect usado na query<br>(select refi, max(rcco) codret from ln_btfit821 group by refi) it</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A09</td>
+  <td class=xl74 width=192>vlBaseCalc</td>
+  <td class=xl74 width=307>Valor da base de cálculo</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>bcor</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A10</td>
+  <td class=xl74 width=192>vlPrincipal</td>
+  <td class=xl74 width=307>Valor principal do imposto retido a ser pago</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>vcor</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A11</td>
+  <td class=xl74 width=192>vlMulta</td>
+  <td class=xl74 width=307>Valor da multa paga</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A12</td>
+  <td class=xl74 width=192>vlJuros</td>
+  <td class=xl74 width=307>Valor dos juros pagos</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A13</td>
+  <td class=xl106 width=192>vlPgto</td>
+  <td class=xl106 width=307>Valor do pagamento realizado</td>
+  <td class=xl107 width=110>btfit822</td>
+  <td class=xl114 width=114>vcor</td>
+  <td class=xl115 width=77>Double</td>
+  <td class=xl115 width=80>8</td>
+  <td class=xl115 width=115>X</td>
+  <td class=xl116 width=533>Sem observações</td>
+ </tr>
+ <tr height=65>
+  <td rowspan=2 height=130 class=xl130 width=71>SIM</td>
+  <td rowspan=2 class=xl132 width=46>A14</td>
+  <td rowspan=2 class=xl132 width=192>aliq</td>
+  <td rowspan=2 class=xl132 width=307>Alíquota aplicada ao imposto</td>
+  <td rowspan=2 class=xl125 width=110>btfit822</td>
+  <td class=xl76 width=114>vcor</td>
+  <td rowspan=2 class=xl125 width=77>Double</td>
+  <td rowspan=2 class=xl125 width=80>8</td>
+  <td rowspan=2 class=xl125 width=115>X</td>
+  <td rowspan=2 class=xl119 width=533>round(i.vcor / i.bcor * 100, 2)<br><br>Aqui será calculado o percentual entre o valor do COFINS pelo valor Base e arredondado em 2 casas decimais.</td>
+ </tr>
+ <tr height=65>
+  <td height=65 class=xl114 width=114>bcor</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>NÃO</td>
+  <td class=xl83 width=46>A15</td>
+  <td class=xl83 width=192>perdComp</td>
+  <td class=xl83 width=307>Número do PERDCOMP</td>
+  <td class=xl77 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl113 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A16</td>
+  <td class=xl74 width=192>vlDeducao</td>
+  <td class=xl74 width=307>Valor da Dedução do Imposto</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>fdva</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl94 width=71>SIM</td>
+  <td class=xl95 width=46>A17</td>
+  <td class=xl95 width=192>dtDocto</td>
+  <td class=xl95 width=307>Data do documento, seja nota fiscal ou outro tipo</td>
+  <td class=xl96 width=110>btfit822</td>
+  <td class=xl97 width=114>date</td>
+  <td class=xl98 width=77>Date</td>
+  <td class=xl98 width=80>4</td>
+  <td class=xl98 width=115>X</td>
+  <td class=xl99 width=533>*A outra query utiliza o campo "iutd"</td>
+ </tr>
+ <tr height=177>
+  <td height=177 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A18</td>
+  <td class=xl74 width=192>codReceita</td>
+  <td class=xl74 width=307>Código da receita referente ao "código de retenção de imposto"</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>rcco</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>6</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(it.codret) = 6 then substring(it.codret, 5, 2) else '07'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "07".<br><br>*rcco será chamado "Codret" no subselect usado na query<br>(select refi, max(rcco) codret from ln_btfit821 group by refi) it</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A19</td>
+  <td class=xl74 width=192>dmIndSuspExig</td>
+  <td class=xl74 width=307>Indicativo de Exigibilidade Suspensa: <br>S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A20</td>
+  <td class=xl74 width=192>dmIndDecTerceiro</td>
+  <td class=xl74 width=307>Indicativo de décimo terceiro salário: <br>S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A21</td>
+  <td class=xl74 width=192>codUnidOrg</td>
+  <td class=xl74 width=307>Codigo da Unidade Organizacional</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A22</td>
+  <td class=xl74 width=192>codNatRend</td>
+  <td class=xl74 width=307>Codigo da Natureza do Rendimento</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>rnrc</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A23</td>
+  <td class=xl74 width=192>obs</td>
+  <td class=xl74 width=307>Observações sobre identificação do rendimento</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A24</td>
+  <td class=xl74 width=192>vlServ</td>
+  <td class=xl74 width=307>Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A25</td>
+  <td class=xl74 width=192>dmBenefNIdent</td>
+  <td class=xl74 width=307>Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A26</td>
+  <td class=xl74 width=192>idDocErp</td>
+  <td class=xl74 width=307>ID do documento existente no ERP</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=25>
+  <td height=25 class=xl89 width=71>&nbsp;</td>
+  <td class=xl90 width=46>&nbsp;</td>
+  <td class=xl91 width=192>&nbsp;</td>
+  <td class=xl91 width=307>&nbsp;</td>
+  <td class=xl92 width=110>&nbsp;</td>
+  <td class=xl92 width=114>&nbsp;</td>
+  <td class=xl92 width=77>&nbsp;</td>
+  <td class=xl92 width=80>&nbsp;</td>
+  <td class=xl92 width=115>&nbsp;</td>
+  <td class=xl93 width=533>&nbsp;</td>
+ </tr>
+ <tr height=58>
+  <td colspan=10 height=58 class=xl135 width=1645>CSLL</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl101 width=71>SIM</td>
+  <td class=xl102 width=46>A02</td>
+  <td class=xl102 width=192>cpfCnpj</td>
+  <td class=xl102 width=307>CPF/CNPJ do Emitente</td>
+  <td class=xl84 width=110>Início de Grupo</td>
+  <td class=xl84 width=114>Início de Grupo</td>
+  <td class=xl84 width=77>X</td>
+  <td class=xl84 width=80>X</td>
+  <td class=xl84 width=115>X</td>
+  <td class=xl85 width=533>Tag Pai</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A02a</td>
+  <td class=xl106 width=192>Cpf</td>
+  <td class=xl106 width=307>CPF da Empresa</td>
+  <td class=xl107 width=110>X</td>
+  <td class=xl107 width=114>X</td>
+  <td class=xl107 width=77>X</td>
+  <td class=xl107 width=80>X</td>
+  <td class=xl107 width=115>X</td>
+  <td class=xl108 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=70>
+  <td rowspan=2 height=140 class=xl121 width=71>SIM</td>
+  <td rowspan=2 class=xl123 width=46>A02b</td>
+  <td rowspan=2 class=xl123 width=192>Cnpj</td>
+  <td rowspan=2 class=xl123 width=307>CPNJ da Empresa</td>
+  <td rowspan=2 class=xl125 width=110>btfit822</td>
+  <td class=xl77 width=114>compnr</td>
+  <td class=xl77 width=77>X</td>
+  <td class=xl77 width=80>X</td>
+  <td class=xl77 width=115>X</td>
+  <td rowspan=2 class=xl119 width=533>concat(i.compnr, i.cpcd)<br><br>Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+ </tr>
+ <tr height=70>
+  <td height=70 class=xl104 width=114>cpcd</td>
+  <td class=xl81 width=77>C</td>
+  <td class=xl81 width=80>18</td>
+  <td class=xl81 width=115>btfit805.cpcd</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>SIM</td>
+  <td class=xl83 width=46>A03</td>
+  <td class=xl83 width=192>codPart</td>
+  <td class=xl83 width=307>Código do participante no ERP</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>lobp</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>18</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A04</td>
+  <td class=xl74 width=192>nroDoc</td>
+  <td class=xl74 width=307>Número do documento</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>docn</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>12</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=130>
+  <td height=130 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A05</td>
+  <td class=xl74 width=192>dtVcto</td>
+  <td class=xl74 width=307>Data do vencimento</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>iutd</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=130>
+  <td height=130 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A06</td>
+  <td class=xl74 width=192>dtPgto</td>
+  <td class=xl74 width=307>Data de Pagamento do imposto Retido</td>
+  <td class=xl75 width=110>btfit823</td>
+  <td class=xl76 width=114>iutd</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A07</td>
+  <td class=xl74 width=192>codImposto</td>
+  <td class=xl74 width=307>Código do Imposto Retido</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor '11' é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=170>
+  <td height=170 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A08</td>
+  <td class=xl74 width=192>cdTipoRetImp</td>
+  <td class=xl74 width=307>Código da retenção ou código da DARF relacionada do imposto retido</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>rccs</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>6</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(it.codret) &gt;= 4 then substring(it.codret, 1, 4) else '5952'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "5952".<br><br>*rccs será chamado "Codret" no subselect usado na query<br>(select refi, max(rccs) codret from ln_btfit821 group by refi) it</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A09</td>
+  <td class=xl74 width=192>vlBaseCalc</td>
+  <td class=xl74 width=307>Valor da base de cálculo</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>bcsr</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A10</td>
+  <td class=xl74 width=192>vlPrincipal</td>
+  <td class=xl74 width=307>Valor principal do imposto retido a ser pago</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>vcsr</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A11</td>
+  <td class=xl74 width=192>vlMulta</td>
+  <td class=xl74 width=307>Valor da multa paga</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A12</td>
+  <td class=xl74 width=192>vlJuros</td>
+  <td class=xl74 width=307>Valor dos juros pagos</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A13</td>
+  <td class=xl106 width=192>vlPgto</td>
+  <td class=xl106 width=307>Valor do pagamento realizado</td>
+  <td class=xl107 width=110>btfit822</td>
+  <td class=xl114 width=114>vcsr</td>
+  <td class=xl115 width=77>Double</td>
+  <td class=xl115 width=80>8</td>
+  <td class=xl115 width=115>X</td>
+  <td class=xl116 width=533>Sem observações</td>
+ </tr>
+ <tr height=60>
+  <td rowspan=2 height=120 class=xl101 width=71>SIM</td>
+  <td rowspan=2 class=xl102 width=46>A14</td>
+  <td rowspan=2 class=xl102 width=192>aliq</td>
+  <td rowspan=2 class=xl102 width=307>Alíquota aplicada ao imposto</td>
+  <td rowspan=2 class=xl84 width=110>btfit822</td>
+  <td class=xl76 width=114>vcsr</td>
+  <td rowspan=2 class=xl84 width=77>Double</td>
+  <td rowspan=2 class=xl84 width=80>8</td>
+  <td rowspan=2 class=xl84 width=115>X</td>
+  <td rowspan=2 class=xl103 width=533>round(i.vcsr / i.bcsr * 100, 2)<br><br>Aqui será calculado o percentual entre o valor do CSLL pelo valor Base e arredondado em 2 casas decimais.</td>
+ </tr>
+ <tr height=60>
+  <td height=60 class=xl114 width=114>bcsr</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>NÃO</td>
+  <td class=xl83 width=46>A15</td>
+  <td class=xl83 width=192>perdComp</td>
+  <td class=xl83 width=307>Número do PERDCOMP</td>
+  <td class=xl77 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl113 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A16</td>
+  <td class=xl74 width=192>vlDeducao</td>
+  <td class=xl74 width=307>Valor da Dedução do Imposto</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>fdva</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl94 width=71>SIM</td>
+  <td class=xl95 width=46>A17</td>
+  <td class=xl95 width=192>dtDocto</td>
+  <td class=xl95 width=307>Data do documento, seja nota fiscal ou outro tipo</td>
+  <td class=xl96 width=110>btfit822</td>
+  <td class=xl97 width=114>date</td>
+  <td class=xl98 width=77>Date</td>
+  <td class=xl98 width=80>4</td>
+  <td class=xl98 width=115>X</td>
+  <td class=xl99 width=533>*A outra query utiliza o campo "iutd"</td>
+ </tr>
+ <tr height=164>
+  <td height=164 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A18</td>
+  <td class=xl74 width=192>codReceita</td>
+  <td class=xl74 width=307>Código da receita referente ao "código de retenção de imposto"</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>rccs</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>6</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(it.codret) = 6 then substring(it.codret, 5, 2) else '07'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "07".<br><br>*rccs será chamado "Codret" no subselect usado na query<br>(select refi, max(rccs) codret from ln_btfit821 group by refi) it</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A19</td>
+  <td class=xl74 width=192>dmIndSuspExig</td>
+  <td class=xl74 width=307>Indicativo de Exigibilidade Suspensa: S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A20</td>
+  <td class=xl74 width=192>dmIndDecTerceiro</td>
+  <td class=xl74 width=307>Indicativo de décimo terceiro salário: S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A21</td>
+  <td class=xl74 width=192>codUnidOrg</td>
+  <td class=xl74 width=307>Codigo da Unidade Organizacional</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A22</td>
+  <td class=xl74 width=192>codNatRend</td>
+  <td class=xl74 width=307>Codigo da Natureza do Rendimento</td>
+  <td class=xl75 width=110>btfit822</td>
+  <td class=xl76 width=114>rnrc</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A23</td>
+  <td class=xl74 width=192>obs</td>
+  <td class=xl74 width=307>Observações sobre identificação do rendimento</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A24</td>
+  <td class=xl74 width=192>vlServ</td>
+  <td class=xl74 width=307>Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A25</td>
+  <td class=xl74 width=192>dmBenefNIdent</td>
+  <td class=xl74 width=307>Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A26</td>
+  <td class=xl74 width=192>idDocErp</td>
+  <td class=xl74 width=307>ID do documento existente no ERP</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=28>
+  <td height=28 class=xl89 width=71>&nbsp;</td>
+  <td class=xl90 width=46>&nbsp;</td>
+  <td class=xl91 width=192>&nbsp;</td>
+  <td class=xl91 width=307>&nbsp;</td>
+  <td class=xl92 width=110>&nbsp;</td>
+  <td class=xl92 width=114>&nbsp;</td>
+  <td class=xl92 width=77>&nbsp;</td>
+  <td class=xl92 width=80>&nbsp;</td>
+  <td class=xl92 width=115>&nbsp;</td>
+  <td class=xl93 width=533>&nbsp;</td>
+ </tr>
+ <tr height=58>
+  <td colspan=10 height=58 class=xl135 width=1645>IR</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>SIM</td>
+  <td class=xl83 width=46>A02</td>
+  <td class=xl83 width=192>cpfCnpj</td>
+  <td class=xl83 width=307>CPF/CNPJ do Emitente</td>
+  <td class=xl84 width=110>Início de Grupo</td>
+  <td class=xl84 width=114>Início de Grupo</td>
+  <td class=xl84 width=77>X</td>
+  <td class=xl84 width=80>X</td>
+  <td class=xl84 width=115>X</td>
+  <td class=xl85 width=533>Tag Pai</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A02a</td>
+  <td class=xl106 width=192>Cpf</td>
+  <td class=xl106 width=307>CPF da Empresa</td>
+  <td class=xl107 width=110>X</td>
+  <td class=xl107 width=114>X</td>
+  <td class=xl107 width=77>X</td>
+  <td class=xl107 width=80>X</td>
+  <td class=xl107 width=115>X</td>
+  <td class=xl108 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=73>
+  <td rowspan=2 height=146 class=xl101 width=71>SIM</td>
+  <td rowspan=2 class=xl102 width=46>A02b</td>
+  <td rowspan=2 class=xl102 width=192>Cnpj</td>
+  <td rowspan=2 class=xl102 width=307>CPNJ da Empresa</td>
+  <td rowspan=2 class=xl84 width=110>btfit820</td>
+  <td class=xl77 width=114>compnr</td>
+  <td class=xl77 width=77>X</td>
+  <td class=xl77 width=80>X</td>
+  <td class=xl77 width=115>X</td>
+  <td rowspan=2 class=xl103 width=533>concat(i.compnr, i.cpcd)<br><br>Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+ </tr>
+ <tr height=73>
+  <td height=73 class=xl104 width=114>cpcd</td>
+  <td class=xl81 width=77>C</td>
+  <td class=xl81 width=80>18</td>
+  <td class=xl81 width=115>btfit805.cpcd</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>SIM</td>
+  <td class=xl83 width=46>A03</td>
+  <td class=xl83 width=192>codPart</td>
+  <td class=xl83 width=307>Código do participante no ERP</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>lobp</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>18</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A04</td>
+  <td class=xl74 width=192>nroDoc</td>
+  <td class=xl74 width=307>Número do documento</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>docn</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>12</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=126>
+  <td height=126 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A05</td>
+  <td class=xl74 width=192>dtVcto</td>
+  <td class=xl74 width=307>Data do vencimento</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>date</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,n.date)-1)*(-1)+19,n.date))<br><br>A query pega a data n.date, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=126>
+  <td height=126 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A06</td>
+  <td class=xl74 width=192>dtPgto</td>
+  <td class=xl74 width=307>Data de Pagamento do imposto Retido</td>
+  <td class=xl77 width=110>btfit820</td>
+  <td class=xl76 width=114>date</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,n.date)-1)*(-1)+19,n.date))<br><br>A query pega a data n.date, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A07</td>
+  <td class=xl74 width=192>codImposto</td>
+  <td class=xl74 width=307>Código do Imposto Retido</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor '12' é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=110>
+  <td height=110 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A08</td>
+  <td class=xl74 width=192>cdTipoRetImp</td>
+  <td class=xl74 width=307>Código da retenção ou código da DARF relacionada do imposto retido</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>cdre</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>5</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(i.cdre) &gt;= 4 then substring(i.cdre, 1, 4) else '1708'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "1708".</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A09</td>
+  <td class=xl74 width=192>vlBaseCalc</td>
+  <td class=xl74 width=307>Valor da base de cálculo</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>irbs</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>btfit820.irbs</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A10</td>
+  <td class=xl74 width=192>vlPrincipal</td>
+  <td class=xl74 width=307>Valor principal do imposto retido a ser pago</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>virf</td>
+  <td class=xl77 width=77>Double</td>
+  <td class=xl77 width=80>8</td>
+  <td class=xl77 width=115>btfit820.virf</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A11</td>
+  <td class=xl74 width=192>vlMulta</td>
+  <td class=xl74 width=307>Valor da multa paga</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A12</td>
+  <td class=xl74 width=192>vlJuros</td>
+  <td class=xl74 width=307>Valor dos juros pagos</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl105 width=71>SIM</td>
+  <td class=xl106 width=46>A13</td>
+  <td class=xl106 width=192>vlPgto</td>
+  <td class=xl106 width=307>Valor do pagamento realizado</td>
+  <td class=xl107 width=110>btfit821</td>
+  <td class=xl114 width=114>virf</td>
+  <td class=xl115 width=77>Double</td>
+  <td class=xl115 width=80>8</td>
+  <td class=xl115 width=115>btfit820.virf</td>
+  <td class=xl116 width=533>Sem observações</td>
+ </tr>
+ <tr height=62>
+  <td rowspan=2 height=124 class=xl121 width=71>SIM</td>
+  <td rowspan=2 class=xl123 width=46>A14</td>
+  <td rowspan=2 class=xl123 width=192>aliq</td>
+  <td rowspan=2 class=xl123 width=307>Alíquota aplicada ao imposto</td>
+  <td rowspan=2 class=xl125 width=110>btfit821</td>
+  <td class=xl76 width=114>virf</td>
+  <td rowspan=2 class=xl125 width=77>Double</td>
+  <td rowspan=2 class=xl125 width=80>8</td>
+  <td rowspan=2 class=xl125 width=115>X</td>
+  <td rowspan=2 class=xl119 width=533>round(i.virf / i.irbs * 100, 2)<br><br>Aqui será calculado o percentual entre o valor do CSLL pelo valor Base e arredondado em 2 casas decimais.</td>
+ </tr>
+ <tr height=62>
+  <td height=62 class=xl114 width=114>irbs</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl82 width=71>NÃO</td>
+  <td class=xl83 width=46>A15</td>
+  <td class=xl83 width=192>perdComp</td>
+  <td class=xl83 width=307>Número do PERDCOMP</td>
+  <td class=xl77 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl113 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A16</td>
+  <td class=xl74 width=192>vlDeducao</td>
+  <td class=xl74 width=307>Valor da Dedução do Imposto</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>SIM</td>
+  <td class=xl74 width=46>A17</td>
+  <td class=xl74 width=192>dtDocto</td>
+  <td class=xl74 width=307>Data do documento, seja nota fiscal ou outro tipo</td>
+  <td class=xl75 width=110>btfit820</td>
+  <td class=xl76 width=114>date</td>
+  <td class=xl77 width=77>Date</td>
+  <td class=xl77 width=80>4</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl78 width=533>Sem observações</td>
+ </tr>
+ <tr height=94>
+  <td height=94 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A18</td>
+  <td class=xl74 width=192>codReceita</td>
+  <td class=xl74 width=307>Código da receita referente ao "código de retenção de imposto"</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>cdre</td>
+  <td class=xl77 width=77>C</td>
+  <td class=xl77 width=80>5</td>
+  <td class=xl77 width=115>X</td>
+  <td class=xl88 width=533>when length(i.cdre) = 6 then substring(i.cdre, 5, 2) else '06'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "06".</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A19</td>
+  <td class=xl74 width=192>dmIndSuspExig</td>
+  <td class=xl74 width=307>Indicativo de Exigibilidade Suspensa: S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A20</td>
+  <td class=xl74 width=192>dmIndDecTerceiro</td>
+  <td class=xl74 width=307>Indicativo de décimo terceiro salário: S- Sim; N-Não</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A21</td>
+  <td class=xl74 width=192>codUnidOrg</td>
+  <td class=xl74 width=307>Codigo da Unidade Organizacional</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl76 width=114>X</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A22</td>
+  <td class=xl74 width=192>codNatRend</td>
+  <td class=xl74 width=307>Codigo da Natureza do Rendimento</td>
+  <td class=xl75 width=110>btfit821</td>
+  <td class=xl76 width=114>rnrc</td>
+  <td class=xl76 width=77>X</td>
+  <td class=xl76 width=80>X</td>
+  <td class=xl76 width=115>X</td>
+  <td class=xl87 width=533>*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A23</td>
+  <td class=xl74 width=192>obs</td>
+  <td class=xl74 width=307>Observações sobre identificação do rendimento</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A24</td>
+  <td class=xl74 width=192>vlServ</td>
+  <td class=xl74 width=307>Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A25</td>
+  <td class=xl74 width=192>dmBenefNIdent</td>
+  <td class=xl74 width=307>Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+ <tr height=58>
+  <td height=58 class=xl73 width=71>NÃO</td>
+  <td class=xl74 width=46>A26</td>
+  <td class=xl74 width=192>idDocErp</td>
+  <td class=xl74 width=307>ID do documento existente no ERP</td>
+  <td class=xl75 width=110>X</td>
+  <td class=xl75 width=114>X</td>
+  <td class=xl75 width=77>X</td>
+  <td class=xl75 width=80>X</td>
+  <td class=xl75 width=115>X</td>
+  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
+ </tr>
+
+</table>
+</div>
+
+<p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+  <em>Gerado com base na Planilha <b> Pgto de Imp. Ret. PCC Data Ent. </b></em><br>
+  <small style="display: block; margin-top: 5px; opacity: 0.7;">Constante do arquivo <b>DE x PARA CSF - INFOR - Créditos e Pagamento de Impostos no padrão para DCTF.xlsx</b></small>
+</p>
+
+</body>
+</html>
