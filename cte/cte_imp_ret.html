@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imposto Retido</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        .imposto-header {
+            background: linear-gradient(135deg, #f5c6ab, #f5c6ab);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+            border: 1px solid #666;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para ENTRADA de CTe (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados de Informações Provenientes de Impostos Retidos
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-nao">&nbsp;</td>
+                    <td class="compliance-col">I01</td>
+                    <td class="compliance-col"><span class="campo-destaque">regImpostosRetidos</span></td>
+                    <td class="compliance-col">Grupo de informações provenientes de impostos retidos</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="10" class="imposto-header">INSS</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I02</td>
+                    <td class="compliance-col"><span class="campo-destaque">codImposto</span></td>
+                    <td class="compliance-col">Código do imposto</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 13 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I03</td>
+                    <td class="compliance-col"><span class="campo-destaque">tipoRetencaoImposto</span></td>
+                    <td class="compliance-col">Código do tipo de retenção de imposto</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rcin</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I04</td>
+                    <td class="compliance-col"><span class="campo-destaque">codReceita</span></td>
+                    <td class="compliance-col">Código da Receita</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I05</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlItem</span></td>
+                    <td class="compliance-col">Valor do item</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">gamt</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I06</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBaseCalc</span></td>
+                    <td class="compliance-col">Valor da base de cálculo</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">binr</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.binr</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I07</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlAliq</span></td>
+                    <td class="compliance-col">Valor da alíquota</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">ainr</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I08</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlImp</span></td>
+                    <td class="compliance-col">Valor do imposto</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">vinr</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.vinr</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I09</td>
+                    <td class="compliance-col"><span class="campo-destaque">cdTpServReinf</span></td>
+                    <td class="compliance-col">Código identificador da Classificação do Serviço</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I10</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndCprb</span></td>
+                    <td class="compliance-col">Domínio Indicativo de CPRB</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">ainr</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">WHEN ainr < 11 THEN 1 ELSE 0<br><br>Caso a Alíquota retida do INSS (ainr) for menor que 11, será gravado 1. Caso contrário, zero.<br><br>Obs CSF:<br>0- Retenção 11% e 1- Retenção 3,5%</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="10" class="imposto-header">IRRF</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I02</td>
+                    <td class="compliance-col"><span class="campo-destaque">codImposto</span></td>
+                    <td class="compliance-col">Código do imposto</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 12 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I03</td>
+                    <td class="compliance-col"><span class="campo-destaque">tipoRetencaoImposto</span></td>
+                    <td class="compliance-col">Código do tipo de retenção de imposto</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rcin</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">WHEN rcin is null or rcin = '' THEN '1708' ELSE rcin<br><br>Aqui, caso o Código de retenção do INSS (rcin) esteja vazio, será gravado "1708". Caso contrário, o que houver no campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I04</td>
+                    <td class="compliance-col"><span class="campo-destaque">codReceita</span></td>
+                    <td class="compliance-col">Código da Receita</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor "06" é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I05</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlItem</span></td>
+                    <td class="compliance-col">Valor do item</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">gamt</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I06</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBaseCalc</span></td>
+                    <td class="compliance-col">Valor da base de cálculo</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">irbs</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.irbs</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I07</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlAliq</span></td>
+                    <td class="compliance-col">Valor da alíquota</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">pirf</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">I08</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlImp</span></td>
+                    <td class="compliance-col">Valor do imposto</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">virf</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I09</td>
+                    <td class="compliance-col"><span class="campo-destaque">cdTpServReinf</span></td>
+                    <td class="compliance-col">Código identificador da Classificação do Serviço</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I10</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndCprb</span></td>
+                    <td class="compliance-col">Domínio Indicativo de CPRB</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Mapeamento CTe Entrada</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - CTe Entrada.xlsx</b>
+        </small>
+    </p>
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+    </div>
+</body>
+</html>

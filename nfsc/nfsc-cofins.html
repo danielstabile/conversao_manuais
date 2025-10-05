@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumo de COFINS</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para Integração de Notas Fiscais de Serviço Contínuo (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados de Informações do Imposto do COFINS
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">&nbsp;</td>
+                    <td class="compliance-col">H01</td>
+                    <td class="compliance-col"><span class="campo-destaque">regImpostoCofins</span></td>
+                    <td class="compliance-col">Grupo de informações do Imposto do COFINS</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">H02</td>
+                    <td class="compliance-col"><span class="campo-destaque">codStCofins</span></td>
+                    <td class="compliance-col">Código de Situação Tributário do COFINS</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">cots</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">2</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">CASE length(cots) WHEN 0 THEN '99' ELSE cots<br><br>Caso não exista conteúdo de Situação tributária do COFINS (cots), será gravado "99". Caso contrário, prevalece o que houver no campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">H03</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlItem</span></td>
+                    <td class="compliance-col">Valor total dos itens</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">gamt</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao rowspan-cell" rowspan="2">NÃO</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">H04</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">codBaseCalcCredPc</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Código da Base de Cálculo do Crédito</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit821</td>
+                    <td class="infor-col">pccb</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">2</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">WHEN pccb is not null THEN pccb<br>WHEN vcof > 0 and pccb is null and opfc in ('1252','2252') THEN '04'<br>WHEN vcof > 0 and pccb is null and opfc in ('1101','2101') THEN '02'<br>ELSE null<br><br>Aqui, é validado se existe Código da Base de Cálculo do Crédito PIS/COFINS (pccb)  para sua gravação. Caso não exista, mas se encontre algum Valor de COFINS (vcof), será então validado por CFOP:<br>   - CFOPs 1252, 2252: Será gravado "04";<br>   - CFOPs 1101, 2101: Será gravado "02"<br><br>Se nenhuma dessas condições forem satisfeitas, será gravado NULL.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">vcof</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.vcof</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">H05</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBcCofins</span></td>
+                    <td class="compliance-col">Valor da base de cálculo do COFINS</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">bcof</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.bcof</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">H06</td>
+                    <td class="compliance-col"><span class="campo-destaque">aliquotaCofins</span></td>
+                    <td class="compliance-col">Alíquota do COFINS (em percentual)</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">pcof</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">H07</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlCofins</span></td>
+                    <td class="compliance-col">Valor do COFINS</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">vcof</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.vcof</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">H08</td>
+                    <td class="compliance-col"><span class="campo-destaque">codCta</span></td>
+                    <td class="compliance-col">Código da conta analítica contábil debitada/creditada</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">leac</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">100</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">H09</td>
+                    <td class="compliance-col"><span class="campo-destaque">naturezaReceitaCofins</span></td>
+                    <td class="compliance-col">Código da natureza de receita isenta</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">nrec</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">15</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Resumo de COFINS</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - Notas Fiscais de Serviços Contínuos  Entrada (Água, Luz, etc.).xlsx</b>
+        </small>
+    </p>
+    
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+    </div>
+</body>
+</html>

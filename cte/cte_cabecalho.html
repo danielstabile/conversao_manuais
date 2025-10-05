@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabeçalho</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para ENTRADA de CTe (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados do Cabeçalho CTe
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-nao">&nbsp;</td>
+                    <td class="compliance-col">A01</td>
+                    <td class="compliance-col"><span class="campo-destaque">conhecTransportes</span></td>
+                    <td class="compliance-col">Grupo de Conhecimento de Transporte de Terceiros</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A02a</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit820</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">concat(nf.compnr, nf.cpcd)<br><br>Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">cpcd</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit805.cpcd</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A03</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndEmit</span></td>
+                    <td class="compliance-col">Indicador do emitente</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 1 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A04</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndOper</span></td>
+                    <td class="compliance-col">Indicador da operação</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">ioin</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A05</td>
+                    <td class="compliance-col"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col">Código do participante cliente/fornecedor</td>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">bpid</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">trim(upper(pe.bpid))<br><br>Serão removidos os espaçamentos iniciais e finais do campo e o conteúdo final será gravado em Maiúsculo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A06</td>
+                    <td class="compliance-col"><span class="campo-destaque">CodigoModeloFiscal</span></td>
+                    <td class="compliance-col">Código do modelo do documento fiscal, atribuir o modelo que se adéqua ao conhecimento de transporte</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">doty</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">20</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A07</td>
+                    <td class="compliance-col"><span class="campo-destaque">serie</span></td>
+                    <td class="compliance-col">Série do Documento Fiscal</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">seri</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">3</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A08</td>
+                    <td class="compliance-col"><span class="campo-destaque">subSerie</span></td>
+                    <td class="compliance-col">Sub-série do Documento Fiscal</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">rser</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A09</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroCt</span></td>
+                    <td class="compliance-col">Número do Documento Fiscal</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">docn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A10</td>
+                    <td class="compliance-col"><span class="campo-destaque">sitDocto</span></td>
+                    <td class="compliance-col">Situação do Documento Fiscal</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">stat</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A11</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroChaveCte</span></td>
+                    <td class="compliance-col">Chave de acesso do Conhecimento de Transporte Eletrônico</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">cnfe</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">50</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A12</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmTpCte</span></td>
+                    <td class="compliance-col">Tipo de CTe</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">ctet</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col">btrec200.ctet</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A13</td>
+                    <td class="compliance-col"><span class="campo-destaque">chaveCteRef</span></td>
+                    <td class="compliance-col">Chave do CT-e de referência cujos valores foram complementados (opção "1" do campo anterior) ou cujo débito foi anulado (opção "2" do campo anterior)</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A14</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtEmiss</span></td>
+                    <td class="compliance-col">Data de emissão do conhecimento de transporte</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">idat</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A15</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtSaiEnt</span></td>
+                    <td class="compliance-col">Data da entrada (aquisição) ou saída (prestação do serviço)</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">date</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A16</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndFrt</span></td>
+                    <td class="compliance-col">Indicador do tipo de frete</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">cifo</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A17</td>
+                    <td class="compliance-col"><span class="campo-destaque">codInforCompl</span></td>
+                    <td class="compliance-col">Código da informação complementar</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A18</td>
+                    <td class="compliance-col"><span class="campo-destaque">codCta</span></td>
+                    <td class="compliance-col">Código da conta analítica contábil debitada/creditada</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">leac</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">100</td>
+                    <td class="infor-col">btfit070.leac</td>
+                    <td class="obs-col">(select max(leac) from ln_btfit821 where refi = nf.refi)<br><br>Aqui, será buscado o maior valor de Conta contábil (leac) da tabela btfit821, de acordo com a Referência Fiscal Formatada (refi).</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A19</td>
+                    <td class="compliance-col"><span class="campo-destaque">codigoNaturezaOperacao</span></td>
+                    <td class="compliance-col">Código da natureza de operação</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">opfc</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">20</td>
+                    <td class="infor-col">btfit820.opfc</td>
+                    <td class="obs-col">*O alias (apelido) do campo na query de extração é "codNatOper"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A20</td>
+                    <td class="compliance-col"><span class="campo-destaque">IdErp</span></td>
+                    <td class="compliance-col">Identificador numérico da nota fiscal no ERP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A21</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtExecServ</span></td>
+                    <td class="compliance-col">Data de competência ou em que serviço foi executado</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A22</td>
+                    <td class="compliance-col"><span class="campo-destaque">codMunOrig</span></td>
+                    <td class="compliance-col">Código municipio Original</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A23</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">ibgeCidadeIni</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Ibge Cidade Inicial</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">oscc</td>
+                    <td class="infor-col">Long</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col rowspan-cell" rowspan="2"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">WHEN length(nf.oscc) > 0 THEN nf.oscc ELSE pe.ibge<br><br>Aqui, será validado se existe Código da cidade do serviço de origem (oscc), caso contrário, será utilizado o Código IBGE (ibge)</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">btfit812</td>
+                    <td class="infor-col">ibge</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">12</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A24</td>
+                    <td class="compliance-col"><span class="campo-destaque">descrCidadeIni</span></td>
+                    <td class="compliance-col">Descrição Cidade Inicial</td>
+                    <td class="infor-col">btfit812</td>
+                    <td class="infor-col">dsca</td>
+                    <td class="infor-col">Multibyte</td>
+                    <td class="infor-col">120</td>
+                    <td class="infor-col">btfit300.dsca</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A25</td>
+                    <td class="compliance-col"><span class="campo-destaque">siglaUfIni</span></td>
+                    <td class="compliance-col">Sigla Cidade Inicial</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">cste</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">2</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A26</td>
+                    <td class="compliance-col"><span class="campo-destaque">codMunDest</span></td>
+                    <td class="compliance-col">Código municipio Destino</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A27</td>
+                    <td class="compliance-col"><span class="campo-destaque">ibgeCidadeFim</span></td>
+                    <td class="compliance-col">Ibge Cidade Final</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">dscc</td>
+                    <td class="infor-col">Long</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O alias (apelido) do campo na query de extração é "ibgeCidadeDest"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A28</td>
+                    <td class="compliance-col"><span class="campo-destaque">descrCidadeFim</span></td>
+                    <td class="compliance-col">Descrição Cidade Destino</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">dscc</td>
+                    <td class="infor-col">Long</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O alias (apelido) do campo na query de extração é "descrCidadeDest"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A29</td>
+                    <td class="compliance-col"><span class="campo-destaque">siglaUfFim</span></td>
+                    <td class="compliance-col">Sigla Cidade Destino</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A30</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj_scp</span></td>
+                    <td class="compliance-col">CPF/CNPJ da Empresa Sociedade em Conta de Participações – SCP</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A30a</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao rowspan-cell" rowspan="2">NÃO</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A30b</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit820</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">concat(nf.compnr, nf.cpcd)<br><br>Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">cpcd</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit805.cpcd</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A31</td>
+                    <td class="compliance-col"><span class="campo-destaque">unidOrg</span></td>
+                    <td class="compliance-col">Codigo da Unidade Organizacional</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A32</td>
+                    <td class="compliance-col"><span class="campo-destaque">CodNatRend</span></td>
+                    <td class="compliance-col">Código da Natureza de Rendimento</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="10" class="section-header">Dados de Informações de Valores</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">&nbsp;</td>
+                    <td class="compliance-col">B01</td>
+                    <td class="compliance-col"><span class="campo-destaque">valores</span></td>
+                    <td class="compliance-col">Grupo de informações de Valores</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B02</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlDoc</span></td>
+                    <td class="compliance-col">Valor total do documento</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">vfat / vctb</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O campo "vctb" é usado pelo cliente SOGEFI.<br><br>Demais clientes utilizam pelo "vfat"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B03</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlDesc</span></td>
+                    <td class="compliance-col">Valor total do desconto</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">disc</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">WHEN nf.disc < 0 THEN nf.disc * -1 ELSE 0<br><br>Aqui, será tratado para que o valor negativo de desconto do campo "disc" seja apresentado de forma positiva. Caso este valor seja zerado ou positivo, será gravado 0.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">B04</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlServ</span></td>
+                    <td class="compliance-col">Valor da prestação de serviços</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">vfat / vctb</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O campo "vctb" é usado pelo cliente SOGEFI.<br><br>Demais clientes utilizam pelo "vfat"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B05</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBcIcms</span></td>
+                    <td class="compliance-col">Valor da base de cálculo do ICMS</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">cbas</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">B06</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlIcms</span></td>
+                    <td class="compliance-col">Valor do ICMS</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">cval</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Mapeamento CTe Entrada</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - CTe Entrada.xlsx</b>
+        </small>
+    </p>
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+    </div>
+</body>
+</html>
