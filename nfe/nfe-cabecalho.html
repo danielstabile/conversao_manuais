@@ -1,976 +1,2567 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cabeçalho</title>
-<link href="favicon.png" rel="icon" type="image/png"/>
-<style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.4;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            background-color: #f8f9fa;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            flex: 1;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #4a86e8, #3367d6);
-            color: white;
-            padding: 20px;
-            margin: -20px -20px 30px -20px;
-            border-radius: 8px 8px 0 0;
-            text-align: center;
-        }
-        
-        .header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        
-        .section-header {
-            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
-            color: #000;
-            padding: 12px 15px;
-            margin: 20px 0 10px 0;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1.1em;
-            text-align: center;
-        }
-        
-        .subsection-header {
-            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
-            padding: 10px 15px;
-            margin: 15px 0 10px 0;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-        }
-        
-        .subsection-header .compliance {
-            flex: 4;
-            text-align: center;
-        }
-        
-        .subsection-header .infor {
-            flex: 6;
-            text-align: center;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.9em;
-        }
-        
-        th {
-            background-color: #daf2d4;
-            color: #000;
-            padding: 12px 8px;
-            text-align: center;
-            font-weight: 600;
-            border: 1px solid #666;
-            vertical-align: middle;
-        }
-        
-        th.compliance-col {
-            background-color: #daf2d4;
-        }
-        
-        th.infor-col {
-            background-color: #b5e6a2;
-        }
-        
-        td {
-            padding: 10px 8px;
-            border: 1px solid #666;
-            vertical-align: top;
-        }
-        
-        td.obrig-sim {
-            background-color: #daf2d4;
-            font-weight: bold;
-            text-align: left;
-            padding-left: 15px;
-        }
-        
-        td.obrig-nao {
-            background-color: #daf2d4;
-            font-weight: bold;
-            text-align: left;
-            padding-left: 15px;
-        }
-        
-        td.compliance-col {
-            background-color: #daf2d4;
-        }
-        
-        td.infor-col {
-            background-color: #b5e6a2;
-            text-align: center;
-        }
-        
-        td.obs-col {
-            background-color: #b5e6a2;
-            text-align: left;
-        }
-        
-        .campo-destaque {
-            font-weight: bold;
-            color: #0d47a1;
-        }
-        
-        .x-placeholder {
-            color: #999;
-        }
-        
-        .rowspan-cell {
-            vertical-align: middle;
-        }
-        
-        .footer {
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-            color: #666;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            table {
-                font-size: 0.75em;
-            }
-            
-            th, td {
-                padding: 6px 4px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Cabeçalho</title>
+  <link href="../favicon.png" rel="icon" type="image/png" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      flex: 1;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #4a86e8, #3367d6);
+      color: white;
+      padding: 20px;
+      margin: -20px -20px 30px -20px;
+      border-radius: 8px 8px 0 0;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .section-header {
+      background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+      color: #000;
+      padding: 12px 15px;
+      margin: 20px 0 10px 0;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-align: center;
+    }
+
+    .subsection-header {
+      background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+      padding: 10px 15px;
+      margin: 15px 0 10px 0;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+    }
+
+    .subsection-header .compliance {
+      flex: 4;
+      text-align: center;
+    }
+
+    .subsection-header .infor {
+      flex: 6;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 0.9em;
+    }
+
+    th {
+      background-color: #daf2d4;
+      color: #000;
+      padding: 12px 8px;
+      text-align: center;
+      font-weight: 600;
+      border: 1px solid #666;
+      vertical-align: middle;
+    }
+
+    th.compliance-col {
+      background-color: #daf2d4;
+    }
+
+    th.infor-col {
+      background-color: #b5e6a2;
+    }
+
+    td {
+      padding: 10px 8px;
+      border: 1px solid #666;
+      vertical-align: top;
+    }
+
+    td.obrig-sim {
+      background-color: #daf2d4;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 15px;
+    }
+
+    td.obrig-nao {
+      background-color: #daf2d4;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 15px;
+    }
+
+    td.compliance-col {
+      background-color: #daf2d4;
+    }
+
+    td.infor-col {
+      background-color: #b5e6a2;
+      text-align: center;
+    }
+
+    td.obs-col {
+      background-color: #b5e6a2;
+      text-align: left;
+    }
+
+    .campo-destaque {
+      font-weight: bold;
+      color: #0d47a1;
+    }
+
+    .x-placeholder {
+      color: #999;
+    }
+
+    .rowspan-cell {
+      vertical-align: middle;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      color: #666;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      table {
+        font-size: 0.75em;
+      }
+
+      th,
+      td {
+        padding: 6px 4px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container">
-<div class="header">
-<h1>Mapeamento para ENTRADA de NFe (INFOR X CSF)</h1>
-</div>
+  <div class="container">
+    <div class="header">
+      <h1>Mapeamento para ENTRADA de NFe (INFOR X CSF)</h1>
+    </div>
+    <div class="section-header">
+      Dados do Cabeçalho NFE
+    </div>
+    <div class="subsection-header">
+      <span class="compliance">COMPLIANCE</span>
+      <span class="infor">INFOR</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th class="compliance-col">Obrig.</th>
+          <th class="compliance-col">ID</th>
+          <th class="compliance-col">Campo CSF</th>
+          <th class="compliance-col">Descrição</th>
+          <th class="infor-col">Tabela<br />INFOR</th>
+          <th class="infor-col">Campo<br />INFOR</th>
+          <th class="infor-col">Datatype</th>
+          <th class="infor-col">Tamanho</th>
+          <th class="infor-col">Tabela<br />Referência</th>
+          <th class="infor-col">Observações/Regras</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A01</td>
+          <td class="compliance-col"><span class="campo-destaque">nfMercantis</span></td>
+          <td class="compliance-col">Grupo de Notas Fiscais Mercantis</td>
+          <td class="infor-col">Início de XML</td>
+          <td class="infor-col">Início de XML</td>
+          <td class="infor-col"><span class="x-placeholder">X</span></td>
+          <td class="infor-col"><span class="x-placeholder">X</span></td>
+          <td class="infor-col"><span class="x-placeholder">X</span></td>
+          <td class="obs-col">Sem observações</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A02</td>
+          <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+          <td class="compliance-col">CPF/CNPJ da Empresa que escritura o documento</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Tag Pai</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+          <td class="compliance-col rowspan-cell" rowspan="2">A02a</td>
+          <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cpf</span></td>
+          <td class="compliance-col rowspan-cell" rowspan="2">CPF da Empresa</td>
+          <td class="infor-col rowspan-cell" rowspan="2">btfit820</td>
+          <td class="infor-col">compnr</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col rowspan-cell" rowspan="2">X</td>
+          <td class="obs-col rowspan-cell" rowspan="2">O compnr/cpcd é uma numeração referente a compania cadastrada
+            dentro do Data Lake do cliente que possui sua origem da tabela BTFIT805 utilizada na BTFIT820. Essa
+            numeração é cadastrada no Compliance em seu respectivo CNPJ.</td>
+        </tr>
+        <tr>
+          <td class="infor-col">cpcd</td>
+          <td class="infor-col">18</td>
+          <td class="infor-col">btfit805</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+          <td class="compliance-col rowspan-cell" rowspan="2">A02b</td>
+          <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+          <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+          <td class="infor-col rowspan-cell" rowspan="2">btfit820</td>
+          <td class="infor-col">compnr</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col rowspan-cell" rowspan="2">X</td>
+          <td class="obs-col rowspan-cell" rowspan="2">O compnr/cpcd é uma numeração referente a compania cadastrada
+            dentro do Data Lake do cliente que possui sua origem da tabela BTFIT805 utilizada na BTFIT820. Essa
+            numeração é cadastrada no Compliance em seu respectivo CNPJ.</td>
+        </tr>
+        <tr>
+          <td class="infor-col">cpcd</td>
+          <td class="infor-col">18</td>
+          <td class="infor-col">btfit805</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A03</td>
+          <td class="compliance-col"><span class="campo-destaque">dmIndEmit</span></td>
+          <td class="compliance-col">Indicador do emitente</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">opfc</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">8</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">WHEN SUBSTRING(nf.opfc, 1, 1) = '3' THEN 0: Aqui, verifica se o primeiro caractere da
+            coluna nf.opfc é '3'. Se for, o resultado será 0. ELSE 1: Se a condição anterior não for atendida, o
+            resultado será 1.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A04</td>
+          <td class="compliance-col"><span class="campo-destaque">dmIndOper</span></td>
+          <td class="compliance-col">Indicador da operação</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">ioin</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+          <td class="compliance-col rowspan-cell" rowspan="2">A05</td>
+          <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">codPart</span></td>
+          <td class="compliance-col rowspan-cell" rowspan="2">Código do participante cliente/fornecedor</td>
+          <td class="infor-col rowspan-cell" rowspan="2">btfit808</td>
+          <td class="infor-col">bpid</td>
+          <td class="infor-col rowspan-cell" rowspan="2">C</td>
+          <td class="infor-col">18</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col rowspan-cell" rowspan="2">O campo COD_PART combina dados das tabelas ln_btfit808 e
+            ln_btfit809, juntamente com junções em ln_btfit810 e ln_btfit812.</td>
+        </tr>
+        <tr>
+          <td class="infor-col">fovn</td>
+          <td class="infor-col">19</td>
+          <td class="infor-col">X</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A06</td>
+          <td class="compliance-col"><span class="campo-destaque">CodigoModeloFiscal</span></td>
+          <td class="compliance-col">Código do modelo do documento fiscal</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">doty</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A07</td>
+          <td class="compliance-col"><span class="campo-destaque">serie</span></td>
+          <td class="compliance-col">Série do Documento Fiscal</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">seri</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">3</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A08</td>
+          <td class="compliance-col"><span class="campo-destaque">nroNf</span></td>
+          <td class="compliance-col">Numero do Documento Fiscal</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">docn</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">12</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A09</td>
+          <td class="compliance-col"><span class="campo-destaque">sitDocto</span></td>
+          <td class="compliance-col">Código de Situação do Documento Fiscal</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">stat</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A10</td>
+          <td class="compliance-col"><span class="campo-destaque">codNatOper</span></td>
+          <td class="compliance-col">Codigo da Natureza de Operação</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">opor</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">20</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">SUBSTRING(nf.opor, 1, 10) AS codNatOper Extrai os primeiros 10 caracteres da coluna opor
+            da tabela BTFIT820.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A11</td>
+          <td class="compliance-col"><span class="campo-destaque">descrNatOper</span></td>
+          <td class="compliance-col">Descrição da Natureza de Operação</td>
+          <td class="infor-col">ln_btftb010</td>
+          <td class="infor-col">desc</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">20</td>
+          <td class="infor-col">btfit820</td>
+          <td class="obs-col">A subconsulta é feita em um LEFT OUTER JOIN, onde nf.opor = no.opor é a condição de
+            junção. Isso significa que a consulta está tentando combinar registros da tabela nf (BTFIT820) com registros
+            da tabela ln_btftb010 com base na coluna opor.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A12</td>
+          <td class="compliance-col"><span class="campo-destaque">dmIndPag</span></td>
+          <td class="compliance-col">Indicador da forma de pagamento</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">payt</td>
+          <td class="infor-col">byte</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A13</td>
+          <td class="compliance-col"><span class="campo-destaque">dtSaiEnt</span></td>
+          <td class="compliance-col">Data de Saida/Entrada</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">date</td>
+          <td class="infor-col">Date</td>
+          <td class="infor-col">4</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A14</td>
+          <td class="compliance-col"><span class="campo-destaque">horaSaiEnt</span></td>
+          <td class="compliance-col">Horario de Saida/Entrada</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Campo destinado apenas para o layaout do Compliance.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A15</td>
+          <td class="compliance-col"><span class="campo-destaque">dtEmiss</span></td>
+          <td class="compliance-col">Data de emissao</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">idat</td>
+          <td class="infor-col">Date</td>
+          <td class="infor-col">4</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Sem regras.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A16</td>
+          <td class="compliance-col"><span class="campo-destaque">ufEmbarq</span></td>
+          <td class="compliance-col">Sigla da UF onde
+            ocorrerá o Embarque dos produtos</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A17</td>
+          <td class="compliance-col"><span class="campo-destaque">localEmbarq</span></td>
+          <td class="compliance-col">Local onde
+            ocorrera o Embarque dos produtos</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A18</td>
+          <td class="compliance-col"><span class="campo-destaque">localDespacho</span></td>
+          <td class="compliance-col">Descrição do
+            local de despacho</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A19</td>
+          <td class="compliance-col"><span class="campo-destaque">nfEmpenho</span></td>
+          <td class="compliance-col">Informar a
+            identificaçao da Nota de Empenho</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A20</td>
+          <td class="compliance-col"><span class="campo-destaque">pedidoCompra</span></td>
+          <td class="compliance-col">Pedido de compra</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A21</td>
+          <td class="compliance-col"><span class="campo-destaque">contratoCompra</span></td>
+          <td class="compliance-col">Contrato de
+            compra</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A22</td>
+          <td class="compliance-col"><span class="campo-destaque">dmStProc</span></td>
+          <td class="compliance-col">Situaçao do
+            processo da Nota Fiscal</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Valor
+            0 fixo na query de extração do cabeçalho. Este valor é um literal, ou seja,
+            um número fixo que está sendo atribuído ao campo dmStProc.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A23</td>
+          <td class="compliance-col"><span class="campo-destaque">dmFinNFe</span></td>
+          <td class="compliance-col">Finalidade de emissao da NF-e</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">infa</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Define o valor da coluna dmFinNFe com base nas
+            seguintes condições: Se infa for nulo ou tiver o valor 'N', é tratado como
+            'N' usando isnull. Se for 'S', a coluna dmFinNFe recebe o valor '3'. Caso
+            contrário, o valor de nf.cple será usado como resultado.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A24</td>
+          <td class="compliance-col"><span class="campo-destaque">cidadeIbgeEmit</span></td>
+          <td class="compliance-col">Código do Município de
+            Ocorrência do Fato Gerador</td>
+          <td class="infor-col">btfit812</td>
+          <td class="infor-col">ibge</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">ln_btfit808,
+            ln_btfit809, ln_btfit812 e ln_btfit810</td>
+          <td class="obs-col">Define a
+            cidade IBGE do emitente (código cidadeIbgeEmit): Se o primeiro caractere de
+            opfc for '3', define o valor como 0. Se o valor de ibge for vazio
+            (length(pe.ibge) = 0), extrai o código da cidade a partir da posição 8 de
+            ctyc, cortando 7 caracteres. Caso contrário, utiliza o valor de ibge. Este
+            campo IBGE tem sua origem na tabela 812 de cadastro de cidades na Infor, e as
+            seguintes tabelas usam a 812 de referencia: 808, 809 e 810.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A25</td>
+          <td class="compliance-col"><span class="campo-destaque">ufIbgeEmit</span></td>
+          <td class="compliance-col">Código da UF do emitente do Documento Fiscal</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">cnfe</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">50</td>
+          <td class="infor-col">ln_btfit808, ln_btfit809, ln_btfit812 e
+            ln_btfit810</td>
+          <td class="obs-col">Define o código da UF do IBGE do emitente
+            (ufIbgeEmit): Se o primeiro caractere de opfc for '3', ele extrai os dois
+            primeiros caracteres de cnfe como o código da UF. Caso contrário, ele
+            verifica se ibge está vazio. Se estiver, extrai o código da cidade (cortando
+            7 caracteres) de ctyc, e do contrário, usa ibge. O resultado final são os
+            dois primeiros caracteres dessa verificação.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A26</td>
+          <td class="compliance-col"><span class="campo-destaque">nroChaveCteRef</span></td>
+          <td class="compliance-col">Acesso de acesso do Cte emitido
+            anteriormente, vinculado a Nfe</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este campo não
+            é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A27</td>
+          <td class="compliance-col"><span class="campo-destaque">nroChaveNfe</span></td>
+          <td class="compliance-col">Numero da Chave
+            de acesso da Nfe</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">cnfe</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">50</td>
+          <td class="infor-col">btfit820</td>
+          <td class="obs-col">Seleciona
+            o valor de cnfe como o número da chave da NFe (nroChaveNfe).</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A28</td>
+          <td class="compliance-col"><span class="campo-destaque">dmldDest</span></td>
+          <td class="compliance-col">Identificador de
+            local de destino da operação</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A29</td>
+          <td class="compliance-col"><span class="campo-destaque">dmIndFinal</span></td>
+          <td class="compliance-col">Indica operação
+            com Consumidor final</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A30</td>
+          <td class="compliance-col"><span class="campo-destaque">dmIndPres</span></td>
+          <td class="compliance-col">Indicador de
+            presenca do comprador no estabelecimento comercial no momento da operaçao</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A31</td>
+          <td class="compliance-col"><span class="campo-destaque">dmLegado</span></td>
+          <td class="compliance-col">Nfe de Legado</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">opfc</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">8</td>
+          <td class="infor-col">btfit820</td>
+          <td class="obs-col">Define
+            a coluna dmLegado com base no primeiro caractere de opfc. Se o primeiro
+            caractere for '3', a coluna dmLegado será 1. Caso contrário, será 0.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A32</td>
+          <td class="compliance-col"><span class="campo-destaque">dmIndAtivPart</span></td>
+          <td class="compliance-col">Dominio ind.
+            Atividade de participante</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A33</td>
+          <td class="compliance-col"><span class="campo-destaque">dmMotDeslcmsPart</span></td>
+          <td class="compliance-col">Dominio motivo
+            desoneraçao Icms Participante</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A34</td>
+          <td class="compliance-col"><span class="campo-destaque">dmCalclcmsStPart</span></td>
+          <td class="compliance-col">Dominio de
+            calculo Icms St Part.</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A35</td>
+          <td class="compliance-col"><span class="campo-destaque">urlChave</span></td>
+          <td class="compliance-col">Texto com a URL
+            de consulta por chave de acesso a ser impressa no DANFE NFC-e.</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A36</td>
+          <td class="compliance-col"><span class="campo-destaque">modeloDanfe</span></td>
+          <td class="compliance-col">código
+            disponível de DANFE para impressao</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este
+            campo não é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A37</td>
+          <td class="compliance-col"><span class="campo-destaque">nfAutXml</span></td>
+          <td class="compliance-col">Autoriza Acesso ao XML</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Tag Pai</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A38</td>
+          <td class="compliance-col"><span class="campo-destaque">notaFiscalFisco</span></td>
+          <td class="compliance-col">Grupo de Identificação do
+            Documento de arrecadação Referenciado</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Este campo não
+            é utilizado pela query de extração INFOR.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A39</td>
+          <td class="compliance-col"><span class="campo-destaque">uf</span></td>
+          <td class="compliance-col">Sigla da UF</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A40</td>
+          <td class="compliance-col"><span class="campo-destaque">repartEmit</span></td>
+          <td class="compliance-col">Reparticao
+            Fiscal emitente</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A41</td>
+          <td class="compliance-col"><span class="campo-destaque">cnpj</span></td>
+          <td class="compliance-col">CNPJ do orgao
+            emitente</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A42</td>
+          <td class="compliance-col"><span class="campo-destaque">matrAgente</span></td>
+          <td class="compliance-col">Matricula do
+            agente</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A43</td>
+          <td class="compliance-col"><span class="campo-destaque">dmCodModDa</span></td>
+          <td class="compliance-col">Código do modelo
+            do docto de arrecadaçao</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A44</td>
+          <td class="compliance-col"><span class="campo-destaque">orgaoEmit</span></td>
+          <td class="compliance-col">Órgão emitente</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">A45</td>
+          <td class="compliance-col"><span class="campo-destaque">nomeAgente</span></td>
+          <td class="compliance-col">Nome do agente</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A46</td>
+          <td class="compliance-col"><span class="campo-destaque">dtEmiss</span></td>
+          <td class="compliance-col">Data de emissao
+            do Documento de Arrecadação</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A47</td>
+          <td class="compliance-col"><span class="campo-destaque">nroDar</span></td>
+          <td class="compliance-col">Numero do
+            Documento de Arrecadação de Receita</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A48</td>
+          <td class="compliance-col"><span class="campo-destaque">fone</span></td>
+          <td class="compliance-col">Telefone</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A49</td>
+          <td class="compliance-col"><span class="campo-destaque">dtVencto</span></td>
+          <td class="compliance-col">Data de
+            vencimento do documento de arrecadação</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A50</td>
+          <td class="compliance-col"><span class="campo-destaque">codAutBanc</span></td>
+          <td class="compliance-col">Código completo
+            da autenticação bancária</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A51</td>
+          <td class="compliance-col"><span class="campo-destaque">vlDar</span></td>
+          <td class="compliance-col">Valor Total
+            constante no Documento de arrecadação de Receita</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A52</td>
+          <td class="compliance-col"><span class="campo-destaque">dtPagto</span></td>
+          <td class="compliance-col">Data de
+            pagamento do Documento de Arrecadação</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A53</td>
+          <td class="compliance-col"><span class="campo-destaque">dmIndIntermed</span></td>
+          <td class="compliance-col">Indicador de
+            intermediador/ marketplace.</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A54</td>
+          <td class="compliance-col"><span class="campo-destaque">codPartIntermed</span></td>
+          <td class="compliance-col">Informar pessoa
+            do Intermediador da Transação (agenciador, plataforma de delivery,
+            marketplace e similar) de serviços e de negócios.</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A55</td>
+          <td class="compliance-col"><span class="campo-destaque">dmUtilCalcFisca
+              l</span></td>
+          <td class="compliance-col">Indicador de
+            calculadora fiscal para emissão</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Caso
+            informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">A56</td>
+          <td class="compliance-col"><span class="campo-destaque">cpfCnpj_scp</span></td>
+          <td class="compliance-col">CPF/CNPJ da Empresa Sociedade em
+            Conta de Participações - SCP</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Tag Pai</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header">
+      Dados Complementares de Nota Fiscal
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="compliance-col">Obrig.</th>
+          <th class="compliance-col">ID</th>
+          <th class="compliance-col">Campo CSF</th>
+          <th class="compliance-col">Descrição</th>
+          <th class="infor-col">Tabela<br>INFOR</th>
+          <th class="infor-col">Campo<br>INFOR</th>
+          <th class="infor-col">Datatype</th>
+          <th class="infor-col">Tamanho</th>
+          <th class="infor-col">Tabela<br>Referência</th>
+          <th class="infor-col">Observações/Regras</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="obrig-sim">&nbsp;</td>
+          <td class="compliance-col">B01</td>
+          <td class="compliance-col"><span class="campo-destaque">complNf</span></td>
+          <td class="compliance-col">Grupo de informação Complementar da Nota Fiscal</td>
+          <td class="infor-col">Início de XML</td>
+          <td class="infor-col">Inicio de XML</td>
+          <td class="infor-col"><span class="x-placeholder"></span></td>
+          <td class="infor-col"><span class="x-placeholder"></span></td>
+          <td class="infor-col"><span class="x-placeholder"></span></td>
+          <td class="obs-col"></td>
+        </tr>
+
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B02</td>
+          <td class="compliance-col"><span class="campo-destaque">idDest</span></td>
+          <td class="compliance-col">Identificador de destino da operação</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">idor</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">0 – Operação interna<br>1 – Operação interestadual<br>2 – Operação com exterior</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B03</td>
+          <td class="compliance-col"><span class="campo-destaque">cMunFG</span></td>
+          <td class="compliance-col">Código do município de ocorrência do fato gerador</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">cmfg</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">7</td>
+          <td class="infor-col">btfit004</td>
+          <td class="obs-col">Código IBGE do município referente ao local do fato gerador da operação.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B04</td>
+          <td class="compliance-col"><span class="campo-destaque">tpNF</span></td>
+          <td class="compliance-col">Tipo de operação</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">tpon</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">0 – Entrada<br>1 – Saída</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B05</td>
+          <td class="compliance-col"><span class="campo-destaque">idDestFinal</span></td>
+          <td class="compliance-col">Indicador de operação com consumidor final</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">cfna</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">0 – Não<br>1 – Consumidor final</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">B06</td>
+          <td class="compliance-col"><span class="campo-destaque">idPres</span></td>
+          <td class="compliance-col">Indicador de presença do comprador no estabelecimento</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">idpr</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">0 – Não se aplica<br>1 – Presencial<br>2 – Internet<br>3 – Teleatendimento</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">B07</td>
+          <td class="compliance-col"><span class="campo-destaque">tpEmis</span></td>
+          <td class="compliance-col">Tipo de emissão do documento fiscal</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">emis</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">1 – Normal<br>2 – Contingência FS-IA<br>3 – Contingência SCAN</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B08</td>
+          <td class="compliance-col"><span class="campo-destaque">finNFe</span></td>
+          <td class="compliance-col">Finalidade de emissão da NF-e</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">fnnf</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">1 – Normal<br>2 – Complementar<br>3 – Ajuste<br>4 – Devolução</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">B09</td>
+          <td class="compliance-col"><span class="campo-destaque">indFinal</span></td>
+          <td class="compliance-col">Indicador de operação com consumidor final</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">infi</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">0 – Não<br>1 – Consumidor final</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B10</td>
+          <td class="compliance-col"><span class="campo-destaque">procEmi</span></td>
+          <td class="compliance-col">Processo de emissão da NF-e</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">prec</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">0 – Aplicativo do contribuinte<br>1 – Avulsa Fisco<br>2 – Avulsa Contribuinte<br>3 – NF-e via site do Fisco</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B11</td>
+          <td class="compliance-col"><span class="campo-destaque">verProc</span></td>
+          <td class="compliance-col">Versão do processo de emissão</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">vers</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">20</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Versão do processo de emissão (ex: 1.00, 3.10, 4.00).</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">B12</td>
+          <td class="compliance-col"><span class="campo-destaque">dhCont</span></td>
+          <td class="compliance-col">Data e hora de entrada em contingência</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">dtct</td>
+          <td class="infor-col">Date</td>
+          <td class="infor-col">8</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Campo opcional, preenchido apenas quando há contingência.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">B13</td>
+          <td class="compliance-col"><span class="campo-destaque">xJust</span></td>
+          <td class="compliance-col">Justificativa de entrada em contingência</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">just</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">256</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Texto livre, preenchido conforme justificativa técnica ou operacional.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B14</td>
+          <td class="compliance-col"><span class="campo-destaque">tpAmb</span></td>
+          <td class="compliance-col">Tipo de ambiente</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">tpan</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">1 – Produção<br>2 – Homologação</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">B15</td>
+          <td class="compliance-col"><span class="campo-destaque">finNFe</span></td>
+          <td class="compliance-col">Finalidade da emissão da NF-e</td>
+          <td class="infor-col">btfit820</td>
+          <td class="infor-col">fnnf</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">1 – Normal<br>2 – Complementar<br>3 – Ajuste<br>4 – Devolução</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header">
+      Dados de Informações de Serviços
+    </div>
+    <div class="subsection-header">
+      <span class="compliance">COMPLIANCE</span>
+      <span class="infor">INFOR</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th class="compliance-col">Obrig.</th>
+          <th class="compliance-col">ID</th>
+          <th class="compliance-col">Campo CSF</th>
+          <th class="compliance-col">Descrição</th>
+          <th class="infor-col">Tabela<br />INFOR</th>
+          <th class="infor-col">Campo<br />INFOR</th>
+          <th class="infor-col">Datatype</th>
+          <th class="infor-col">Tamanho</th>
+          <th class="infor-col">Tabela<br />Referência</th>
+          <th class="infor-col">Observações/Regras</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">C01</td>
+          <td class="compliance-col"><span class="campo-destaque">infServ</span></td>
+          <td class="compliance-col">Grupo de informações de serviços</td>
+          <td class="infor-col">btfit830</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Grupo inicial que reúne dados sobre os serviços prestados.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">C02</td>
+          <td class="compliance-col"><span class="campo-destaque">cServ</span></td>
+          <td class="compliance-col">Código do serviço prestado</td>
+          <td class="infor-col">btfit830</td>
+          <td class="infor-col">serv</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">10</td>
+          <td class="infor-col">btfit031</td>
+          <td class="obs-col">Corresponde ao código do serviço conforme tabela municipal.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">C03</td>
+          <td class="compliance-col"><span class="campo-destaque">xServ</span></td>
+          <td class="compliance-col">Descrição do serviço prestado</td>
+          <td class="infor-col">btfit830</td>
+          <td class="infor-col">desc</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">255</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Descrição textual do serviço conforme cadastro de serviços do cliente.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">C04</td>
+          <td class="compliance-col"><span class="campo-destaque">vServ</span></td>
+          <td class="compliance-col">Valor total do serviço</td>
+          <td class="infor-col">btfit830</td>
+          <td class="infor-col">tval</td>
+          <td class="infor-col">Decimal</td>
+          <td class="infor-col">15,2</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Valor total do serviço antes dos descontos e impostos.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-header">
+      Dados de Informações do Emitente
+    </div>
+    <div class="subsection-header">
+      <span class="compliance">COMPLIANCE</span>
+      <span class="infor">INFOR</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th class="compliance-col">Obrig.</th>
+          <th class="compliance-col">ID</th>
+          <th class="compliance-col">Campo CSF</th>
+          <th class="compliance-col">Descrição</th>
+          <th class="infor-col">Tabela<br />INFOR</th>
+          <th class="infor-col">Campo<br />INFOR</th>
+          <th class="infor-col">Datatype</th>
+          <th class="infor-col">Tamanho</th>
+          <th class="infor-col">Tabela<br />Referência</th>
+          <th class="infor-col">Observações/Regras</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D01</td>
+          <td class="compliance-col"><span class="campo-destaque">emit</span></td>
+          <td class="compliance-col">Grupo de identificação do emitente da NF-e</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Início do grupo com dados do emitente da nota fiscal.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D02</td>
+          <td class="compliance-col"><span class="campo-destaque">CNPJ</span></td>
+          <td class="compliance-col">Número do CNPJ do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">cgc</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">14</td>
+          <td class="infor-col">btfit805</td>
+          <td class="obs-col">CNPJ vinculado ao cadastro da empresa emitente no Compliance.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D03</td>
+          <td class="compliance-col"><span class="campo-destaque">CPF</span></td>
+          <td class="compliance-col">Número do CPF do emitente (quando aplicável)</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">cpf</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">11</td>
+          <td class="infor-col">btfit805</td>
+          <td class="obs-col">Usado apenas para emitentes pessoa física.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D04</td>
+          <td class="compliance-col"><span class="campo-destaque">xNome</span></td>
+          <td class="compliance-col">Razão social ou nome do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">name</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">60</td>
+          <td class="infor-col">btfit805</td>
+          <td class="obs-col">Nome completo da empresa emitente conforme cadastro fiscal.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D05</td>
+          <td class="compliance-col"><span class="campo-destaque">xFant</span></td>
+          <td class="compliance-col">Nome fantasia do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">fant</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">60</td>
+          <td class="infor-col">btfit805</td>
+          <td class="obs-col">Nome comercial utilizado pela empresa.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D06</td>
+          <td class="compliance-col"><span class="campo-destaque">IE</span></td>
+          <td class="compliance-col">Inscrição estadual do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">ie</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">12</td>
+          <td class="infor-col">btfit805</td>
+          <td class="obs-col">Número da inscrição estadual cadastrada junto à SEFAZ.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D07</td>
+          <td class="compliance-col"><span class="campo-destaque">IEST</span></td>
+          <td class="compliance-col">Inscrição estadual do substituto tributário</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">iest</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">12</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Campo preenchido apenas quando houver substituição tributária.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D08</td>
+          <td class="compliance-col"><span class="campo-destaque">IM</span></td>
+          <td class="compliance-col">Inscrição municipal do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">imun</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">15</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Identificação da inscrição municipal do contribuinte.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D09</td>
+          <td class="compliance-col"><span class="campo-destaque">CNAE</span></td>
+          <td class="compliance-col">Código CNAE fiscal principal do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">cnae</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">7</td>
+          <td class="infor-col">btfit031</td>
+          <td class="obs-col">CNAE conforme cadastro fiscal do contribuinte.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D10</td>
+          <td class="compliance-col"><span class="campo-destaque">CRT</span></td>
+          <td class="compliance-col">Código de regime tributário</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">cret</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">1</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">1 – Simples Nacional<br>2 – Simples – Excesso Sublimite<br>3 – Regime Normal</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D11</td>
+          <td class="compliance-col"><span class="campo-destaque">enderEmit</span></td>
+          <td class="compliance-col">Grupo de endereço do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">Início de Grupo</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Dados de endereço do emitente (logradouro, município, UF, CEP).</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D12</td>
+          <td class="compliance-col"><span class="campo-destaque">xLgr</span></td>
+          <td class="compliance-col">Logradouro</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">addr</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">60</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Endereço completo do emitente.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D13</td>
+          <td class="compliance-col"><span class="campo-destaque">nro</span></td>
+          <td class="compliance-col">Número do endereço</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">nro</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">10</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Número do endereço físico cadastrado.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D14</td>
+          <td class="compliance-col"><span class="campo-destaque">xCpl</span></td>
+          <td class="compliance-col">Complemento do endereço</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">comp</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">60</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Complemento opcional do endereço.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D15</td>
+          <td class="compliance-col"><span class="campo-destaque">xBairro</span></td>
+          <td class="compliance-col">Bairro</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">bair</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">60</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Bairro do endereço do emitente.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D16</td>
+          <td class="compliance-col"><span class="campo-destaque">cMun</span></td>
+          <td class="compliance-col">Código do município</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">cmun</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">7</td>
+          <td class="infor-col">btfit004</td>
+          <td class="obs-col">Código IBGE do município do endereço.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D17</td>
+          <td class="compliance-col"><span class="campo-destaque">xMun</span></td>
+          <td class="compliance-col">Nome do município</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">muni</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">60</td>
+          <td class="infor-col">btfit004</td>
+          <td class="obs-col">Nome completo do município.</td>
+        </tr>
+        <tr>
+          <td class="obrig-sim">SIM</td>
+          <td class="compliance-col">D18</td>
+          <td class="compliance-col"><span class="campo-destaque">UF</span></td>
+          <td class="compliance-col">Sigla da UF</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">ufcd</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">2</td>
+          <td class="infor-col">btfit004</td>
+          <td class="obs-col">Sigla da unidade federativa (ex: SP, RJ, MG).</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D19</td>
+          <td class="compliance-col"><span class="campo-destaque">CEP</span></td>
+          <td class="compliance-col">Código de endereçamento postal</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">cep</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">8</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">CEP do endereço (somente números).</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D20</td>
+          <td class="compliance-col"><span class="campo-destaque">cPais</span></td>
+          <td class="compliance-col">Código do país</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">cpai</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">4</td>
+          <td class="infor-col">btfit004</td>
+          <td class="obs-col">Código padrão do país (ex: 1058 para Brasil).</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D21</td>
+          <td class="compliance-col"><span class="campo-destaque">xPais</span></td>
+          <td class="compliance-col">Nome do país</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">xpai</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">60</td>
+          <td class="infor-col">btfit004</td>
+          <td class="obs-col">Nome completo do país de origem.</td>
+        </tr>
+        <tr>
+          <td class="obrig-nao">NÃO</td>
+          <td class="compliance-col">D22</td>
+          <td class="compliance-col"><span class="campo-destaque">fone</span></td>
+          <td class="compliance-col">Telefone do emitente</td>
+          <td class="infor-col">btfit821</td>
+          <td class="infor-col">fone</td>
+          <td class="infor-col">C</td>
+          <td class="infor-col">14</td>
+          <td class="infor-col">X</td>
+          <td class="obs-col">Número de telefone completo com DDD.</td>
+        </tr>
+      </tbody>
+    </table>
+
+  <!-- ============================ -->
+<!-- GRUPO E - DADOS DO DESTINATÁRIO -->
+<!-- ============================ -->
 <div class="section-header">
-            Dados do Cabeçalho NFE
-        </div>
+  Dados do Destinatário
+</div>
 <div class="subsection-header">
-<span class="compliance">COMPLIANCE</span>
-<span class="infor">INFOR</span>
+  <span class="compliance">COMPLIANCE</span>
+  <span class="infor">INFOR</span>
 </div>
 <table>
-<thead>
-<tr>
-<th class="compliance-col">Obrig.</th>
-<th class="compliance-col">ID</th>
-<th class="compliance-col">Campo CSF</th>
-<th class="compliance-col">Descrição</th>
-<th class="infor-col">Tabela<br/>INFOR</th>
-<th class="infor-col">Campo<br/>INFOR</th>
-<th class="infor-col">Datatype</th>
-<th class="infor-col">Tamanho</th>
-<th class="infor-col">Tabela<br/>Referência</th>
-<th class="infor-col">Observações/Regras</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A01</td>
-<td class="compliance-col"><span class="campo-destaque">nfMercantis</span></td>
-<td class="compliance-col">Grupo de Notas Fiscais Mercantis</td>
-<td class="infor-col">Início de XML</td>
-<td class="infor-col">Início de XML</td>
-<td class="infor-col"><span class="x-placeholder">X</span></td>
-<td class="infor-col"><span class="x-placeholder">X</span></td>
-<td class="infor-col"><span class="x-placeholder">X</span></td>
-<td class="obs-col">Sem observações</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A02</td>
-<td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
-<td class="compliance-col">CPF/CNPJ da Empresa que escritura o documento</td>
-<td class="infor-col">Início de Grupo</td>
-<td class="infor-col">Início de Grupo</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Tag Pai</td>
-</tr>
-<tr>
-<td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
-<td class="compliance-col rowspan-cell" rowspan="2">A02a</td>
-<td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cpf</span></td>
-<td class="compliance-col rowspan-cell" rowspan="2">CPF da Empresa</td>
-<td class="infor-col rowspan-cell" rowspan="2">btfit820</td>
-<td class="infor-col">compnr</td>
-<td class="infor-col">C</td>
-<td class="infor-col">X</td>
-<td class="infor-col rowspan-cell" rowspan="2">X</td>
-<td class="obs-col rowspan-cell" rowspan="2">O compnr/cpcd é uma numeração referente a compania cadastrada dentro do Data Lake do cliente que possui sua origem da tabela BTFIT805 utilizada na BTFIT820. Essa numeração é cadastrada no Compliance em seu respectivo CNPJ.</td>
-</tr>
-<tr>
-<td class="infor-col">cpcd</td>
-<td class="infor-col">18</td>
-<td class="infor-col">btfit805</td>
-</tr>
-<tr>
-<td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
-<td class="compliance-col rowspan-cell" rowspan="2">A02b</td>
-<td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
-<td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
-<td class="infor-col rowspan-cell" rowspan="2">btfit820</td>
-<td class="infor-col">compnr</td>
-<td class="infor-col">C</td>
-<td class="infor-col">X</td>
-<td class="infor-col rowspan-cell" rowspan="2">X</td>
-<td class="obs-col rowspan-cell" rowspan="2">O compnr/cpcd é uma numeração referente a compania cadastrada dentro do Data Lake do cliente que possui sua origem da tabela BTFIT805 utilizada na BTFIT820. Essa numeração é cadastrada no Compliance em seu respectivo CNPJ.</td>
-</tr>
-<tr>
-<td class="infor-col">cpcd</td>
-<td class="infor-col">18</td>
-<td class="infor-col">btfit805</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A03</td>
-<td class="compliance-col"><span class="campo-destaque">dmIndEmit</span></td>
-<td class="compliance-col">Indicador do emitente</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">opfc</td>
-<td class="infor-col">C</td>
-<td class="infor-col">8</td>
-<td class="infor-col">X</td>
-<td class="obs-col">WHEN SUBSTRING(nf.opfc, 1, 1) = '3' THEN 0: Aqui, verifica se o primeiro caractere da coluna nf.opfc é '3'. Se for, o resultado será 0. ELSE 1: Se a condição anterior não for atendida, o resultado será 1.</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A04</td>
-<td class="compliance-col"><span class="campo-destaque">dmIndOper</span></td>
-<td class="compliance-col">Indicador da operação</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">ioin</td>
-<td class="infor-col">C</td>
-<td class="infor-col">1</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
-<td class="compliance-col rowspan-cell" rowspan="2">A05</td>
-<td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">codPart</span></td>
-<td class="compliance-col rowspan-cell" rowspan="2">Código do participante cliente/fornecedor</td>
-<td class="infor-col rowspan-cell" rowspan="2">btfit808</td>
-<td class="infor-col">bpid</td>
-<td class="infor-col rowspan-cell" rowspan="2">C</td>
-<td class="infor-col">18</td>
-<td class="infor-col">X</td>
-<td class="obs-col rowspan-cell" rowspan="2">O campo COD_PART combina dados das tabelas ln_btfit808 e ln_btfit809, juntamente com junções em ln_btfit810 e ln_btfit812.</td>
-</tr>
-<tr>
-<td class="infor-col">fovn</td>
-<td class="infor-col">19</td>
-<td class="infor-col">X</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A06</td>
-<td class="compliance-col"><span class="campo-destaque">CodigoModeloFiscal</span></td>
-<td class="compliance-col">Código do modelo do documento fiscal</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">doty</td>
-<td class="infor-col">C</td>
-<td class="infor-col">1</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A07</td>
-<td class="compliance-col"><span class="campo-destaque">serie</span></td>
-<td class="compliance-col">Série do Documento Fiscal</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">seri</td>
-<td class="infor-col">C</td>
-<td class="infor-col">3</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A08</td>
-<td class="compliance-col"><span class="campo-destaque">nroNf</span></td>
-<td class="compliance-col">Numero do Documento Fiscal</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">docn</td>
-<td class="infor-col">C</td>
-<td class="infor-col">12</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A09</td>
-<td class="compliance-col"><span class="campo-destaque">sitDocto</span></td>
-<td class="compliance-col">Código de Situação do Documento Fiscal</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">stat</td>
-<td class="infor-col">C</td>
-<td class="infor-col">1</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A10</td>
-<td class="compliance-col"><span class="campo-destaque">codNatOper</span></td>
-<td class="compliance-col">Codigo da Natureza de Operação</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">opor</td>
-<td class="infor-col">C</td>
-<td class="infor-col">20</td>
-<td class="infor-col">X</td>
-<td class="obs-col">SUBSTRING(nf.opor, 1, 10) AS codNatOper Extrai os primeiros 10 caracteres da coluna opor da tabela BTFIT820.</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A11</td>
-<td class="compliance-col"><span class="campo-destaque">descrNatOper</span></td>
-<td class="compliance-col">Descrição da Natureza de Operação</td>
-<td class="infor-col">ln_btftb010</td>
-<td class="infor-col">desc</td>
-<td class="infor-col">C</td>
-<td class="infor-col">20</td>
-<td class="infor-col">btfit820</td>
-<td class="obs-col">A subconsulta é feita em um LEFT OUTER JOIN, onde nf.opor = no.opor é a condição de junção. Isso significa que a consulta está tentando combinar registros da tabela nf (BTFIT820) com registros da tabela ln_btftb010 com base na coluna opor.</td>
-</tr>
-<tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A12</td>
-<td class="compliance-col"><span class="campo-destaque">dmIndPag</span></td>
-<td class="compliance-col">Indicador da forma de pagamento</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">payt</td>
-<td class="infor-col">byte</td>
-<td class="infor-col">1</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A13</td>
-<td class="compliance-col"><span class="campo-destaque">dtSaiEnt</span></td>
-<td class="compliance-col">Data de Saida/Entrada</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">date</td>
-<td class="infor-col">Date</td>
-<td class="infor-col">4</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A14</td>
-<td class="compliance-col"><span class="campo-destaque">horaSaiEnt</span></td>
-<td class="compliance-col">Horario de Saida/Entrada</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Campo destinado apenas para o layaout do Compliance.</td>
-</tr>
-<tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A15</td>
-<td class="compliance-col"><span class="campo-destaque">dtEmiss</span></td>
-<td class="compliance-col">Data de emissao</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">idat</td>
-<td class="infor-col">Date</td>
-<td class="infor-col">4</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Sem regras.</td>
-</tr>
-<tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A16</td>
-<td class="compliance-col"><span class="campo-destaque">ufEmbarq</span></td>
-<td class="compliance-col">Sigla da UF onde
-  ocorrerá o Embarque dos produtos</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A17</td>
-<td class="compliance-col"><span class="campo-destaque">localEmbarq</span></td>
-<td class="compliance-col">Local onde
-  ocorrera o Embarque dos produtos</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A18</td>
-<td class="compliance-col"><span class="campo-destaque">localDespacho</span></td>
-<td class="compliance-col">Descrição do
-  local de despacho</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A19</td>
-<td class="compliance-col"><span class="campo-destaque">nfEmpenho</span></td>
-<td class="compliance-col">Informar a
-  identificaçao da Nota de Empenho</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A20</td>
-<td class="compliance-col"><span class="campo-destaque">pedidoCompra</span></td>
-<td class="compliance-col">Pedido de compra</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A21</td>
-<td class="compliance-col"><span class="campo-destaque">contratoCompra</span></td>
-<td class="compliance-col">Contrato de
-  compra</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A22</td>
-<td class="compliance-col"><span class="campo-destaque">dmStProc</span></td>
-<td class="compliance-col">Situaçao do
-  processo da Nota Fiscal</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Valor
-  0 fixo na query de extração do cabeçalho. Este valor é um literal, ou seja,
-  um número fixo que está sendo atribuído ao campo dmStProc.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A23</td>
-<td class="compliance-col"><span class="campo-destaque">dmFinNFe</span></td>
-<td class="compliance-col">Finalidade de emissao da NF-e</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">infa</td>
-<td class="infor-col">C</td>
-<td class="infor-col">1</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Define o valor da coluna dmFinNFe com base nas
-  seguintes condições: Se infa for nulo ou tiver o valor 'N', é tratado como
-  'N' usando isnull. Se for 'S', a coluna dmFinNFe recebe o valor '3'. Caso
-  contrário, o valor de nf.cple será usado como resultado.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A24</td>
-<td class="compliance-col"><span class="campo-destaque">cidadeIbgeEmit</span></td>
-<td class="compliance-col">Código do Município de
-  Ocorrência do Fato Gerador</td>
-<td class="infor-col">btfit812</td>
-<td class="infor-col">ibge</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">ln_btfit808,
-  ln_btfit809, ln_btfit812 e ln_btfit810</td>
-<td class="obs-col">Define a
-  cidade IBGE do emitente (código cidadeIbgeEmit): Se o primeiro caractere de
-  opfc for '3', define o valor como 0. Se o valor de ibge for vazio
-  (length(pe.ibge) = 0), extrai o código da cidade a partir da posição 8 de
-  ctyc, cortando 7 caracteres. Caso contrário, utiliza o valor de ibge. Este
-  campo IBGE tem sua origem na tabela 812 de cadastro de cidades na Infor, e as
-  seguintes tabelas usam a 812 de referencia: 808, 809 e 810.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A25</td>
-<td class="compliance-col"><span class="campo-destaque">ufIbgeEmit</span></td>
-<td class="compliance-col">Código da UF do emitente do Documento Fiscal</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">cnfe</td>
-<td class="infor-col">C</td>
-<td class="infor-col">50</td>
-<td class="infor-col">ln_btfit808, ln_btfit809, ln_btfit812 e
-  ln_btfit810</td>
-<td class="obs-col">Define o código da UF do IBGE do emitente
-  (ufIbgeEmit): Se o primeiro caractere de opfc for '3', ele extrai os dois
-  primeiros caracteres de cnfe como o código da UF. Caso contrário, ele
-  verifica se ibge está vazio. Se estiver, extrai o código da cidade (cortando
-  7 caracteres) de ctyc, e do contrário, usa ibge. O resultado final são os
-  dois primeiros caracteres dessa verificação.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A26</td>
-<td class="compliance-col"><span class="campo-destaque">nroChaveCteRef</span></td>
-<td class="compliance-col">Acesso de acesso do Cte emitido
-  anteriormente, vinculado a Nfe</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este campo não
-  é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A27</td>
-<td class="compliance-col"><span class="campo-destaque">nroChaveNfe</span></td>
-<td class="compliance-col">Numero da Chave
-  de acesso da Nfe</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">cnfe</td>
-<td class="infor-col">C</td>
-<td class="infor-col">50</td>
-<td class="infor-col">btfit820</td>
-<td class="obs-col">Seleciona
-  o valor de cnfe como o número da chave da NFe (nroChaveNfe).</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A28</td>
-<td class="compliance-col"><span class="campo-destaque">dmldDest</span></td>
-<td class="compliance-col">Identificador de
-  local de destino da operação</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A29</td>
-<td class="compliance-col"><span class="campo-destaque">dmIndFinal</span></td>
-<td class="compliance-col">Indica operação
-  com Consumidor final</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A30</td>
-<td class="compliance-col"><span class="campo-destaque">dmIndPres</span></td>
-<td class="compliance-col">Indicador de
-  presenca do comprador no estabelecimento comercial no momento da operaçao</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A31</td>
-<td class="compliance-col"><span class="campo-destaque">dmLegado</span></td>
-<td class="compliance-col">Nfe de Legado</td>
-<td class="infor-col">btfit820</td>
-<td class="infor-col">opfc</td>
-<td class="infor-col">C</td>
-<td class="infor-col">8</td>
-<td class="infor-col">btfit820</td>
-<td class="obs-col">Define
-  a coluna dmLegado com base no primeiro caractere de opfc. Se o primeiro
-  caractere for '3', a coluna dmLegado será 1. Caso contrário, será 0.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A32</td>
-<td class="compliance-col"><span class="campo-destaque">dmIndAtivPart</span></td>
-<td class="compliance-col">Dominio ind.
-  Atividade de participante</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A33</td>
-<td class="compliance-col"><span class="campo-destaque">dmMotDeslcmsPart</span></td>
-<td class="compliance-col">Dominio motivo
-  desoneraçao Icms Participante</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A34</td>
-<td class="compliance-col"><span class="campo-destaque">dmCalclcmsStPart</span></td>
-<td class="compliance-col">Dominio de
-  calculo Icms St Part.</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A35</td>
-<td class="compliance-col"><span class="campo-destaque">urlChave</span></td>
-<td class="compliance-col">Texto com a URL
-  de consulta por chave de acesso a ser impressa no DANFE NFC-e.</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A36</td>
-<td class="compliance-col"><span class="campo-destaque">modeloDanfe</span></td>
-<td class="compliance-col">código
-  disponível de DANFE para impressao</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este
-  campo não é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A37</td>
-<td class="compliance-col"><span class="campo-destaque">nfAutXml</span></td>
-<td class="compliance-col">Autoriza Acesso ao XML</td>
-<td class="infor-col">Início de Grupo</td>
-<td class="infor-col">Início de Grupo</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Tag Pai</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A38</td>
-<td class="compliance-col"><span class="campo-destaque">notaFiscalFisco</span></td>
-<td class="compliance-col">Grupo de Identificação do
-  Documento de arrecadação Referenciado</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Este campo não
-  é utilizado pela query de extração INFOR.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A39</td>
-<td class="compliance-col"><span class="campo-destaque">uf</span></td>
-<td class="compliance-col">Sigla da UF</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A40</td>
-<td class="compliance-col"><span class="campo-destaque">repartEmit</span></td>
-<td class="compliance-col">Reparticao
-  Fiscal emitente</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A41</td>
-<td class="compliance-col"><span class="campo-destaque">cnpj</span></td>
-<td class="compliance-col">CNPJ do orgao
-  emitente</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A42</td>
-<td class="compliance-col"><span class="campo-destaque">matrAgente</span></td>
-<td class="compliance-col">Matricula do
-  agente</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A43</td>
-<td class="compliance-col"><span class="campo-destaque">dmCodModDa</span></td>
-<td class="compliance-col">Código do modelo
-  do docto de arrecadaçao</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A44</td>
-<td class="compliance-col"><span class="campo-destaque">orgaoEmit</span></td>
-<td class="compliance-col">Órgão emitente</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-sim">SIM</td>
-<td class="compliance-col">A45</td>
-<td class="compliance-col"><span class="campo-destaque">nomeAgente</span></td>
-<td class="compliance-col">Nome do agente</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A46</td>
-<td class="compliance-col"><span class="campo-destaque">dtEmiss</span></td>
-<td class="compliance-col">Data de emissao
-  do Documento de Arrecadação</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A47</td>
-<td class="compliance-col"><span class="campo-destaque">nroDar</span></td>
-<td class="compliance-col">Numero do
-  Documento de Arrecadação de Receita</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A48</td>
-<td class="compliance-col"><span class="campo-destaque">fone</span></td>
-<td class="compliance-col">Telefone</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A49</td>
-<td class="compliance-col"><span class="campo-destaque">dtVencto</span></td>
-<td class="compliance-col">Data de
-  vencimento do documento de arrecadação</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A50</td>
-<td class="compliance-col"><span class="campo-destaque">codAutBanc</span></td>
-<td class="compliance-col">Código completo
-  da autenticação bancária</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A51</td>
-<td class="compliance-col"><span class="campo-destaque">vlDar</span></td>
-<td class="compliance-col">Valor Total
-  constante no Documento de arrecadação de Receita</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A52</td>
-<td class="compliance-col"><span class="campo-destaque">dtPagto</span></td>
-<td class="compliance-col">Data de
-  pagamento do Documento de Arrecadação</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A53</td>
-<td class="compliance-col"><span class="campo-destaque">dmIndIntermed</span></td>
-<td class="compliance-col">Indicador de
-  intermediador/ marketplace.</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A54</td>
-<td class="compliance-col"><span class="campo-destaque">codPartIntermed</span></td>
-<td class="compliance-col">Informar pessoa
-  do Intermediador da Transação (agenciador, plataforma de delivery,
-  marketplace e similar) de serviços e de negócios.</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A55</td>
-<td class="compliance-col"><span class="campo-destaque">dmUtilCalcFisca
-  l</span></td>
-<td class="compliance-col">Indicador de
-  calculadora fiscal para emissão</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Caso
-  informado a TAG pai A38 do layout Compliance, será obrigatorio.</td>
-</tr><tr>
-<td class="obrig-nao">NÃO</td>
-<td class="compliance-col">A56</td>
-<td class="compliance-col"><span class="campo-destaque">cpfCnpj_scp</span></td>
-<td class="compliance-col">CPF/CNPJ da Empresa Sociedade em
-  Conta de Participações - SCP</td>
-<td class="infor-col">Início de Grupo</td>
-<td class="infor-col">Início de Grupo</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="infor-col">X</td>
-<td class="obs-col">Tag Pai</td>
-</tr></tbody>
+  <thead>
+    <tr>
+      <th class="compliance-col">Obrig.</th>
+      <th class="compliance-col">ID</th>
+      <th class="compliance-col">Campo CSF</th>
+      <th class="compliance-col">Descrição</th>
+      <th class="infor-col">Tabela<br />INFOR</th>
+      <th class="infor-col">Campo<br />INFOR</th>
+      <th class="infor-col">Datatype</th>
+      <th class="infor-col">Tamanho</th>
+      <th class="infor-col">Tabela<br />Referência</th>
+      <th class="infor-col">Observações/Regras</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E01</td>
+      <td class="compliance-col"><span class="campo-destaque">dest</span></td>
+      <td class="compliance-col">Grupo de identificação do destinatário</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">Início de Grupo</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Início do grupo com os dados do destinatário da NF-e.</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">E02</td>
+      <td class="compliance-col"><span class="campo-destaque">CNPJ</span></td>
+      <td class="compliance-col">Número do CNPJ do destinatário</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">cgc</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">14</td>
+      <td class="infor-col">btfit805</td>
+      <td class="obs-col">CNPJ conforme cadastro de cliente no sistema.</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">E03</td>
+      <td class="compliance-col"><span class="campo-destaque">CPF</span></td>
+      <td class="compliance-col">Número do CPF do destinatário</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">cpf</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">11</td>
+      <td class="infor-col">btfit805</td>
+      <td class="obs-col">Utilizado somente em operações com pessoa física.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E04</td>
+      <td class="compliance-col"><span class="campo-destaque">xNome</span></td>
+      <td class="compliance-col">Nome/Razão social do destinatário</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">name</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">60</td>
+      <td class="infor-col">btfit805</td>
+      <td class="obs-col">Nome completo conforme cadastro fiscal.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E05</td>
+      <td class="compliance-col"><span class="campo-destaque">enderDest</span></td>
+      <td class="compliance-col">Grupo de endereço do destinatário</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">Início de Grupo</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Início do grupo com o endereço do destinatário.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E06</td>
+      <td class="compliance-col"><span class="campo-destaque">xLgr</span></td>
+      <td class="compliance-col">Logradouro</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">addr</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">60</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Rua, avenida ou estrada conforme endereço de entrega.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E07</td>
+      <td class="compliance-col"><span class="campo-destaque">nro</span></td>
+      <td class="compliance-col">Número do endereço</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">nro</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">10</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Número do endereço do destinatário.</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">E08</td>
+      <td class="compliance-col"><span class="campo-destaque">xCpl</span></td>
+      <td class="compliance-col">Complemento</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">comp</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">60</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Campo opcional para complemento de endereço.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E09</td>
+      <td class="compliance-col"><span class="campo-destaque">xBairro</span></td>
+      <td class="compliance-col">Bairro</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">bair</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">60</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Bairro ou distrito do destinatário.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E10</td>
+      <td class="compliance-col"><span class="campo-destaque">cMun</span></td>
+      <td class="compliance-col">Código do município</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">cmun</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">7</td>
+      <td class="infor-col">btfit004</td>
+      <td class="obs-col">Código IBGE do município do destinatário.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E11</td>
+      <td class="compliance-col"><span class="campo-destaque">xMun</span></td>
+      <td class="compliance-col">Nome do município</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">muni</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">60</td>
+      <td class="infor-col">btfit004</td>
+      <td class="obs-col">Nome completo do município do destinatário.</td>
+    </tr>
+    <tr>
+      <td class="obrig-sim">SIM</td>
+      <td class="compliance-col">E12</td>
+      <td class="compliance-col"><span class="campo-destaque">UF</span></td>
+      <td class="compliance-col">Sigla da UF</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">ufcd</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">2</td>
+      <td class="infor-col">btfit004</td>
+      <td class="obs-col">Sigla da unidade federativa (ex: SP, MG, RJ).</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">E13</td>
+      <td class="compliance-col"><span class="campo-destaque">CEP</span></td>
+      <td class="compliance-col">Código de endereçamento postal</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">cep</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">8</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">CEP do endereço do destinatário (somente números).</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">E14</td>
+      <td class="compliance-col"><span class="campo-destaque">cPais</span></td>
+      <td class="compliance-col">Código do país</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">cpai</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">4</td>
+      <td class="infor-col">btfit004</td>
+      <td class="obs-col">Código padrão do país (ex: 1058 para Brasil).</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">E15</td>
+      <td class="compliance-col"><span class="campo-destaque">xPais</span></td>
+      <td class="compliance-col">Nome do país</td>
+      <td class="infor-col">btfit822</td>
+      <td class="infor-col">xpai</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">60</td>
+      <td class="infor-col">btfit004</td>
+      <td class="obs-col">Nome completo do país.</td>
+    </tr>
+  </tbody>
 </table>
-<p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
-            📊<em> Gerado com base na Planilha <b>Cabeçalho</b></em><br/>
-<small style="display: block; margin-top: 5px; opacity: 0.7;">
-                📁 Constante do arquivo <b>DE x PARA CSF - INFOR - NFe Entrada.xlsx</b>
-</small>
-</p>
-<div class="footer">
-            © 2025 Compliance Soluções. Todos os direitos reservados.
-        </div>
+
+<!-- ============================ -->
+<!-- GRUPO F - LOCAL DE RETIRADA -->
+<!-- ============================ -->
+<div class="section-header">
+  Identificação do Local de Retirada
 </div>
+<div class="subsection-header">
+  <span class="compliance">COMPLIANCE</span>
+  <span class="infor">INFOR</span>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="compliance-col">Obrig.</th>
+      <th class="compliance-col">ID</th>
+      <th class="compliance-col">Campo CSF</th>
+      <th class="compliance-col">Descrição</th>
+      <th class="infor-col">Tabela<br />INFOR</th>
+      <th class="infor-col">Campo<br />INFOR</th>
+      <th class="infor-col">Datatype</th>
+      <th class="infor-col">Tamanho</th>
+      <th class="infor-col">Tabela<br />Referência</th>
+      <th class="infor-col">Observações/Regras</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">F01</td>
+      <td class="compliance-col"><span class="campo-destaque">retirada</span></td>
+      <td class="compliance-col">Grupo de identificação do local de retirada</td>
+      <td class="infor-col">btfit823</td>
+      <td class="infor-col">Início de Grupo</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Preenchido quando o local de retirada for diferente do emitente.</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">F02</td>
+      <td class="compliance-col"><span class="campo-destaque">emailDestinatario</span></td>
+      <td class="compliance-col">Campo destinado ao preenchimento do e-mail do destinatário</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">F03</td>
+    <td class="compliance-col"><span class="campo-destaque">email</span></td>
+    <td class="compliance-col">E-mail</td>
+    <td class="infor-col">btfit809</td>
+    <td class="infor-col">mail</td>
+    <td class="infor-col">C</td>
+    <td class="infor-col">50</td>
+    <td class="infor-col">btfit808</td>
+    <td class="obs-col">Extrai os primeiros 60 caracteres do campo mail (email), removendo espaços em branco no início e no final. O e-mail extraído é convertido para letras minúsculas através da função lower, e o resultado será armazenado no campo terceiroEmail.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">F04</td>
+    <td class="compliance-col"><span class="campo-destaque">dmTipoAnexo</span></td>
+    <td class="compliance-col">Tipo de anexo</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo é utilizado pelo CSF na montagem do lote de envio. Valores Válidos: 1-DANFE; 2-XML; 3-DANFE/XML</td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- ============================ -->
+<!-- GRUPO G - LOCAL DE ENTREGA -->
+<!-- ============================ -->
+<div class="section-header">
+  Identificação do Local de Entrega
+</div>
+<div class="subsection-header">
+  <span class="compliance">COMPLIANCE</span>
+  <span class="infor">INFOR</span>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th class="compliance-col">Obrig.</th>
+      <th class="compliance-col">ID</th>
+      <th class="compliance-col">Campo CSF</th>
+      <th class="compliance-col">Descrição</th>
+      <th class="infor-col">Tabela<br />INFOR</th>
+      <th class="infor-col">Campo<br />INFOR</th>
+      <th class="infor-col">Datatype</th>
+      <th class="infor-col">Tamanho</th>
+      <th class="infor-col">Tabela<br />Referência</th>
+      <th class="infor-col">Observações/Regras</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">G01</td>
+      <td class="compliance-col"><span class="campo-destaque">entrega</span></td>
+      <td class="compliance-col">Grupo de identificação do local de entrega</td>
+      <td class="infor-col">btfit824</td>
+      <td class="infor-col">Início de Grupo</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="infor-col">X</td>
+      <td class="obs-col">Preenchido quando o local de entrega for diferente do destinatário.</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">G02</td>
+      <td class="compliance-col"><span class="campo-destaque">CNPJ</span></td>
+      <td class="compliance-col">CNPJ do local de entrega</td>
+      <td class="infor-col">btfit824</td>
+      <td class="infor-col">cgc</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">14</td>
+      <td class="infor-col">btfit805</td>
+      <td class="obs-col">Informar somente quando houver CNPJ distinto do destinatário.</td>
+    </tr>
+    <tr>
+      <td class="obrig-nao">NÃO</td>
+      <td class="compliance-col">G03</td>
+      <td class="compliance-col"><span class="campo-destaque">CPF</span></td>
+      <td class="compliance-col">CPF do local de entrega</td>
+      <td class="infor-col">btfit824</td>
+      <td class="infor-col">cpf</td>
+      <td class="infor-col">C</td>
+      <td class="infor-col">11</td>
+      <td class="infor-col">btfit805</td>
+      <td class="obs-col">Utilizado apenas quando o local de entrega pertence a pessoa física.</td>
+    </tr>
+
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G04</td>
+    <td class="compliance-col"><span class="campo-destaque">vlBaseCalcIcmsSt</span></td>
+    <td class="compliance-col">Base de Cálculo do ICMS ST</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo totaisNfVlBaseCalcIcmsSt. Isso indica que não há valor de base de cálculo para ICMS ST (Substituição Tributária) nessa nota.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G05</td>
+    <td class="compliance-col"><span class="campo-destaque">vlImpTribIcmsSt</span></td>
+    <td class="compliance-col">Valor Total do ICMS ST</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Semelhante ao anterior, o valor 0 é atribuído ao campo totaisNfVlImpTribIcmsSt, indicando que não houve ICMS ST tributado.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G06</td>
+    <td class="compliance-col"><span class="campo-destaque">vlTotalItem</span></td>
+    <td class="compliance-col">Valor Total dos produtos e serviços</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vmer</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O campo vmer contém o valor total dos itens da nota, e esse valor é atribuído ao campo totaisNfVlTotalItem.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G07</td>
+    <td class="compliance-col"><span class="campo-destaque">vlFrete</span></td>
+    <td class="compliance-col">Valor Total do Frete</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">fght</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor do frete da nota fiscal, armazenado no campo fght, é atribuído ao campo totaisNfVlFrete.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G08</td>
+    <td class="compliance-col"><span class="campo-destaque">vlSeguro</span></td>
+    <td class="compliance-col">Valor Total do Seguro</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">insr</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O campo insr contém o valor do seguro da nota fiscal, e este valor é atribuído ao campo totaisNfVlSeguro.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G09</td>
+    <td class="compliance-col"><span class="campo-destaque">vlDesconto</span></td>
+    <td class="compliance-col">Valor Total do Desconto</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">disc</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">Se o valor de desconto (disc) for negativo, o valor multiplicado por -1 será atribuído ao campo totaisNfVlDesconto, garantindo que o desconto seja um número positivo. Caso contrário, se o valor for positivo ou zero, será atribuído 0.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G10</td>
+    <td class="compliance-col"><span class="campo-destaque">vlImpTribII</span></td>
+    <td class="compliance-col">Valor Total do II</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">iimp</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor do Imposto de Importação (II), contido no campo iimp, é atribuído ao campo totaisNfVlImpTribII.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G11</td>
+    <td class="compliance-col"><span class="campo-destaque">vlImpTribIpi</span></td>
+    <td class="compliance-col">Valor Total do IPI</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">pval</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor do IPI (Imposto sobre Produtos Industrializados), armazenado no campo pval, é atribuído ao campo totaisNfVlImpTribIpi.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G12</td>
+    <td class="compliance-col"><span class="campo-destaque">vlImpTribPis</span></td>
+    <td class="compliance-col">Valor do PIS</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vpis</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor do PIS (Programa de Integração Social), contido no campo vpis, é atribuído ao campo totaisNfVlImpTribPis.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G13</td>
+    <td class="compliance-col"><span class="campo-destaque">vlImpTribCofins</span></td>
+    <td class="compliance-col">Valor do COFINS</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vcof</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor do COFINS (Contribuição para o Financiamento da Seguridade Social), contido no campo vcof, é atribuído ao campo totaisNfVlImpTribCofins.</td>
+  </tr>
+  <tr>
+    <td class="obrig-sim">SIM</td>
+    <td class="compliance-col">G14</td>
+    <td class="compliance-col"><span class="campo-destaque">vlOutrasDespesas</span></td>
+    <td class="compliance-col">Outras Despesas acessórias</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">gexp / vstf</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Soma o valor do campo gexp (ou 0, se for nulo) com o valor do campo vstf (também 0, se for nulo). O resultado é atribuído ao campo totaisNfVlOutrasDespesas.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G15</td>
+    <td class="compliance-col"><span class="campo-destaque">vlTotalNf</span></td>
+    <td class="compliance-col">Total da Nota Fiscal</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vctb</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor total da Nota Fiscal (vctb) é atribuído ao campo totaisNfVlTotalNf.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G16</td>
+    <td class="compliance-col"><span class="campo-destaque">vlServNaoTrib</span></td>
+    <td class="compliance-col">Valor Total dos Serviços sob não incidência ou não tributados pelo ICMS</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G17</td>
+    <td class="compliance-col"><span class="campo-destaque">vlBaseCalcIss</span></td>
+    <td class="compliance-col">Base de Cálculo do ISS</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G18</td>
+    <td class="compliance-col"><span class="campo-destaque">vlImpTribIss</span></td>
+    <td class="compliance-col">Valor Total do ISS</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">viss</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor da tributação do ISS (Imposto sobre Serviços) da nota, contido no campo viss, é atribuído ao campo totaisNfVlImpTribIss.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G19</td>
+    <td class="compliance-col"><span class="campo-destaque">vlPisIss</span></td>
+    <td class="compliance-col">Valor do PIS sobre serviços</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G20</td>
+    <td class="compliance-col"><span class="campo-destaque">vlCofinsIss</span></td>
+    <td class="compliance-col">Valor do COFINS sobre serviços</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G21</td>
+    <td class="compliance-col"><span class="campo-destaque">vlRetPis</span></td>
+    <td class="compliance-col">Valor Retido de PIS</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G22</td>
+    <td class="compliance-col"><span class="campo-destaque">vlRetCofins</span></td>
+    <td class="compliance-col">Valor Retido de COFINS</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G23</td>
+    <td class="compliance-col"><span class="campo-destaque">vRetCsll</span></td>
+    <td class="compliance-col">Valor Retido de CSLL</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G24</td>
+    <td class="compliance-col"><span class="campo-destaque">vlBaseCalcIrrf</span></td>
+    <td class="compliance-col">Base de Cálculo do IRRF</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">irbs</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O campo irbs contém a base de cálculo do IRRF (Imposto de Renda Retido na Fonte) e é atribuído ao campo totaisNfVlBaseCalcIrrf.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G25</td>
+    <td class="compliance-col"><span class="campo-destaque">vlRetIrrf</span></td>
+    <td class="compliance-col">Valor Retido do IRRF</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">virf</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor retido de IRRF, armazenado em virf, é atribuído ao campo totaisNfVlRetIrrf.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G26</td>
+    <td class="compliance-col"><span class="campo-destaque">vlBaseCalcPrev</span></td>
+    <td class="compliance-col">Base de Cálculo da Retenção da Previdência Social</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G27</td>
+    <td class="compliance-col"><span class="campo-destaque">vlRetPrev</span></td>
+    <td class="compliance-col">Valor da Retenção da Previdência Social</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G28</td>
+    <td class="compliance-col"><span class="campo-destaque">vlTotalServ</span></td>
+    <td class="compliance-col">Valor total dos serviços</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G29</td>
+    <td class="compliance-col"><span class="campo-destaque">vlAbatNt</span></td>
+    <td class="compliance-col">Abatimento não tributado e não comercial</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G30</td>
+    <td class="compliance-col"><span class="campo-destaque">vlForn</span></td>
+    <td class="compliance-col">Valor total fornecido/consumido</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G31</td>
+    <td class="compliance-col"><span class="campo-destaque">vlTerc</span></td>
+    <td class="compliance-col">Valor total cobrado em nome de terceiros</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G32</td>
+    <td class="compliance-col"><span class="campo-destaque">vlServico</span></td>
+    <td class="compliance-col">Valor total da prestação de serviço</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G33</td>
+    <td class="compliance-col"><span class="campo-destaque">vlRetIss</span></td>
+    <td class="compliance-col">Valor Retido de ISS</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G34</td>
+    <td class="compliance-col"><span class="campo-destaque">vlTotTrib</span></td>
+    <td class="compliance-col">Valor Total dos Impostos, total da NF-e</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G35</td>
+    <td class="compliance-col"><span class="campo-destaque">vlIcmsDeson</span></td>
+    <td class="compliance-col">Valor total do ICMS desonerado</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G36</td>
+    <td class="compliance-col"><span class="campo-destaque">vlDeducao</span></td>
+    <td class="compliance-col">Valor total dedução para redução da Base de Cálculo</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G37</td>
+    <td class="compliance-col"><span class="campo-destaque">vlOutraRet</span></td>
+    <td class="compliance-col">Valor total outras retenções</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G38</td>
+    <td class="compliance-col"><span class="campo-destaque">vlDescIncond</span></td>
+    <td class="compliance-col">Valor total desconto incondicionado</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G39</td>
+    <td class="compliance-col"><span class="campo-destaque">vlDescCond</span></td>
+    <td class="compliance-col">Valor total desconto condicionado</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G40</td>
+    <td class="compliance-col"><span class="campo-destaque">vlIcmsUFDest</span></td>
+    <td class="compliance-col">Valor total do ICMS de partilha para a UF do destinatário.</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vest</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor de ICMS destinado ao estado de destino (vest) é atribuído ao campo totaisNfVlIcmsUfDest.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G41</td>
+    <td class="compliance-col"><span class="campo-destaque">vlIcmsUFRemet</span></td>
+    <td class="compliance-col">Valor total do ICMS de partilha para a UF do remetente.</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">oest</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor de ICMS destinado ao estado remetente (oest) é atribuído ao campo totaisNfVlIcmsUfRemet.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G42</td>
+    <td class="compliance-col"><span class="campo-destaque">vlCombPobrUFDest</span></td>
+    <td class="compliance-col">Valor total do ICMS relativo Fundo de Combate à Pobreza (FCP) da UF de destino</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G43</td>
+    <td class="compliance-col"><span class="campo-destaque">vlFCP</span></td>
+    <td class="compliance-col">Valor Total do FCP</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vpbr</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor do FCP (Fundo de Combate à Pobreza), contido no campo vpbr, é atribuído ao campo totaisNfVlFcp.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G44</td>
+    <td class="compliance-col"><span class="campo-destaque">vlFCPST</span></td>
+    <td class="compliance-col">Valor Total do FCP retido por Situação Tributária</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">bfst</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor de FCP sobre ICMS-ST (Substituição Tributária) armazenado em bfst é atribuído ao campo totaisNfVlFcpSt.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G45</td>
+    <td class="compliance-col"><span class="campo-destaque">vlFCPSTRet</span></td>
+    <td class="compliance-col">Valor Total do FCP retido anteriormente por Situação Tributária</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G46</td>
+    <td class="compliance-col"><span class="campo-destaque">vlIPIDevol</span></td>
+    <td class="compliance-col">Valor Total do IPI Devolvido</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G47</td>
+    <td class="compliance-col"><span class="campo-destaque">vlPisSt</span></td>
+    <td class="compliance-col">Valor Total do PIS retido por Situação Tributaria</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vpst</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor de PIS sobre Substituição Tributária (ST), contido em vpst, é atribuído ao campo totaisNfVlPisSt.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G48</td>
+    <td class="compliance-col"><span class="campo-destaque">vlCofinsSt</span></td>
+    <td class="compliance-col">Valor Total do COFINS retido por Situação Tributaria</td>
+    <td class="infor-col">btfit820</td>
+    <td class="infor-col">vcst</td>
+    <td class="infor-col">Double</td>
+    <td class="infor-col">8</td>
+    <td class="infor-col">btfit820</td>
+    <td class="obs-col">O valor de COFINS sobre Substituição Tributária (ST), armazenado em vcst, é atribuído ao campo totaisNfVlCofinsSt.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G49</td>
+    <td class="compliance-col"><span class="campo-destaque">vlIcmsMono</span></td>
+    <td class="compliance-col">Valor total do ICMS Monofasico(CST 02)</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+    <td class="obrig-nao">NÃO</td>
+    <td class="compliance-col">G50</td>
+    <td class="compliance-col"><span class="campo-destaque">vlIcmsMonoRetencao</span></td>
+    <td class="compliance-col">Valor total do ICMS Monofasico retenção (CST 15)</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="infor-col">X</td>
+    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+  </tr>
+  <tr>
+  <td class="obrig-nao">NÃO</td>
+  <td class="compliance-col">G51</td>
+  <td class="compliance-col"><span class="campo-destaque">vlIcmsMonoRetAnt</span></td>
+  <td class="compliance-col">Valor total do ICMS Monofasico retido anteriormente (CST 61)</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+<tr>
+  <td class="obrig-nao">NÃO</td>
+  <td class="compliance-col">G52</td>
+  <td class="compliance-col"><span class="campo-destaque">quantBcMonoRet</span></td>
+  <td class="compliance-col">Valor total da quantidade da base de cálculo Monofásica retida anteriormente</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+<tr>
+  <td class="obrig-nao">NÃO</td>
+  <td class="compliance-col">G53</td>
+  <td class="compliance-col"><span class="campo-destaque">quantBcMonoReten</span></td>
+  <td class="compliance-col">Valor total da quantidade da base de cálculo Monofásica sujeita a retenção</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+<tr>
+  <td class="obrig-nao">NÃO</td>
+  <td class="compliance-col">G54</td>
+  <td class="compliance-col"><span class="campo-destaque">quantBcMono</span></td>
+  <td class="compliance-col">Valor total da quantidade da base de cálculo Monofásica</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="infor-col">X</td>
+  <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+
+
+  </tbody>
+</table>
+
+
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+      📊<em> Gerado com base na Planilha <b>Cabeçalho</b></em><br />
+      <small style="display: block; margin-top: 5px; opacity: 0.7;">
+        📁 Constante do arquivo <b>DE x PARA CSF - INFOR - NFe Entrada.xlsx</b>
+      </small>
+    </p>
+    <div class="footer">
+      © 2025 Compliance Soluções. Todos os direitos reservados.
+    </div>
+  </div>
 </body>
+
 </html>
