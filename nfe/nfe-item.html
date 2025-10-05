@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item da NFe</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Item da NFe</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.4;
@@ -174,402 +175,883 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Mapeamento para ENTRADA de NFe (INFOR X CSF)</h1>
-        </div>
-
-        <div class="section-header">
+<div class="container">
+<div class="header">
+<h1>Mapeamento para ENTRADA de NFe (INFOR X CSF)</h1>
+</div>
+<div class="section-header">
             Dados de Informações de Itens (Produtos/Serviços)
         </div>
-
-        <div class="subsection-header">
-            <span class="compliance">COMPLIANCE</span>
-            <span class="infor">INFOR</span>
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th class="compliance-col">Obrig.</th>
-                    <th class="compliance-col">ID</th>
-                    <th class="compliance-col">Campo CSF</th>
-                    <th class="compliance-col">Descrição</th>
-                    <th class="infor-col">Tabela<br>INFOR</th>
-                    <th class="infor-col">Campo<br>INFOR</th>
-                    <th class="infor-col">Datatype</th>
-                    <th class="infor-col">Tamanho</th>
-                    <th class="infor-col">Tabela<br>Referência</th>
-                    <th class="infor-col">Observações/Regras</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="obrig-nao">&nbsp;</td>
-                    <td class="compliance-col">P01</td>
-                    <td class="compliance-col"><span class="campo-destaque">itens</span></td>
-                    <td class="compliance-col">Grupo de informações de Itens (Produtos/Serviços)</td>
-                    <td class="infor-col">Início de XML</td>
-                    <td class="infor-col">Início de XML</td>
-                    <td class="infor-col"><span class="x-placeholder">X</span></td>
-                    <td class="infor-col"><span class="x-placeholder">X</span></td>
-                    <td class="infor-col"><span class="x-placeholder">X</span></td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P02</td>
-                    <td class="compliance-col"><span class="campo-destaque">nroItem</span></td>
-                    <td class="compliance-col">Número sequencial do item</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">line</td>
-                    <td class="infor-col">Inteiro</td>
-                    <td class="infor-col">2</td>
-                    <td class="infor-col">btfit821.line</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P03</td>
-                    <td class="compliance-col"><span class="campo-destaque">codItem</span></td>
-                    <td class="compliance-col">Código do Item (Produto/Serviços)</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">Item</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">50</td>
-                    <td class="infor-col">btfit300.item</td>
-                    <td class="obs-col">TRIM(ni.Item), remove espaçamentos entre o conteúdo</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P04</td>
-                    <td class="compliance-col"><span class="campo-destaque">descrItem</span></td>
-                    <td class="compliance-col">Descrição do Item (Produto/Serviços)</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">dsca</td>
-                    <td class="infor-col">Multibyte</td>
-                    <td class="infor-col">480</td>
-                    <td class="infor-col">btfit300.dsca</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P05</td>
-                    <td class="compliance-col"><span class="campo-destaque">dmIndMov</span></td>
-                    <td class="compliance-col">Movimentação física do item</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Aqui, o valor 0 (SIM) é diretamente atribuído ao campo dmIndMov. Isso indica que o padrão de extração está fixo no código para trazer sempre itens com movimentação fisica.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P06</td>
-                    <td class="compliance-col"><span class="campo-destaque">cEan</span></td>
-                    <td class="compliance-col">GTIN (Global Trade Item Number) do produto, antigo código EAN ou código de barras</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P07</td>
-                    <td class="compliance-col"><span class="campo-destaque">codNcm</span></td>
-                    <td class="compliance-col">Codigo NCM</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">frat</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">12</td>
-                    <td class="infor-col">btfit801.frat</td>
-                    <td class="obs-col">SUBSTRING(ni.frat, 1,8) AS codNcm, Extrai os primeiros 8 caracteres da coluna frat da tabela BTFIT821.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P08</td>
-                    <td class="compliance-col"><span class="campo-destaque">generoNcm</span></td>
-                    <td class="compliance-col">Gênero do Produto ou Serviço</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">frat</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">12</td>
-                    <td class="infor-col">btfit801.frat</td>
-                    <td class="obs-col">SUBSTRING(ni.frat, 1,2) AS codNcm, Extrai os primeiros 2 caracteres da coluna frat da tabela BTFIT821.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P09</td>
-                    <td class="compliance-col"><span class="campo-destaque">codExTipi</span></td>
-                    <td class="compliance-col">Codigo de Exceção de NCM da TIPI</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">frat</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">12</td>
-                    <td class="infor-col">btfit801.frat</td>
-                    <td class="obs-col">Se o valor em frat tiver exatamente 10 caracteres, será extraída uma substring contendo os caracteres nas posições 9 e 10. Caso contrário, o valor retornado será null.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P10</td>
-                    <td class="compliance-col"><span class="campo-destaque">Cfop</span></td>
-                    <td class="compliance-col">Codigo Fiscal de Operações e Prestações</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">opfc</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">20</td>
-                    <td class="infor-col">btfit820.opfc</td>
-                    <td class="obs-col">REPLACE(ni.opfc, '.', ''), extrai somente os números do campo, apagando os pontos que possam existir no conteúdo.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P11</td>
-                    <td class="compliance-col"><span class="campo-destaque">unidCom</span></td>
-                    <td class="compliance-col">Unidade de comercialização do produto</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">cuqs</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">6</td>
-                    <td class="infor-col">btfit801.cuqs</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P12</td>
-                    <td class="compliance-col"><span class="campo-destaque">qtdeComerc</span></td>
-                    <td class="compliance-col">Quantidade de comercialização do produto</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">quan</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">btfit825.quan</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P13</td>
-                    <td class="compliance-col"><span class="campo-destaque">vlUnitComerc</span></td>
-                    <td class="compliance-col">Valor Unitário de comercialização</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">pric</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P14</td>
-                    <td class="compliance-col"><span class="campo-destaque">vlItemBruto</span></td>
-                    <td class="compliance-col">Valor Total Bruto dos Produtos ou Serviços</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">gamt</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P15</td>
-                    <td class="compliance-col"><span class="campo-destaque">cEanTrib</span></td>
-                    <td class="compliance-col">GTIN (Global Trade Item Number) da unidade tributável, antigo código EAN ou código de barras</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P16</td>
-                    <td class="compliance-col"><span class="campo-destaque">unidTrib</span></td>
-                    <td class="compliance-col">Unidade Tributável</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">cuqs</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">6</td>
-                    <td class="infor-col">btfit801.cuqs</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P17</td>
-                    <td class="compliance-col"><span class="campo-destaque">qtdeTribs</span></td>
-                    <td class="compliance-col">Quantidade Tributável</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">quan</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">btfit825.quan</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P18</td>
-                    <td class="compliance-col"><span class="campo-destaque">vlUnitTrib</span></td>
-                    <td class="compliance-col">Valor Unitário de tributação</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">pric</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P19</td>
-                    <td class="compliance-col"><span class="campo-destaque">vlFrete</span></td>
-                    <td class="compliance-col">Valor Total do Frete</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">fght</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">btfit820.fght</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P20</td>
-                    <td class="compliance-col"><span class="campo-destaque">vlSeguro</span></td>
-                    <td class="compliance-col">Valor Total do Seguro</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">insr</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">btfit820.insr</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao rowspan-cell" rowspan="2">NÃO</td>
-                    <td class="compliance-col rowspan-cell" rowspan="2">P21</td>
-                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">vlOutro</span></td>
-                    <td class="compliance-col rowspan-cell" rowspan="2">Outras despesas acessórias</td>
-                    <td class="infor-col rowspan-cell" rowspan="2">btfit821</td>
-                    <td class="infor-col">gexp</td>
-                    <td class="infor-col rowspan-cell" rowspan="2">Double</td>
-                    <td class="infor-col rowspan-cell" rowspan="2">8</td>
-                    <td class="infor-col">btfit820.gexp</td>
-                    <td class="obs-col rowspan-cell" rowspan="2">(ISNULL(ni.gexp,0) + ISNULL(ni.vstf,0)). Este campo é calculado pela soma do valor de Outras ("gexp" - Other Expenses), com o Valor ST Frente ("vstf" - ST Amount Front)</td>
-                </tr>
-                <tr>
-                    <td class="infor-col">vstf</td>
-                    <td class="infor-col">btfit820.vstf</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P22</td>
-                    <td class="compliance-col"><span class="campo-destaque">vlDesc</span></td>
-                    <td class="compliance-col">Valor do Desconto</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">disc</td>
-                    <td class="infor-col">Double</td>
-                    <td class="infor-col">8</td>
-                    <td class="infor-col">btfit820.disc</td>
-                    <td class="obs-col">WHEN ni.disc < 0 THEN ni.disc * -1 ELSE 0. Caso o campo "disc" apresente valor positivo, foi implementada condição para que seja gravado negativo. Caso contrário, será gravado zero.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P23</td>
-                    <td class="compliance-col"><span class="campo-destaque">infAdProd</span></td>
-                    <td class="compliance-col">Informações Adicionais do Item</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">drec</td>
-                    <td class="infor-col">Multibyte</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">btfit300.dsca</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P24</td>
-                    <td class="compliance-col"><span class="campo-destaque">dmOrigProd</span></td>
-                    <td class="compliance-col">Origem da mercadoria</td>
-                    <td class="infor-col">btfit821</td>
-                    <td class="infor-col">sour</td>
-                    <td class="infor-col">C</td>
-                    <td class="infor-col">1</td>
-                    <td class="infor-col">btfit801.sour</td>
-                    <td class="obs-col">Sem observações</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P25</td>
-                    <td class="compliance-col"><span class="campo-destaque">dmModBaseCalcIcms</span></td>
-                    <td class="compliance-col">Modalidade de determinação da Base de Cálculo do ICMS</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-nao">NÃO</td>
-                    <td class="compliance-col">P26</td>
-                    <td class="compliance-col"><span class="campo-destaque">dmModBaseCalcIcmsSt</span></td>
-                    <td class="compliance-col">Modalidade de determinação da Base de Cálculo do ICMS-ST</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
-                </tr>
-                
-                <tr>
-                    <td class="obrig-sim">SIM</td>
-                    <td class="compliance-col">P27</td>
-                    <td class="compliance-col"><span class="campo-destaque">dmIndTot</span></td>
-                    <td class="compliance-col">Indica se valor do Item entra no valor total da NF-e</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="infor-col">X</td>
-                    <td class="obs-col">Aqui, o valor 1 (SIM) é diretamente atribuído ao campo dmIndTot. Isso indica que o padrão de extração está fixo no código para dizer que o valor do item, de fato, compõe o valor total da NF-e.</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
-            📊<em> Gerado com base na Planilha <b>Item da NFe</b></em><br>
-            <small style="display: block; margin-top: 5px; opacity: 0.7;">
+<div class="subsection-header">
+<span class="compliance">COMPLIANCE</span>
+<span class="infor">INFOR</span>
+</div>
+<table>
+<thead>
+<tr>
+<th class="compliance-col">Obrig.</th>
+<th class="compliance-col">ID</th>
+<th class="compliance-col">Campo CSF</th>
+<th class="compliance-col">Descrição</th>
+<th class="infor-col">Tabela<br/>INFOR</th>
+<th class="infor-col">Campo<br/>INFOR</th>
+<th class="infor-col">Datatype</th>
+<th class="infor-col">Tamanho</th>
+<th class="infor-col">Tabela<br/>Referência</th>
+<th class="infor-col">Observações/Regras</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="obrig-nao"> </td>
+<td class="compliance-col">P01</td>
+<td class="compliance-col"><span class="campo-destaque">itens</span></td>
+<td class="compliance-col">Grupo de informações de Itens (Produtos/Serviços)</td>
+<td class="infor-col">Início de XML</td>
+<td class="infor-col">Início de XML</td>
+<td class="infor-col"><span class="x-placeholder">X</span></td>
+<td class="infor-col"><span class="x-placeholder">X</span></td>
+<td class="infor-col"><span class="x-placeholder">X</span></td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P02</td>
+<td class="compliance-col"><span class="campo-destaque">nroItem</span></td>
+<td class="compliance-col">Número sequencial do item</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">line</td>
+<td class="infor-col">Inteiro</td>
+<td class="infor-col">2</td>
+<td class="infor-col">btfit821.line</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P03</td>
+<td class="compliance-col"><span class="campo-destaque">codItem</span></td>
+<td class="compliance-col">Código do Item (Produto/Serviços)</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">Item</td>
+<td class="infor-col">C</td>
+<td class="infor-col">50</td>
+<td class="infor-col">btfit300.item</td>
+<td class="obs-col">TRIM(ni.Item), remove espaçamentos entre o conteúdo</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P04</td>
+<td class="compliance-col"><span class="campo-destaque">descrItem</span></td>
+<td class="compliance-col">Descrição do Item (Produto/Serviços)</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">dsca</td>
+<td class="infor-col">Multibyte</td>
+<td class="infor-col">480</td>
+<td class="infor-col">btfit300.dsca</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P05</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndMov</span></td>
+<td class="compliance-col">Movimentação física do item</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Aqui, o valor 0 (SIM) é diretamente atribuído ao campo dmIndMov. Isso indica que o padrão de extração está fixo no código para trazer sempre itens com movimentação fisica.</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P06</td>
+<td class="compliance-col"><span class="campo-destaque">cEan</span></td>
+<td class="compliance-col">GTIN (Global Trade Item Number) do produto, antigo código EAN ou código de barras</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P07</td>
+<td class="compliance-col"><span class="campo-destaque">codNcm</span></td>
+<td class="compliance-col">Codigo NCM</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">frat</td>
+<td class="infor-col">C</td>
+<td class="infor-col">12</td>
+<td class="infor-col">btfit801.frat</td>
+<td class="obs-col">SUBSTRING(ni.frat, 1,8) AS codNcm, Extrai os primeiros 8 caracteres da coluna frat da tabela BTFIT821.</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P08</td>
+<td class="compliance-col"><span class="campo-destaque">generoNcm</span></td>
+<td class="compliance-col">Gênero do Produto ou Serviço</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">frat</td>
+<td class="infor-col">C</td>
+<td class="infor-col">12</td>
+<td class="infor-col">btfit801.frat</td>
+<td class="obs-col">SUBSTRING(ni.frat, 1,2) AS codNcm, Extrai os primeiros 2 caracteres da coluna frat da tabela BTFIT821.</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P09</td>
+<td class="compliance-col"><span class="campo-destaque">codExTipi</span></td>
+<td class="compliance-col">Codigo de Exceção de NCM da TIPI</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">frat</td>
+<td class="infor-col">C</td>
+<td class="infor-col">12</td>
+<td class="infor-col">btfit801.frat</td>
+<td class="obs-col">Se o valor em frat tiver exatamente 10 caracteres, será extraída uma substring contendo os caracteres nas posições 9 e 10. Caso contrário, o valor retornado será null.</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P10</td>
+<td class="compliance-col"><span class="campo-destaque">Cfop</span></td>
+<td class="compliance-col">Codigo Fiscal de Operações e Prestações</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">opfc</td>
+<td class="infor-col">C</td>
+<td class="infor-col">20</td>
+<td class="infor-col">btfit820.opfc</td>
+<td class="obs-col">REPLACE(ni.opfc, '.', ''), extrai somente os números do campo, apagando os pontos que possam existir no conteúdo.</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P11</td>
+<td class="compliance-col"><span class="campo-destaque">unidCom</span></td>
+<td class="compliance-col">Unidade de comercialização do produto</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">cuqs</td>
+<td class="infor-col">C</td>
+<td class="infor-col">6</td>
+<td class="infor-col">btfit801.cuqs</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P12</td>
+<td class="compliance-col"><span class="campo-destaque">qtdeComerc</span></td>
+<td class="compliance-col">Quantidade de comercialização do produto</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">quan</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">btfit825.quan</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P13</td>
+<td class="compliance-col"><span class="campo-destaque">vlUnitComerc</span></td>
+<td class="compliance-col">Valor Unitário de comercialização</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">pric</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P14</td>
+<td class="compliance-col"><span class="campo-destaque">vlItemBruto</span></td>
+<td class="compliance-col">Valor Total Bruto dos Produtos ou Serviços</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">gamt</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P15</td>
+<td class="compliance-col"><span class="campo-destaque">cEanTrib</span></td>
+<td class="compliance-col">GTIN (Global Trade Item Number) da unidade tributável, antigo código EAN ou código de barras</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P16</td>
+<td class="compliance-col"><span class="campo-destaque">unidTrib</span></td>
+<td class="compliance-col">Unidade Tributável</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">cuqs</td>
+<td class="infor-col">C</td>
+<td class="infor-col">6</td>
+<td class="infor-col">btfit801.cuqs</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P17</td>
+<td class="compliance-col"><span class="campo-destaque">qtdeTribs</span></td>
+<td class="compliance-col">Quantidade Tributável</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">quan</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">btfit825.quan</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P18</td>
+<td class="compliance-col"><span class="campo-destaque">vlUnitTrib</span></td>
+<td class="compliance-col">Valor Unitário de tributação</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">pric</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P19</td>
+<td class="compliance-col"><span class="campo-destaque">vlFrete</span></td>
+<td class="compliance-col">Valor Total do Frete</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">fght</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">btfit820.fght</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P20</td>
+<td class="compliance-col"><span class="campo-destaque">vlSeguro</span></td>
+<td class="compliance-col">Valor Total do Seguro</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">insr</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">btfit820.insr</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-nao rowspan-cell" rowspan="2">NÃO</td>
+<td class="compliance-col rowspan-cell" rowspan="2">P21</td>
+<td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">vlOutro</span></td>
+<td class="compliance-col rowspan-cell" rowspan="2">Outras despesas acessórias</td>
+<td class="infor-col rowspan-cell" rowspan="2">btfit821</td>
+<td class="infor-col">gexp</td>
+<td class="infor-col rowspan-cell" rowspan="2">Double</td>
+<td class="infor-col rowspan-cell" rowspan="2">8</td>
+<td class="infor-col">btfit820.gexp</td>
+<td class="obs-col rowspan-cell" rowspan="2">(ISNULL(ni.gexp,0) + ISNULL(ni.vstf,0)). Este campo é calculado pela soma do valor de Outras ("gexp" - Other Expenses), com o Valor ST Frente ("vstf" - ST Amount Front)</td>
+</tr>
+<tr>
+<td class="infor-col">vstf</td>
+<td class="infor-col">btfit820.vstf</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P22</td>
+<td class="compliance-col"><span class="campo-destaque">vlDesc</span></td>
+<td class="compliance-col">Valor do Desconto</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">disc</td>
+<td class="infor-col">Double</td>
+<td class="infor-col">8</td>
+<td class="infor-col">btfit820.disc</td>
+<td class="obs-col">WHEN ni.disc &lt; 0 THEN ni.disc * -1 ELSE 0. Caso o campo "disc" apresente valor positivo, foi implementada condição para que seja gravado negativo. Caso contrário, será gravado zero.</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P23</td>
+<td class="compliance-col"><span class="campo-destaque">infAdProd</span></td>
+<td class="compliance-col">Informações Adicionais do Item</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">drec</td>
+<td class="infor-col">Multibyte</td>
+<td class="infor-col">X</td>
+<td class="infor-col">btfit300.dsca</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P24</td>
+<td class="compliance-col"><span class="campo-destaque">dmOrigProd</span></td>
+<td class="compliance-col">Origem da mercadoria</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">sour</td>
+<td class="infor-col">C</td>
+<td class="infor-col">1</td>
+<td class="infor-col">btfit801.sour</td>
+<td class="obs-col">Sem observações</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P25</td>
+<td class="compliance-col"><span class="campo-destaque">dmModBaseCalcIcms</span></td>
+<td class="compliance-col">Modalidade de determinação da Base de Cálculo do ICMS</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P26</td>
+<td class="compliance-col"><span class="campo-destaque">dmModBaseCalcIcmsSt</span></td>
+<td class="compliance-col">Modalidade de determinação da Base de Cálculo do ICMS-ST</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+</tr>
+<tr>
+<td class="obrig-sim">SIM</td>
+<td class="compliance-col">P27</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndTot</span></td>
+<td class="compliance-col">Indica se valor do Item entra no valor total da NF-e</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Aqui, o valor 1 (SIM) é diretamente atribuído ao campo dmIndTot. Isso indica que o padrão de extração está fixo no código para dizer que o valor do item, de fato, compõe o valor total da NF-e.</td>
+</tr>
+<tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P28</td>
+<td class="compliance-col"><span class="campo-destaque">dmMotDesIcms</span></td>
+<td class="compliance-col">Motivo da
+  desoneração do ICMS</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P29</td>
+<td class="compliance-col"><span class="campo-destaque">dmCodTribIssqn</span></td>
+<td class="compliance-col">Codigo de
+  Tributação do ISSQN</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P30</td>
+<td class="compliance-col"><span class="campo-destaque">vlTotTribItem</span></td>
+<td class="compliance-col">Valor Total dos
+  Impostos por Item</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P31</td>
+<td class="compliance-col"><span class="campo-destaque">cnpjProdutor</span></td>
+<td class="compliance-col">CNPJ do produtor
+  da mercadoria, quando diferente do emitente</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P32</td>
+<td class="compliance-col"><span class="campo-destaque">qtdeSeloIpi</span></td>
+<td class="compliance-col">Quantidade de
+  selo de controle de IPI</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P33</td>
+<td class="compliance-col"><span class="campo-destaque">percentDevolMerc</span></td>
+<td class="compliance-col">Percentual da
+  mercadoria devolvida</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P34</td>
+<td class="compliance-col"><span class="campo-destaque">vlIpiDevol</span></td>
+<td class="compliance-col">Valor do IPI
+  devolvido</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P35</td>
+<td class="compliance-col"><span class="campo-destaque">vlDespAdu</span></td>
+<td class="compliance-col">Valor das
+  despesas aduaneiras</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P36</td>
+<td class="compliance-col"><span class="campo-destaque">vlIof</span></td>
+<td class="compliance-col">Valor do Imposto
+  sobre Operações Financeiras</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P37</td>
+<td class="compliance-col"><span class="campo-destaque">clEnqIpi</span></td>
+<td class="compliance-col">Classe de
+  enquadramento do IPI para Cigarros e Bebidas</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P38</td>
+<td class="compliance-col"><span class="campo-destaque">codSeloIpi</span></td>
+<td class="compliance-col">Código do selo
+  de controle IPI</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P39</td>
+<td class="compliance-col"><span class="campo-destaque">codEnqIpi</span></td>
+<td class="compliance-col">Código de
+  Enquadramento Legal do IPI</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P40</td>
+<td class="compliance-col"><span class="campo-destaque">cidadeIbge</span></td>
+<td class="compliance-col">Código do
+  município de ocorrência do fato gerador do ISSQN</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P41</td>
+<td class="compliance-col"><span class="campo-destaque">cdListaServ</span></td>
+<td class="compliance-col">Código da Lista
+  de Serviços</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P42</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndApurIpi</span></td>
+<td class="compliance-col">Indicador de
+  período de apuração do IPI</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P43</td>
+<td class="compliance-col"><span class="campo-destaque">codCta</span></td>
+<td class="compliance-col">Código da conta
+  analítica contábil debitada/creditada</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">leac</td>
+<td class="infor-col">C</td>
+<td class="infor-col">100</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Sem
+  observações</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P44</td>
+<td class="compliance-col"><span class="campo-destaque">classConsItemCont</span></td>
+<td class="compliance-col">Código da Casse
+  de Consumo de Item Continuo</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P45</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndReceita</span></td>
+<td class="compliance-col">Indicador do
+  tipo de receita</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P46</td>
+<td class="compliance-col"><span class="campo-destaque">codPart</span></td>
+<td class="compliance-col">Código do
+  Participante</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P47</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndRecComEnergiaEletrica</span></td>
+<td class="compliance-col">Indicador do
+  tipo de receita de Comunicação/Telecomu nicação</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P48</td>
+<td class="compliance-col"><span class="campo-destaque">codigoNaturezaOperacao</span></td>
+<td class="compliance-col">Código de
+  Natureza da Operação/Prestação</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">opor</td>
+<td class="infor-col">C</td>
+<td class="infor-col">20</td>
+<td class="infor-col">btfit820.opor</td>
+<td class="obs-col">Sem
+  observações</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P49</td>
+<td class="compliance-col"><span class="campo-destaque">pedidoCompra</span></td>
+<td class="compliance-col">Número do Pedido
+  de Compra</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">xped</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Sem
+  observações</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P50</td>
+<td class="compliance-col"><span class="campo-destaque">itemPedidoComp
+  ra</span></td>
+<td class="compliance-col">Item do Pedido
+  de Compra</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">iped</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Sem
+  observações</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P51</td>
+<td class="compliance-col"><span class="campo-destaque">nroFci</span></td>
+<td class="compliance-col">Número de
+  controle da FCI – Ficha de Conteúdo de Importação</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P52</td>
+<td class="compliance-col"><span class="campo-destaque">nroRecopi</span></td>
+<td class="compliance-col">Número do RECOPI</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P52</td>
+<td class="compliance-col"><span class="campo-destaque">cest</span></td>
+<td class="compliance-col">Código Especificador da
+  Substituição Tributária</td>
+<td class="infor-col">btfit821</td>
+<td class="infor-col">cest</td>
+<td class="infor-col">C</td>
+<td class="infor-col">7</td>
+<td class="infor-col">btfit801.cest</td>
+<td class="obs-col">WHEN
+  length(cest) &lt; 7 THEN '' ELSE cest. Aqui foi adicionada condição para
+  verificar se o campo "cest" é menor que 7, e limpa-lo se for o
+  caso.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P53</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndEscRel</span></td>
+<td class="compliance-col">Indicador de
+  Produção em escala relevante, conforme Cláusula 23 do Convenio ICMS 52/2017</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P54</td>
+<td class="compliance-col"><span class="campo-destaque">cnpjFabMerc</span></td>
+<td class="compliance-col">CNPJ do
+  Fabricante da Mercadoria, obrigatório para produto em escala NÃO relevante</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P55</td>
+<td class="compliance-col"><span class="campo-destaque">codOcorAjIcms</span></td>
+<td class="compliance-col">Código de
+  Benefício Fiscal utilizado pela UF, aplicado ao item. Obs.: Deve ser
+  utilizado o mesmo código adotado na EFD e outras declarações, nas UF que o
+  exigem.</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P56</td>
+<td class="compliance-col"><span class="campo-destaque">cdTpServReinf</span></td>
+<td class="compliance-col">Código tipo de
+  serviço Reinf</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P57</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndCprb</span></td>
+<td class="compliance-col">Indicador de
+  CPRB</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P58</td>
+<td class="compliance-col"><span class="campo-destaque">vlAbatNt</span></td>
+<td class="compliance-col">Valor Abatimento
+  nãotributado e não comercial</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P59</td>
+<td class="compliance-col"><span class="campo-destaque">codInfAdicVlrDecl</span></td>
+<td class="compliance-col">Código de
+  Benefício Fiscal utilizado pela UF.</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P60</td>
+<td class="compliance-col"><span class="campo-destaque">codBarra</span></td>
+<td class="compliance-col">Código de barras
+  diferente do padrão GTIN</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P61</td>
+<td class="compliance-col"><span class="campo-destaque">codBarraTrib</span></td>
+<td class="compliance-col">Código de Barras
+  da unidade tributável que seja diferente do padrão GTIN</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P62</td>
+<td class="compliance-col"><span class="campo-destaque">dmMotDesIcmsSt</span></td>
+<td class="compliance-col">Motivo da
+  desoneração do ICMS- ST</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P63</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndSomaPisst</span></td>
+<td class="compliance-col">Indica se PIS ST
+  deveser somado no total da NFe</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P64</td>
+<td class="compliance-col"><span class="campo-destaque">dmIndSomaCofinsst</span></td>
+<td class="compliance-col">Indica se COFINS
+  ST deve ser somado no total da NFe</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr><tr>
+<td class="obrig-nao">NÃO</td>
+<td class="compliance-col">P65</td>
+<td class="compliance-col"><span class="campo-destaque">dmMotRed</span></td>
+<td class="compliance-col">Indica o motivo
+  da redução</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="infor-col">X</td>
+<td class="obs-col">Este
+  campo não é utilizado pela query de extração INFOR.</td>
+</tr></tbody>
+</table>
+<p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+            📊<em> Gerado com base na Planilha <b>Item da NFe</b></em><br/>
+<small style="display: block; margin-top: 5px; opacity: 0.7;">
                 📁 Constante do arquivo <b>DE x PARA CSF - INFOR - NFe Entrada.xlsx</b>
-            </small>
-        </p>
-        <div class="footer">
-            &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+</small>
+</p>
+<div class="footer">
+            © 2025 Compliance Soluções. Todos os direitos reservados.
         </div>
-    </div>
+</div>
 </body>
 </html>
