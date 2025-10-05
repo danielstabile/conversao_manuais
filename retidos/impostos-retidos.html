@@ -1,34 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impostos Retidos</title>
-<link rel="icon" href="favicon.png" type="image/png">
-<style>
-body {
-  font-family: "Aptos Narrow", sans-serif;
-  margin: 0;
-  padding: 10px;
-  background: #f5f5f5;
-  overflow-x: auto;
-}
-.table-container {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  margin: 0 auto;
-  max-width: 100%;
-  background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-table {
-  border-collapse: collapse;
-  table-layout: fixed;
-  width: 1234pt;
-  min-width: 800px;
-  background: white;
-}
-.footer {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impostos Retidos</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        .notice-box {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border: 1px solid #666;
+        }
+        
+        .tax-type-header {
+            background: linear-gradient(135deg, #f5c6ab, #f4b299);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
             margin-top: 40px;
             padding: 20px;
             background-color: #f5f5f5;
@@ -36,491 +171,1599 @@ table {
             color: #666;
             text-align: center;
         }
-@media (max-width: 1300px) {
-  body { padding: 5px; }
-  .table-container { border-radius: 4px; }
-}
-@media (max-width: 768px) {
-  table { min-width: 600px; }
-  td { font-size: 10pt; }
-  .xl65, .xl66, .xl67, .xl68, .xl69, .xl70, .xl71, .xl72 { font-size: 12pt; }
-  .xl138 { font-size: 14pt; }
-  .xl139, .xl140, .xl141, .xl142, .xl135 { font-size: 12pt; }
-}
-@media (max-width: 480px) {
-  body { padding: 2px; }
-  table { min-width: 500px; }
-  td { font-size: 9pt; padding: 1px 2px; }
-  .xl65, .xl66, .xl67, .xl68, .xl69, .xl70, .xl71, .xl72 { font-size: 11pt; }
-  .xl138 { font-size: 12pt; }
-  .xl139, .xl140, .xl141, .xl142, .xl135 { font-size: 11pt; }
-}
-td {
-  padding: 2px 4px;
-  font-size: 11pt;
-  vertical-align: bottom;
-  white-space: nowrap;
-}
-.xl65 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; padding-left: 9px; }
-.xl66 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; }
-.xl67 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; }
-.xl68 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; white-space: normal; }
-.xl69 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
-.xl70 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
-.xl71 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; }
-.xl72 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; }
-.xl73 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl74 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
-.xl75 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl76 { font-size: 12pt; text-align: center; vertical-align: middle; border-right: 0.5pt solid black; border-bottom: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl77 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl78 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl79 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl80 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #DAF2D0; white-space: normal; }
-.xl81 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
-.xl82 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl83 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
-.xl84 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl85 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl86 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl87 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl88 { color: black; font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl94 { font-size: 12pt; font-weight: 700; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl95 { font-size: 12pt; font-weight: 700; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
-.xl96 { font-size: 12pt; font-weight: 700; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl97 { font-size: 12pt; font-weight: 700; text-align: center; vertical-align: middle; border-right: 0.5pt solid black; border-bottom: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl98 { font-size: 12pt; font-weight: 700; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl99 { font-size: 12pt; font-weight: 700; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl101 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl102 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; white-space: normal; }
-.xl103 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; white-space: normal; }
-.xl104 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
-.xl105 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl106 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #DAF2D0; white-space: normal; }
-.xl107 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
-.xl108 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
-.xl114 { font-size: 12pt; text-align: center; vertical-align: middle; border-right: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
-.xl115 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
-.xl116 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; border-bottom: 2pt double black; background: #B5E6A2; white-space: normal; }
-.xl117 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
-.xl118 { font-size: 12pt; vertical-align: middle; border: 0.5pt solid black; border-bottom: 1pt solid black; background: #B5E6A2; white-space: normal; }
-.xl119 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #B5E6A2; white-space: normal; }
-.xl121 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl123 { font-size: 12pt; text-align: left; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #DAF2D0; white-space: normal; }
-.xl125 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #B5E6A2; white-space: normal; }
-.xl130 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #DAF2D0; white-space: normal; padding-left: 9px; }
-.xl132 { font-size: 12pt; text-align: center; vertical-align: middle; border: 0.5pt solid black; border-top: 2pt double black; background: #DAF2D0; white-space: normal; }
-.xl135 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 1pt solid black; background: #F5C6AB; white-space: normal; }
-.xl138 { color: black; font-size: 16pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; border: 0.5pt solid black; background: #4A86E8; }
-.xl139 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; border: 0.5pt solid black; background: #C9DAF8; }
-.xl140 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #DAF2D0; }
-.xl141 { color: black; font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 0.5pt solid black; background: #B5E6A2; }
-.xl142 { font-size: 14pt; font-weight: 700; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 1pt solid black; background: #F5C6AB; white-space: normal; }
-.xl145 { color: black; font-size: 14pt; font-family: Calibri, sans-serif; text-align: center; vertical-align: middle; border: 1pt solid black; background: #C9DAF8; white-space: normal; }
-</style>
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para Integração de Impostos Retidos - Padrão DCTF (INFOR X CSF)</h1>
+        </div>
 
-<h1 style="text-align: center; color: #4A86E8; margin: 10px 0 20px 0; font-size: clamp(16px, 4vw, 24px);">Mapeamento para Integração de Impostos Retidos - Padrão DCTF (INFOR X CSF)</h1>
+        <div class="section-header">
+            Dados de Pagamento impostos retidos
+        </div>
 
-<div class="table-container">
-<table border=0 cellpadding=0 cellspacing=0>
- <col width=71 style='width:53pt'>
- <col width=46 style='width:34pt'>
- <col width=192 style='width:144pt'>
- <col width=307 style='width:230pt'>
- <col width=110 style='width:83pt'>
- <col width=114 style='width:86pt'>
- <col width=77 style='width:58pt'>
- <col width=80 style='width:60pt'>
- <col width=115 style='width:86pt'>
- <col width=533 style='width:400pt'>
- <tr height=28>
-  <td colspan=10 height=28 class=xl138>Mapeamento para Integração de Impostos Retidos - Padrão DCTF (INFOR X CSF)</td>
- </tr>
- <tr height=24>
-  <td colspan=10 height=24 class=xl139>Dados de Pagamento impostos retidos</td>
- </tr>
- <tr height=24>
-  <td colspan=4 height=24 class=xl140>COMPLIANCE</td>
-  <td colspan=6 class=xl141>INFOR</td>
- </tr>
- <tr height=48>
-  <td height=48 class=xl65>Obrig.</td>
-  <td class=xl66>ID</td>
-  <td class=xl67>Campo CSF</td>
-  <td class=xl68 width=307>Descrição</td>
-  <td class=xl69 width=110>Tabela <br>INFOR</td>
-  <td class=xl70 width=114>Campo <br>INFOR</td>
-  <td class=xl71>Datatype</td>
-  <td class=xl70 width=80>Tamanho</td>
-  <td class=xl70 width=115>Tabela<br>Referência</td>
-  <td class=xl72>Observações/Regras</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl101 width=71>&nbsp;</td>
-  <td class=xl102 width=46>A01</td>
-  <td class=xl102 width=192>pgtos</td>
-  <td class=xl102 width=307>Grupo de Pagamento de Impostos Retidos</td>
-  <td class=xl84 width=110>Inicio de XML</td>
-  <td class=xl84 width=114>Inicio de XML</td>
-  <td class=xl84 width=77>X</td>
-  <td class=xl84 width=80>X</td>
-  <td class=xl84 width=115>X</td>
-  <td class=xl103 width=533>Sem observações</td>
- </tr>
- <tr height=78>
-  <td colspan=10 height=78 class=xl145 width=1645>*Este objeto utiliza 2 querys muito semelhantes, especificadas nas abas deste arquivo.<br><br>Esta aba utiliza como base o arquivo Pgto Imp Ret, que possui como principal diferença o filtro pelo campo "iutd" da btfit822 (Data efetiva de pagamento)</td>
- </tr>
- <tr height=46>
-  <td colspan=10 height=46 class=xl142 width=1645>PIS</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl82 width=71>SIM</td>
-  <td class=xl83 width=46>A02</td>
-  <td class=xl83 width=192>cpfCnpj</td>
-  <td class=xl83 width=307>CPF/CNPJ do Emitente</td>
-  <td class=xl84 width=110>Início de Grupo</td>
-  <td class=xl84 width=114>Início de Grupo</td>
-  <td class=xl84 width=77>X</td>
-  <td class=xl84 width=80>X</td>
-  <td class=xl84 width=115>X</td>
-  <td class=xl85 width=533>Tag Pai</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl105 width=71>SIM</td>
-  <td class=xl106 width=46>A02a</td>
-  <td class=xl106 width=192>Cpf</td>
-  <td class=xl106 width=307>CPF da Empresa</td>
-  <td class=xl107 width=110>X</td>
-  <td class=xl107 width=114>X</td>
-  <td class=xl107 width=77>X</td>
-  <td class=xl107 width=80>X</td>
-  <td class=xl107 width=115>X</td>
-  <td class=xl108 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
- </tr>
- <tr height=70>
-  <td rowspan=2 height=140 class=xl130 width=71>SIM</td>
-  <td rowspan=2 class=xl132 width=46>A02b</td>
-  <td rowspan=2 class=xl132 width=192>Cnpj</td>
-  <td rowspan=2 class=xl132 width=307>CPNJ da Empresa</td>
-  <td rowspan=2 class=xl125 width=110>btfit822</td>
-  <td class=xl77 width=114>compnr</td>
-  <td class=xl77 width=77>X</td>
-  <td class=xl77 width=80>X</td>
-  <td class=xl77 width=115>X</td>
-  <td rowspan=2 class=xl119 width=533>concat(i.compnr, i.cpcd)<br><br>Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
- </tr>
- <tr height=70>
-  <td height=70 class=xl117 width=114>cpcd</td>
-  <td class=xl117 width=77>C</td>
-  <td class=xl117 width=80>18</td>
-  <td class=xl117 width=115>btfit805.cpcd</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl82 width=71>SIM</td>
-  <td class=xl83 width=46>A03</td>
-  <td class=xl83 width=192>codPart</td>
-  <td class=xl83 width=307>Código do participante no ERP</td>
-  <td class=xl77 width=110>btfit820</td>
-  <td class=xl76 width=114>lobp</td>
-  <td class=xl77 width=77>C</td>
-  <td class=xl77 width=80>18</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl78 width=533>Sem observações</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl73 width=71>SIM</td>
-  <td class=xl74 width=46>A04</td>
-  <td class=xl74 width=192>nroDoc</td>
-  <td class=xl74 width=307>Número do documento</td>
-  <td class=xl77 width=110>btfit820</td>
-  <td class=xl76 width=114>docn</td>
-  <td class=xl77 width=77>C</td>
-  <td class=xl77 width=80>12</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl78 width=533>Sem observações</td>
- </tr>
- <tr height=125>
-  <td height=125 class=xl73 width=71>SIM</td>
-  <td class=xl74 width=46>A05</td>
-  <td class=xl74 width=192>dtVcto</td>
-  <td class=xl74 width=307>Data do vencimento</td>
-  <td class=xl75 width=110>btfit822</td>
-  <td class=xl76 width=114>iutd</td>
-  <td class=xl77 width=77>Date</td>
-  <td class=xl77 width=80>4</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
- </tr>
- <tr height=132>
-  <td height=132 class=xl73 width=71>SIM</td>
-  <td class=xl74 width=46>A06</td>
-  <td class=xl74 width=192>dtPgto</td>
-  <td class=xl74 width=307>Data de Pagamento do imposto Retido</td>
-  <td class=xl75 width=110>btfit823</td>
-  <td class=xl76 width=114>iutd</td>
-  <td class=xl77 width=77>Date</td>
-  <td class=xl77 width=80>4</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl78 width=533>dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl73 width=71>SIM</td>
-  <td class=xl74 width=46>A07</td>
-  <td class=xl74 width=192>codImposto</td>
-  <td class=xl74 width=307>Código do Imposto Retido</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl76 width=114>X</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>Aqui, o valor '4' é diretamente atribuído ao campo.</td>
- </tr>
- <tr height=168>
-  <td height=168 class=xl73 width=71>SIM</td>
-  <td class=xl74 width=46>A08</td>
-  <td class=xl74 width=192>cdTipoRetImp</td>
-  <td class=xl74 width=307>Código da retenção ou código da DARF relacionada do imposto retido</td>
-  <td class=xl75 width=110>btfit821</td>
-  <td class=xl76 width=114>rcpi</td>
-  <td class=xl77 width=77>C</td>
-  <td class=xl77 width=80>6</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl88 width=533>when length(it.codret) &gt;= 4 then substring(it.codret, 1, 4) else '5952'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "5952".<br><br>*rcpi será chamado "Codret" no subselect usado na query<br>(select refi, max(rcpi) codret from ln_btfit821 group by refi) it</td>
- </tr>
- <tr height=54>
-  <td height=54 class=xl73 width=71>SIM</td>
-  <td class=xl74 width=46>A09</td>
-  <td class=xl74 width=192>vlBaseCalc</td>
-  <td class=xl74 width=307>Valor da base de cálculo</td>
-  <td class=xl75 width=110>btfit822</td>
-  <td class=xl76 width=114>bpir</td>
-  <td class=xl77 width=77>Double</td>
-  <td class=xl77 width=80>8</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl78 width=533>Sem observações</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl73 width=71>SIM</td>
-  <td class=xl74 width=46>A10</td>
-  <td class=xl74 width=192>vlPrincipal</td>
-  <td class=xl74 width=307>Valor principal do imposto retido a ser pago</td>
-  <td class=xl75 width=110>btfit822</td>
-  <td class=xl76 width=114>vpir</td>
-  <td class=xl77 width=77>Double</td>
-  <td class=xl77 width=80>8</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl78 width=533>Sem observações</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A11</td>
-  <td class=xl74 width=192>vlMulta</td>
-  <td class=xl74 width=307>Valor da multa paga</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl76 width=114>X</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A12</td>
-  <td class=xl74 width=192>vlJuros</td>
-  <td class=xl74 width=307>Valor dos juros pagos</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl76 width=114>X</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>Aqui, o valor 0 é diretamente atribuído ao campo.</td>
- </tr>
- <tr height=56>
-  <td height=56 class=xl105 width=71>SIM</td>
-  <td class=xl106 width=46>A13</td>
-  <td class=xl106 width=192>vlPgto</td>
-  <td class=xl106 width=307>Valor do pagamento realizado</td>
-  <td class=xl107 width=110>btfit822</td>
-  <td class=xl114 width=114>vpir</td>
-  <td class=xl115 width=77>Double</td>
-  <td class=xl115 width=80>8</td>
-  <td class=xl115 width=115>X</td>
-  <td class=xl116 width=533>Sem observações</td>
- </tr>
- <tr height=53>
-  <td rowspan=2 height=106 class=xl121 width=71>SIM</td>
-  <td rowspan=2 class=xl123 width=46>A14</td>
-  <td rowspan=2 class=xl123 width=192>aliq</td>
-  <td rowspan=2 class=xl123 width=307>Alíquota aplicada ao imposto</td>
-  <td rowspan=2 class=xl125 width=110>btfit822</td>
-  <td class=xl76 width=114>vpir</td>
-  <td rowspan=2 class=xl125 width=77>Double</td>
-  <td rowspan=2 class=xl125 width=80>8</td>
-  <td rowspan=2 class=xl125 width=115>X</td>
-  <td rowspan=2 class=xl119 width=533>round(i.vpir / i.bpir * 100, 2)<br><br>Aqui será calculado o percentual entre o valor do PIS pelo valor Base e arredondado em 2 casas decimais.</td>
- </tr>
- <tr height=53>
-  <td height=53 class=xl114 width=114>bpir</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A15</td>
-  <td class=xl74 width=192>perdComp</td>
-  <td class=xl74 width=307>Número do PERDCOMP</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl76 width=114>X</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
- </tr>
- <tr height=46>
-  <td height=46 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A16</td>
-  <td class=xl74 width=192>vlDeducao</td>
-  <td class=xl74 width=307>Valor da Dedução do Imposto</td>
-  <td class=xl75 width=110>btfit822</td>
-  <td class=xl76 width=114>fdva</td>
-  <td class=xl77 width=77>Double</td>
-  <td class=xl77 width=80>8</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl78 width=533>Sem observações</td>
- </tr>
- <tr height=57>
-  <td height=57 class=xl94 width=71>SIM</td>
-  <td class=xl95 width=46>A17</td>
-  <td class=xl95 width=192>dtDocto</td>
-  <td class=xl95 width=307>Data do documento, seja nota fiscal ou outro tipo</td>
-  <td class=xl96 width=110>btfit822</td>
-  <td class=xl97 width=114>iutd</td>
-  <td class=xl98 width=77>Date</td>
-  <td class=xl98 width=80>4</td>
-  <td class=xl98 width=115>X</td>
-  <td class=xl99 width=533>*A outra query utiliza o campo "date"</td>
- </tr>
- <tr height=174>
-  <td height=174 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A18</td>
-  <td class=xl74 width=192>codReceita</td>
-  <td class=xl74 width=307>Código da receita referente ao "código de retenção de imposto"</td>
-  <td class=xl75 width=110>btfit821</td>
-  <td class=xl76 width=114>rcpi</td>
-  <td class=xl77 width=77>C</td>
-  <td class=xl77 width=80>6</td>
-  <td class=xl77 width=115>X</td>
-  <td class=xl88 width=533>when length(it.codret) = 6 then substring(it.codret, 5, 2) else '07'<br><br>Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "07".<br><br>*rcpi será chamado "Codret" no subselect usado na query<br>(select refi, max(rcpi) codret from ln_btfit821 group by refi) it</td>
- </tr>
- <tr height=69>
-  <td height=69 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A19</td>
-  <td class=xl74 width=192>dmIndSuspExig</td>
-  <td class=xl74 width=307>Indicativo de Exigibilidade Suspensa: S- Sim; N-Não</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl76 width=114>X</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
- </tr>
- <tr height=69>
-  <td height=69 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A20</td>
-  <td class=xl74 width=192>dmIndDecTerceiro</td>
-  <td class=xl74 width=307>Indicativo de décimo terceiro salário: S- Sim; N-Não</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl76 width=114>X</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
- </tr>
- <tr height=69>
-  <td height=69 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A21</td>
-  <td class=xl74 width=192>codUnidOrg</td>
-  <td class=xl74 width=307>Codigo da Unidade Organizacional</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl76 width=114>X</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>Aqui, o valor NULL é diretamente atribuído ao campo.</td>
- </tr>
- <tr height=58>
-  <td height=58 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A22</td>
-  <td class=xl74 width=192>codNatRend</td>
-  <td class=xl74 width=307>Codigo da Natureza do Rendimento</td>
-  <td class=xl75 width=110>btfit822</td>
-  <td class=xl76 width=114>rnrc</td>
-  <td class=xl76 width=77>X</td>
-  <td class=xl76 width=80>X</td>
-  <td class=xl76 width=115>X</td>
-  <td class=xl87 width=533>*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
- </tr>
- <tr height=58>
-  <td height=58 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A23</td>
-  <td class=xl74 width=192>obs</td>
-  <td class=xl74 width=307>Observações sobre identificação do rendimento</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl75 width=114>X</td>
-  <td class=xl75 width=77>X</td>
-  <td class=xl75 width=80>X</td>
-  <td class=xl75 width=115>X</td>
-  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
- </tr>
- <tr height=58>
-  <td height=58 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A24</td>
-  <td class=xl74 width=192>vlServ</td>
-  <td class=xl74 width=307>Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl75 width=114>X</td>
-  <td class=xl75 width=77>X</td>
-  <td class=xl75 width=80>X</td>
-  <td class=xl75 width=115>X</td>
-  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
- </tr>
- <tr height=58>
-  <td height=58 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A25</td>
-  <td class=xl74 width=192>dmBenefNIdent</td>
-  <td class=xl74 width=307>Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl75 width=114>X</td>
-  <td class=xl75 width=77>X</td>
-  <td class=xl75 width=80>X</td>
-  <td class=xl75 width=115>X</td>
-  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
- </tr>
- <tr height=58>
-  <td height=58 class=xl73 width=71>NÃO</td>
-  <td class=xl74 width=46>A26</td>
-  <td class=xl74 width=192>idDocErp</td>
-  <td class=xl74 width=307>ID do documento existente no ERP</td>
-  <td class=xl75 width=110>X</td>
-  <td class=xl75 width=114>X</td>
-  <td class=xl75 width=77>X</td>
-  <td class=xl75 width=80>X</td>
-  <td class=xl75 width=115>X</td>
-  <td class=xl86 width=533>Este campo não é utilizado pela query de extração INFOR.</td>
- </tr>
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
 
- <!-- Continua com COFINS, CSLL e IR - conteúdo similar omitido para brevidade -->
-</table>
-</div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-nao">&nbsp;</td>
+                    <td class="compliance-col">A01</td>
+                    <td class="compliance-col"><span class="campo-destaque">pgtos</span></td>
+                    <td class="compliance-col">Grupo de Pagamento de Impostos Retidos</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col">Inicio de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+            </tbody>
+        </table>
 
-<p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
-  📊<em> Gerado com base na Planilha <b> Pgto de Impostos Retidos</b></em><br>
-  <small style="display: block; margin-top: 5px; opacity: 0.7;">📁 Constante do arquivo <b>DE x PARA CSF - INFOR - Créditos e Pagamento de Impostos no padrão para DCTF.xlsx</b></small>
-</p>
+        <div class="notice-box">
+            <strong>*Este objeto utiliza 2 querys muito semelhantes, especificadas nas abas deste arquivo.</strong><br><br>
+            Esta aba utiliza como base o arquivo <strong>Pgto Imp Ret</strong>, que possui como principal diferença o filtro pelo campo <em>"iutd"</em> da <em>btfit822 (Data efetiva de pagamento)</em>
+        </div>
 
-<div class="footer">
-    &copy; 2025 Compliance Soluções. Todos os direitos reservados.
-</div>
+        <!-- PIS -->
+        <div class="tax-type-header">PIS</div>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">CPF/CNPJ do Emitente</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02a</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A02b</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit822</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">concat(i.compnr, i.cpcd)<br><br>
+                    Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>
+                    *O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">cpcd</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit805.cpcd</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A03</td>
+                    <td class="compliance-col"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col">Código do participante no ERP</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">lobp</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A04</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroDoc</span></td>
+                    <td class="compliance-col">Número do documento</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">docn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">12</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A05</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtVcto</span></td>
+                    <td class="compliance-col">Data do vencimento</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>
+                    A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A06</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtPgto</span></td>
+                    <td class="compliance-col">Data de Pagamento do imposto Retido</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>
+                    A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A07</td>
+                    <td class="compliance-col"><span class="campo-destaque">codImposto</span></td>
+                    <td class="compliance-col">Código do Imposto Retido</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor '4' é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A08</td>
+                    <td class="compliance-col"><span class="campo-destaque">cdTipoRetImp</span></td>
+                    <td class="compliance-col">Código da retenção ou código da DARF relacionada do imposto retido</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rcpi</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(it.codret) >= 4 then substring(it.codret, 1, 4) else '5952'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "5952".<br><br>
+                    *rcpi será chamado "Codret" no subselect usado na query<br>
+                    <em>(select refi, max(rcpi) codret from ln_btfit821 group by refi) it</em></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A09</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBaseCalc</span></td>
+                    <td class="compliance-col">Valor da base de cálculo</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">bpir</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A10</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPrincipal</span></td>
+                    <td class="compliance-col">Valor principal do imposto retido a ser pago</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">vpir</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A11</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlMulta</span></td>
+                    <td class="compliance-col">Valor da multa paga</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A12</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlJuros</span></td>
+                    <td class="compliance-col">Valor dos juros pagos</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A13</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPgto</span></td>
+                    <td class="compliance-col">Valor do pagamento realizado</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">vpir</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A14</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">aliq</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Alíquota aplicada ao imposto</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit822</td>
+                    <td class="infor-col">vpir</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">Double</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">8</td>
+                    <td class="infor-col rowspan-cell" rowspan="2"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">round(i.vpir / i.bpir * 100, 2)<br><br>
+                    Aqui será calculado o percentual entre o valor do PIS pelo valor Base e arredondado em 2 casas decimais.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">bpir</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A15</td>
+                    <td class="compliance-col"><span class="campo-destaque">perdComp</span></td>
+                    <td class="compliance-col">Número do PERDCOMP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A16</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlDeducao</span></td>
+                    <td class="compliance-col">Valor da Dedução do Imposto</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">fdva</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A17</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtDocto</span></td>
+                    <td class="compliance-col">Data do documento, seja nota fiscal ou outro tipo</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*A outra query utiliza o campo "date"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A18</td>
+                    <td class="compliance-col"><span class="campo-destaque">codReceita</span></td>
+                    <td class="compliance-col">Código da receita referente ao "código de retenção de imposto"</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rcpi</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(it.codret) = 6 then substring(it.codret, 5, 2) else '07'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "07".<br><br>
+                    *rcpi será chamado "Codret" no subselect usado na query<br>
+                    <em>(select refi, max(rcpi) codret from ln_btfit821 group by refi) it</em></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A19</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndSuspExig</span></td>
+                    <td class="compliance-col">Indicativo de Exigibilidade Suspensa: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A20</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndDecTerceiro</span></td>
+                    <td class="compliance-col">Indicativo de décimo terceiro salário: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A21</td>
+                    <td class="compliance-col"><span class="campo-destaque">codUnidOrg</span></td>
+                    <td class="compliance-col">Codigo da Unidade Organizacional</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A22</td>
+                    <td class="compliance-col"><span class="campo-destaque">codNatRend</span></td>
+                    <td class="compliance-col">Codigo da Natureza do Rendimento</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">rnrc</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A23</td>
+                    <td class="compliance-col"><span class="campo-destaque">obs</span></td>
+                    <td class="compliance-col">Observações sobre identificação do rendimento</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A24</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlServ</span></td>
+                    <td class="compliance-col">Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A25</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmBenefNIdent</span></td>
+                    <td class="compliance-col">Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A26</td>
+                    <td class="compliance-col"><span class="campo-destaque">idDocErp</span></td>
+                    <td class="compliance-col">ID do documento existente no ERP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+            </tbody>
+        </table>
 
-</body>
-</html>
+        <!-- IR -->
+        <div class="tax-type-header">IR</div>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">CPF/CNPJ do Emitente</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02a</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A02b</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit820</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">concat(i.compnr, i.cpcd)<br><br>
+                    Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>
+                    *O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">cpcd</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit805.cpcd</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A03</td>
+                    <td class="compliance-col"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col">Código do participante no ERP</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">lobp</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A04</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroDoc</span></td>
+                    <td class="compliance-col">Número do documento</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">docn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">12</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A05</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtVcto</span></td>
+                    <td class="compliance-col">Data do vencimento</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">date</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,n.date)-1)*(-1)+19,n.date))<br><br>
+                    A query pega a data n.date, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A06</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtPgto</span></td>
+                    <td class="compliance-col">Data de Pagamento do imposto Retido</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">date</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,n.date)-1)*(-1)+19,n.date))<br><br>
+                    A query pega a data n.date, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A07</td>
+                    <td class="compliance-col"><span class="campo-destaque">codImposto</span></td>
+                    <td class="compliance-col">Código do Imposto Retido</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor '12' é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A08</td>
+                    <td class="compliance-col"><span class="campo-destaque">cdTipoRetImp</span></td>
+                    <td class="compliance-col">Código da retenção ou código da DARF relacionada do imposto retido</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">cdre</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">5</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(i.cdre) >= 4 then substring(i.cdre, 1, 4) else '1708'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "1708".</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A09</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBaseCalc</span></td>
+                    <td class="compliance-col">Valor da base de cálculo</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">irbs</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.irbs</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A10</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPrincipal</span></td>
+                    <td class="compliance-col">Valor principal do imposto retido a ser pago</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">virf</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.virf</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A11</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlMulta</span></td>
+                    <td class="compliance-col">Valor da multa paga</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A12</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlJuros</span></td>
+                    <td class="compliance-col">Valor dos juros pagos</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A13</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPgto</span></td>
+                    <td class="compliance-col">Valor do pagamento realizado</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">virf</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col">btfit820.virf</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A14</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">aliq</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Alíquota aplicada ao imposto</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit821</td>
+                    <td class="infor-col">virf</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">Double</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">8</td>
+                    <td class="infor-col rowspan-cell" rowspan="2"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">round(i.virf / i.irbs * 100, 2)<br><br>
+                    Aqui será calculado o percentual entre o valor do CSLL pelo valor Base e arredondado em 2 casas decimais.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">irbs</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A15</td>
+                    <td class="compliance-col"><span class="campo-destaque">perdComp</span></td>
+                    <td class="compliance-col">Número do PERDCOMP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A16</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlDeducao</span></td>
+                    <td class="compliance-col">Valor da Dedução do Imposto</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A17</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtDocto</span></td>
+                    <td class="compliance-col">Data do documento, seja nota fiscal ou outro tipo</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">date</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A18</td>
+                    <td class="compliance-col"><span class="campo-destaque">codReceita</span></td>
+                    <td class="compliance-col">Código da receita referente ao "código de retenção de imposto"</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">cdre</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">5</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(i.cdre) = 6 then substring(i.cdre, 5, 2) else '06'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "06".</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A19</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndSuspExig</span></td>
+                    <td class="compliance-col">Indicativo de Exigibilidade Suspensa: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A20</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndDecTerceiro</span></td>
+                    <td class="compliance-col">Indicativo de décimo terceiro salário: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A21</td>
+                    <td class="compliance-col"><span class="campo-destaque">codUnidOrg</span></td>
+                    <td class="compliance-col">Codigo da Unidade Organizacional</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A22</td>
+                    <td class="compliance-col"><span class="campo-destaque">codNatRend</span></td>
+                    <td class="compliance-col">Codigo da Natureza do Rendimento</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rnrc</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A23</td>
+                    <td class="compliance-col"><span class="campo-destaque">obs</span></td>
+                    <td class="compliance-col">Observações sobre identificação do rendimento</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A24</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlServ</span></td>
+                    <td class="compliance-col">Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A25</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmBenefNIdent</span></td>
+                    <td class="compliance-col">Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A26</td>
+                    <td class="compliance-col"><span class="campo-destaque">idDocErp</span></td>
+                    <td class="compliance-col">ID do documento existente no ERP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Impostos Retidos</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - Créditos e Pagamento de Impostos no padrão para DCTF.xlsx</b>
+        </small>
+    </p>
+    <div class="footer">
+        © 2025 Compliance Soluções. Todos os direitos reservados.
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- COFINS -->
+        <div class="tax-type-header">COFINS</div>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">CPF/CNPJ do Emitente</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02a</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A02b</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit822</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">*O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento<br><br>
+                    concat(i.compnr, i.cpcd)<br><br>
+                    Aqui, serão concatenados os valores entre "compnr" e "cpcd".</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">cpcd</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit805.cpcd</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A03</td>
+                    <td class="compliance-col"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col">Código do participante no ERP</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">lobp</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A04</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroDoc</span></td>
+                    <td class="compliance-col">Número do documento</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">docn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">12</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A05</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtVcto</span></td>
+                    <td class="compliance-col">Data do vencimento</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>
+                    A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A06</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtPgto</span></td>
+                    <td class="compliance-col">Data de Pagamento do imposto Retido</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>
+                    A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A07</td>
+                    <td class="compliance-col"><span class="campo-destaque">codImposto</span></td>
+                    <td class="compliance-col">Código do Imposto Retido</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor '5' é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A08</td>
+                    <td class="compliance-col"><span class="campo-destaque">cdTipoRetImp</span></td>
+                    <td class="compliance-col">Código da retenção ou código da DARF relacionada do imposto retido</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rcco</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(it.codret) >= 4 then substring(it.codret, 1, 4) else '5952'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "5952".<br><br>
+                    *rcco será chamado "Codret" no subselect usado na query<br>
+                    <em>(select refi, max(rcco) codret from ln_btfit821 group by refi) it</em></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A09</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBaseCalc</span></td>
+                    <td class="compliance-col">Valor da base de cálculo</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">bcor</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A10</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPrincipal</span></td>
+                    <td class="compliance-col">Valor principal do imposto retido a ser pago</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">vcor</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A11</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlMulta</span></td>
+                    <td class="compliance-col">Valor da multa paga</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A12</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlJuros</span></td>
+                    <td class="compliance-col">Valor dos juros pagos</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A13</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPgto</span></td>
+                    <td class="compliance-col">Valor do pagamento realizado</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">vcor</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A14</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">aliq</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Alíquota aplicada ao imposto</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit822</td>
+                    <td class="infor-col">vcor</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">Double</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">8</td>
+                    <td class="infor-col rowspan-cell" rowspan="2"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">round(i.vcor / i.bcor * 100, 2)<br><br>
+                    Aqui será calculado o percentual entre o valor do COFINS pelo valor Base e arredondado em 2 casas decimais.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">bcor</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A15</td>
+                    <td class="compliance-col"><span class="campo-destaque">perdComp</span></td>
+                    <td class="compliance-col">Número do PERDCOMP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A16</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlDeducao</span></td>
+                    <td class="compliance-col">Valor da Dedução do Imposto</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">fdva</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A17</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtDocto</span></td>
+                    <td class="compliance-col">Data do documento, seja nota fiscal ou outro tipo</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*A outra query utiliza o campo "date"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A18</td>
+                    <td class="compliance-col"><span class="campo-destaque">codReceita</span></td>
+                    <td class="compliance-col">Código da receita referente ao "código de retenção de imposto"</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rcco</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(it.codret) = 6 then substring(it.codret, 5, 2) else '07'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "07".<br><br>
+                    *rcco será chamado "Codret" no subselect usado na query<br>
+                    <em>(select refi, max(rcco) codret from ln_btfit821 group by refi) it</em></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A19</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndSuspExig</span></td>
+                    <td class="compliance-col">Indicativo de Exigibilidade Suspensa: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A20</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndDecTerceiro</span></td>
+                    <td class="compliance-col">Indicativo de décimo terceiro salário: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A21</td>
+                    <td class="compliance-col"><span class="campo-destaque">codUnidOrg</span></td>
+                    <td class="compliance-col">Codigo da Unidade Organizacional</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A22</td>
+                    <td class="compliance-col"><span class="campo-destaque">codNatRend</span></td>
+                    <td class="compliance-col">Codigo da Natureza do Rendimento</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">rnrc</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A23</td>
+                    <td class="compliance-col"><span class="campo-destaque">obs</span></td>
+                    <td class="compliance-col">Observações sobre identificação do rendimento</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A24</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlServ</span></td>
+                    <td class="compliance-col">Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A25</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmBenefNIdent</span></td>
+                    <td class="compliance-col">Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A26</td>
+                    <td class="compliance-col"><span class="campo-destaque">idDocErp</span></td>
+                    <td class="compliance-col">ID do documento existente no ERP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- CSLL -->
+        <div class="tax-type-header">CSLL</div>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">CPF/CNPJ do Emitente</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A02a</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A02b</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit822</td>
+                    <td class="infor-col">compnr</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">concat(i.compnr, i.cpcd)<br><br>
+                    Aqui, serão concatenados os valores entre "compnr" e "cpcd".<br>
+                    *O campo "compnr" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">cpcd</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col">btfit805.cpcd</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A03</td>
+                    <td class="compliance-col"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col">Código do participante no ERP</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">lobp</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A04</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroDoc</span></td>
+                    <td class="compliance-col">Número do documento</td>
+                    <td class="infor-col">btfit820</td>
+                    <td class="infor-col">docn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">12</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A05</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtVcto</span></td>
+                    <td class="compliance-col">Data do vencimento</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>
+                    A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A06</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtPgto</span></td>
+                    <td class="compliance-col">Data de Pagamento do imposto Retido</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">dateadd(month, 1, DATEADD(DAY,(DATEPART(DAY,i.iutd)-1)*(-1)+19,i.iutd))<br><br>
+                    A query pega a data i.iutd, força o primeiro dia do mês (-1), ajusta para o dia 19 do mesmo mês e depois adiciona 1 mês.<br>
+                    Exemplo: Se a data inicial for '2024-03-15', o resultado será '2024-04-20'.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A07</td>
+                    <td class="compliance-col"><span class="campo-destaque">codImposto</span></td>
+                    <td class="compliance-col">Código do Imposto Retido</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor '11' é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A08</td>
+                    <td class="compliance-col"><span class="campo-destaque">cdTipoRetImp</span></td>
+                    <td class="compliance-col">Código da retenção ou código da DARF relacionada do imposto retido</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rccs</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(it.codret) >= 4 then substring(it.codret, 1, 4) else '5952'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 4 dígitos ou mais, caso contrário será gravado "5952".<br><br>
+                    *rccs será chamado "Codret" no subselect usado na query<br>
+                    <em>(select refi, max(rccs) codret from ln_btfit821 group by refi) it</em></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A09</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlBaseCalc</span></td>
+                    <td class="compliance-col">Valor da base de cálculo</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">bcsr</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A10</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPrincipal</span></td>
+                    <td class="compliance-col">Valor principal do imposto retido a ser pago</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">vcsr</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A11</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlMulta</span></td>
+                    <td class="compliance-col">Valor da multa paga</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A12</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlJuros</span></td>
+                    <td class="compliance-col">Valor dos juros pagos</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor 0 é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A13</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlPgto</span></td>
+                    <td class="compliance-col">Valor do pagamento realizado</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">vcsr</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim rowspan-cell" rowspan="2">SIM</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">A14</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">aliq</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Alíquota aplicada ao imposto</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit822</td>
+                    <td class="infor-col">vcsr</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">Double</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">8</td>
+                    <td class="infor-col rowspan-cell" rowspan="2"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">round(i.vcsr / i.bcsr * 100, 2)<br><br>
+                    Aqui será calculado o percentual entre o valor do CSLL pelo valor Base e arredondado em 2 casas decimais.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">bcsr</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A15</td>
+                    <td class="compliance-col"><span class="campo-destaque">perdComp</span></td>
+                    <td class="compliance-col">Número do PERDCOMP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A16</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlDeducao</span></td>
+                    <td class="compliance-col">Valor da Dedução do Imposto</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">fdva</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">A17</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtDocto</span></td>
+                    <td class="compliance-col">Data do documento, seja nota fiscal ou outro tipo</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">iutd</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*A outra query utiliza o campo "date"</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A18</td>
+                    <td class="compliance-col"><span class="campo-destaque">codReceita</span></td>
+                    <td class="compliance-col">Código da receita referente ao "código de retenção de imposto"</td>
+                    <td class="infor-col">btfit821</td>
+                    <td class="infor-col">rccs</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">6</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">when length(it.codret) = 6 then substring(it.codret, 5, 2) else '07'<br><br>
+                    Será utilizada a informação do campo apenas se a mesma possuir 6 dígitos, caso contrário será gravado "07".<br><br>
+                    *rccs será chamado "Codret" no subselect usado na query<br>
+                    <em>(select refi, max(rccs) codret from ln_btfit821 group by refi) it</em></td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A19</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndSuspExig</span></td>
+                    <td class="compliance-col">Indicativo de Exigibilidade Suspensa: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A20</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndDecTerceiro</span></td>
+                    <td class="compliance-col">Indicativo de décimo terceiro salário: S- Sim; N-Não</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A21</td>
+                    <td class="compliance-col"><span class="campo-destaque">codUnidOrg</span></td>
+                    <td class="compliance-col">Codigo da Unidade Organizacional</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A22</td>
+                    <td class="compliance-col"><span class="campo-destaque">codNatRend</span></td>
+                    <td class="compliance-col">Codigo da Natureza do Rendimento</td>
+                    <td class="infor-col">btfit822</td>
+                    <td class="infor-col">rnrc</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">*O campo "rnrc" não foi encontrado na documentação Infor atual para maior detalhamento</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A23</td>
+                    <td class="compliance-col"><span class="campo-destaque">obs</span></td>
+                    <td class="compliance-col">Observações sobre identificação do rendimento</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A24</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlServ</span></td>
+                    <td class="compliance-col">Valor do rendimento bruto, inclusive os rendimentos não tributáveis ou isentos.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A25</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmBenefNIdent</span></td>
+                    <td class="compliance-col">Indicativo se o beneficiário do recebimento teve sua identificação omitida.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">A26</td>
+                    <td class="compliance-col"><span class="campo-destaque">idDocErp</span></td>
+                    <td class="compliance-col">ID do documento existente no ERP</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
