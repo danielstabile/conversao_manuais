@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NF Referenciada da NFe</title>
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para ENTRADA de NFe (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados de Informações de Documentos Fiscais Referenciados
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-nao">&nbsp;</td>
+                    <td class="compliance-col">I01</td>
+                    <td class="compliance-col"><span class="campo-destaque">nfRef</span></td>
+                    <td class="compliance-col">Grupo de informações de Documentos Fiscais Referenciados</td>
+                    <td class="infor-col">Início de XML</td>
+                    <td class="infor-col">Início de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I02</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroChaveNfe</span></td>
+                    <td class="compliance-col">Chave de acesso das NF-e referenciadas</td>
+                    <td class="infor-col">btfit824</td>
+                    <td class="infor-col">cnfe</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">50</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I03</td>
+                    <td class="compliance-col"><span class="campo-destaque">ibgeEstadoEmit</span></td>
+                    <td class="compliance-col">Código da UF do emitente do Documento Fiscal</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">cste</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">2</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I04</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpfCnpj</span></td>
+                    <td class="compliance-col">CPF/CNPJ da Empresa que escritura o documento</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col">Início de Grupo</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Tag Pai</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I04a</td>
+                    <td class="compliance-col"><span class="campo-destaque">cpf</span></td>
+                    <td class="compliance-col">CPF da Empresa</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao rowspan-cell" rowspan="2">NÃO</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">I04b</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">cnpj</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">CPNJ da Empresa</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit824</td>
+                    <td class="infor-col">cnfe</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">C</td>
+                    <td class="infor-col">50</td>
+                    <td class="infor-col rowspan-cell" rowspan="2"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">WHEN pe.cste = 'EX' THEN substring(nr.cnfe, 7, 14) ELSE substring(trim(replace(replace(pe.fovn, '/', ''), '-', '')),1,14)<br><br>Quando o estado para dedução da cidade (cste) for 'EX', serão utilizados 14 caracteres do Rastreador da NFe (cnfe), começando do sétimo. Caso contrário, serão utilizados os 14 primeiros caracteres do CPF/CNPJ.</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">btfit808</td>
+                    <td class="infor-col">fovn</td>
+                    <td class="infor-col">19</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I05</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtEmiss</span></td>
+                    <td class="compliance-col">Data de emissão da Nota Fiscal de origem</td>
+                    <td class="infor-col">btfit824</td>
+                    <td class="infor-col">idat</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col">btfit820.idat</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I06</td>
+                    <td class="compliance-col"><span class="campo-destaque">codMod</span></td>
+                    <td class="compliance-col">Modelo do documento fiscal referenciado</td>
+                    <td class="infor-col">btfit824</td>
+                    <td class="infor-col">doty</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">20</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I07</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroNf</span></td>
+                    <td class="compliance-col">Número do Documento Fiscal</td>
+                    <td class="infor-col">btfit824</td>
+                    <td class="infor-col">docn</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">12</td>
+                    <td class="infor-col">btfit820.docn</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I08</td>
+                    <td class="compliance-col"><span class="campo-destaque">serie</span></td>
+                    <td class="compliance-col">Série do Documento<br>Fiscal</td>
+                    <td class="infor-col">btfit824</td>
+                    <td class="infor-col">seri</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">3</td>
+                    <td class="infor-col">btfit820.seri</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I09</td>
+                    <td class="compliance-col"><span class="campo-destaque">subSerie</span></td>
+                    <td class="compliance-col">Sub-série do Documento fiscal</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao rowspan-cell" rowspan="2">NÃO</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">I10</td>
+                    <td class="compliance-col rowspan-cell" rowspan="2"><span class="campo-destaque">codPart</span></td>
+                    <td class="compliance-col rowspan-cell" rowspan="2">Código do participante cliente/fornecedor</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">btfit808</td>
+                    <td class="infor-col">bpid</td>
+                    <td class="infor-col rowspan-cell" rowspan="2">C</td>
+                    <td class="infor-col">18</td>
+                    <td class="infor-col rowspan-cell" rowspan="2"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col rowspan-cell" rowspan="2">NVL(pe.bpid, pe.fovn)<br><br>Aqui, caso não haja Parceiro de Negócios (bpid), será utilizado o campo CPF/CNPJ (fovn)</td>
+                </tr>
+                <tr>
+                    <td class="infor-col">fovn</td>
+                    <td class="infor-col">19</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I11</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndEmit</span></td>
+                    <td class="compliance-col">Indicador do tipo de operação</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, a string vazia '' é diretamente atribuída ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I12</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmIndOper</span></td>
+                    <td class="compliance-col">Indicador da Operação</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, a string vazia '' é diretamente atribuída ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I13</td>
+                    <td class="compliance-col"><span class="campo-destaque">ie</span></td>
+                    <td class="compliance-col">Inscrição Estadual do emitente da nota fiscal referenciada</td>
+                    <td class="infor-col">btfit809</td>
+                    <td class="infor-col">stin</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">20</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">substring(trim(replace(replace(pe.stin, '-', ''),'.', '')), 1, 14)<br><br>Aqui o campo é tratado para remoção de traços e pontos, além de utilizar apenas os primeiros 14 caracteres.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">I14</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmNfSubsti</span></td>
+                    <td class="compliance-col">indica se a nota referenciada é uma nota de<br>substituição '0 - Não' e '1 - Sim'.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Este campo não é utilizado pela query de extração INFOR.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>NF Referenciada</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - NFe Entrada.xlsx</b>
+        </small>
+    </p>
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+        <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="../favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
+    </div>
+</body>
+</html>

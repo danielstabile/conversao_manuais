@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informação de Importação da NFe</title>
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            flex: 1;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4a86e8, #3367d6);
+            color: white;
+            padding: 20px;
+            margin: -20px -20px 30px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #c9daf8, #a4c2f4);
+            color: #000;
+            padding: 12px 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .subsection-header {
+            background: linear-gradient(135deg, #daf2d4, #b5e6a2);
+            padding: 10px 15px;
+            margin: 15px 0 10px 0;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .subsection-header .compliance {
+            flex: 4;
+            text-align: center;
+        }
+        
+        .subsection-header .infor {
+            flex: 6;
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        th {
+            background-color: #daf2d4;
+            color: #000;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #666;
+            vertical-align: middle;
+        }
+        
+        th.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        th.infor-col {
+            background-color: #b5e6a2;
+        }
+        
+        td {
+            padding: 10px 8px;
+            border: 1px solid #666;
+            vertical-align: top;
+        }
+        
+        td.obrig-sim {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.obrig-nao {
+            background-color: #daf2d4;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 15px;
+        }
+        
+        td.compliance-col {
+            background-color: #daf2d4;
+        }
+        
+        td.infor-col {
+            background-color: #b5e6a2;
+            text-align: center;
+        }
+        
+        td.obs-col {
+            background-color: #b5e6a2;
+            text-align: left;
+        }
+        
+        .campo-destaque {
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        
+        .x-placeholder {
+            color: #999;
+        }
+        
+        .rowspan-cell {
+            vertical-align: middle;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            color: #666;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.75em;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mapeamento para ENTRADA de NFe (INFOR X CSF)</h1>
+        </div>
+
+        <div class="section-header">
+            Dados de Informações de Importações do Item
+        </div>
+
+        <div class="subsection-header">
+            <span class="compliance">COMPLIANCE</span>
+            <span class="infor">INFOR</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="compliance-col">Obrig.</th>
+                    <th class="compliance-col">ID</th>
+                    <th class="compliance-col">Campo CSF</th>
+                    <th class="compliance-col">Descrição</th>
+                    <th class="infor-col">Tabela<br>INFOR</th>
+                    <th class="infor-col">Campo<br>INFOR</th>
+                    <th class="infor-col">Datatype</th>
+                    <th class="infor-col">Tamanho</th>
+                    <th class="infor-col">Tabela<br>Referência</th>
+                    <th class="infor-col">Observações/Regras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="obrig-nao">&nbsp;</td>
+                    <td class="compliance-col">P7.01</td>
+                    <td class="compliance-col"><span class="campo-destaque">decImpor</span></td>
+                    <td class="compliance-col">Grupo de informações de Importações do item</td>
+                    <td class="infor-col">Início de XML</td>
+                    <td class="infor-col">Início de XML</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">P7.02</td>
+                    <td class="compliance-col"><span class="campo-destaque">nroDi</span></td>
+                    <td class="compliance-col">Número do Documento de Importação DI/DSI/DA (DI/DSI/DA)</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">nudc</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">11</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">P7.03</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtDi</span></td>
+                    <td class="compliance-col">Data de Registro da DI/DSI/DA</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">dcdt</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">P7.04</td>
+                    <td class="compliance-col"><span class="campo-destaque">localDesemb</span></td>
+                    <td class="compliance-col">Local de desembaraço</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">lemb</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">60</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">P7.05</td>
+                    <td class="compliance-col"><span class="campo-destaque">ufDesemb</span></td>
+                    <td class="compliance-col">Sigla da UF onde ocorreu o<br>Desembaraço Aduaneiro</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">ufem</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">3</td>
+                    <td class="infor-col">btfit823.tpem</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-sim">SIM</td>
+                    <td class="compliance-col">P7.06</td>
+                    <td class="compliance-col"><span class="campo-destaque">dtDesemb</span></td>
+                    <td class="compliance-col">Data do Desembaraço Aduaneiro</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">ddes</td>
+                    <td class="infor-col">Date</td>
+                    <td class="infor-col">4</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.07</td>
+                    <td class="compliance-col"><span class="campo-destaque">codPartExport</span></td>
+                    <td class="compliance-col">Código do exportador</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">excd</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">9</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.08</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmCodDocImp</span></td>
+                    <td class="compliance-col">Tipo de Documento de importação</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">idse</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">1</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.09</td>
+                    <td class="compliance-col"><span class="campo-destaque">numAcdraw</span></td>
+                    <td class="compliance-col">Número ACDRAW</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">ndrw</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">11</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.10</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmTpViaTransp</span></td>
+                    <td class="compliance-col">Via de transporte internacional informada na Declaração de Importação (DI)</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">trnw</td>
+                    <td class="infor-col">C</td>
+                    <td class="infor-col">2</td>
+                    <td class="infor-col">btfit820.trmd</td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.11</td>
+                    <td class="compliance-col"><span class="campo-destaque">vlVafrmm</span></td>
+                    <td class="compliance-col">Valor da AFRMM –<br>Adicional ao Frete para Renovação da Marinha Mercante.</td>
+                    <td class="infor-col">btfit823</td>
+                    <td class="infor-col">afrm</td>
+                    <td class="infor-col">Double</td>
+                    <td class="infor-col">8</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Sem observações</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.12</td>
+                    <td class="compliance-col"><span class="campo-destaque">dmTpIntermedio</span></td>
+                    <td class="compliance-col">Forma de importação quanto a intermediação</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.13</td>
+                    <td class="compliance-col"><span class="campo-destaque">Cnpj</span></td>
+                    <td class="compliance-col">CNPJ do adquirente ou do encomendam-te.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+                
+                <tr>
+                    <td class="obrig-nao">NÃO</td>
+                    <td class="compliance-col">P7.14</td>
+                    <td class="compliance-col"><span class="campo-destaque">ufTerceiro</span></td>
+                    <td class="compliance-col">Sigla da UF do adquirente ou do encomendante.</td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="infor-col"><span class="x-placeholder">X</span></td>
+                    <td class="obs-col">Aqui, o valor NULL é diretamente atribuído ao campo.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p style="text-align: center; margin-top: 30px; color: #666; font-size: clamp(12px, 2vw, 14px);">
+        📊<em> Gerado com base na Planilha <b>Importação</b></em><br>
+        <small style="display: block; margin-top: 5px; opacity: 0.7;">
+            📁 Constante do arquivo <b>DE x PARA CSF - INFOR - NFe Entrada.xlsx</b>
+        </small>
+    </p>
+    <div class="footer">
+        &copy; 2025 Compliance Soluções. Todos os direitos reservados.
+        <p style="font-size: 0.8em;">Integração desenvolvida e mantida por <a href="https://inovarebr.com/"><img src="../favicon_1.png" alt="Inovare" title="Inovare Soluções e Sistemas"></a></p>
+    </div>
+</body>
+</html>
